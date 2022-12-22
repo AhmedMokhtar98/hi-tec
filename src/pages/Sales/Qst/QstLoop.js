@@ -167,7 +167,7 @@ const InputFocus = (e,index)=>{
 const PurchaseAll = (e)=>{
     e.preventDefault()
     const body = {date:new Date().toLocaleDateString('fr-CA'), code:Code, paid:Data[0]['premium'], fine:0, notes:'-', employee:employee, status:'true' }
-    axios.post('http://localhost:8080/api/purchase-all',body,{
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/purchase-all',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     })
     .then((response)=>{

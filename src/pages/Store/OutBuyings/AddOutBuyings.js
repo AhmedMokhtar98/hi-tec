@@ -118,7 +118,7 @@ SubmitData = async (e)=>{
         return item; 
     });
     const data = {buyings:buyings,ins:Insert,up:Update}
-    await axios.post(`http://localhost:8080/api/add-out-buyings`,data,{
+    await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-out-buyings`,data,{
     headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         this.setState({
@@ -155,7 +155,7 @@ componentDidUpdate(prevState) {
 GetProductsMenu = ()=>{
     this.context.setNavHidden(true)
     const body ={ branch:this.state.branchname }
-    axios.post('http://localhost:8080/api/out-products-select',body)
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/out-products-select',body)
     .then((response)=>{
         this.setState({Products:response.data.result})
     })

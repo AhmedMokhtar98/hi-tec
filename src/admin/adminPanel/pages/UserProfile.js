@@ -13,7 +13,7 @@ const[branch, setUserBranch] = useState('')
 
 const GetData = async()=>{
     const body = {nat_id:params.nat_id}
-    await axios.post('http://localhost:8080/api/user-profile',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/user-profile',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
         console.log(response);
@@ -31,7 +31,7 @@ useEffect(() => {
 
 const getRate = ()=>{
     const body = {nat_id:params.nat_id}
-    axios.post('http://localhost:8080/api/user-rate',body,{
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/user-rate',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         setRate(response.data.result.length)

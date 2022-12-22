@@ -65,7 +65,7 @@ const SubmitSearch = ()=>{
     setLoading(true)
     if(auth != 'admin'){
         const data = {search:search, searchType:searchType, branch:branchname, offset:(currentPage-1)*10}
-            axios.post(`http://localhost:8080/api/out-buyings-view`,data,{
+            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/out-buyings-view`,data,{
             headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
                 setLoading(false)
@@ -86,7 +86,7 @@ const SubmitSearch = ()=>{
     }
     else{
         const data = {search:search, searchType:searchType, branch:bransh ,offset:(currentPage-1)*10}
-        axios.post(`http://localhost:8080/api/admin-outbuyings-view`,data,{
+        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-outbuyings-view`,data,{
             headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
             setLoading(false)

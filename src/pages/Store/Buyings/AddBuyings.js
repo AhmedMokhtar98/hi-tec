@@ -118,7 +118,7 @@ SubmitData = async (e)=>{
         return item; 
     });
     const data = {buyings:buyings,ins:Insert,up:Update}
-    await axios.post(`http://localhost:8080/api/add-buyings`,data,{
+    await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-buyings`,data,{
     headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         this.setState({
