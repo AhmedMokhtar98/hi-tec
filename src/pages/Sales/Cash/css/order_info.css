@@ -1,0 +1,56 @@
+
+.cash_order_user_div {
+    display: flex;
+    padding: 8px;
+    border-bottom: solid 1px rgb(218 218 218);
+    gap: 5px;
+    background: rgb(238 247 255);
+    cursor: pointer;
+}
+.cash_order_user_div:hover {
+    background: ghostwhite;
+    transition: all 0.1s ease-in-out;
+}
+label.cash_order_label {
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+.cash_order_user_inf {
+    font-size: 1rem;
+}
+
+@media screen and (max-width:950px) {
+    .cash_order_container {
+        margin-top: 13px;
+    }
+}
+
+
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    th{
+        display: none;
+    }
+    td.table_td.cash_order_td {
+        margin-top: 0px;
+        display: flex;
+        border-bottom: solid 1px lightgrey;
+    }
+    .cash_order_td_value {
+        text-align: start;
+        width: 94vw;
+        padding-right: 15px;
+        background: #eeeeee;
+        border-radius: 8px;
+        margin-left: 6vw;
+    }
+	/*
+	Label the data
+	*/
+	.cash_order_td:nth-of-type(1):before { content: " المنتج ";  float: right; width: 30vw;  color: rgb(255 255 255); background:rgb(59 59 59);padding-bottom: 4px; }
+	.cash_order_td:nth-of-type(2):before { content: "السعر";  float: right; width: 30vw;  color: rgb(255 255 255); background:rgb(59 59 59); padding-bottom: 4px; }
+	.cash_order_td:nth-of-type(3):before { content: "الكمية";  float: right; width: 30vw; color: rgb(255 255 255); background:rgb(59 59 59);padding-bottom: 4px; }
+	.cash_order_td:nth-of-type(4):before { content: "الاجمالي";  float: right; width: 30vw; color: rgb(255 255 255); background:rgb(59 59 59);padding-bottom: 4px; }
+}

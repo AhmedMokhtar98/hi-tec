@@ -1,0 +1,21 @@
+.transfer_inputs {
+    display: grid;
+    grid-gap: 10px;
+}
+input.transfer_input {
+    padding: 8px;
+    border-radius: 6px;
+    border: solid 1px rgb(202 202 202);
+}
+button#send_transfer_order_btn {
+    width: 100%;
+    background: rgb(0 97 255);
+    color: white;
+    cursor: pointer;
+}
+
+textarea.transfer_input {
+    min-height: 50px;
+    width: 100%;
+    min-width: 30vw
+}

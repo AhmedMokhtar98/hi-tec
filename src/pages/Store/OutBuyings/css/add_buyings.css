@@ -1,0 +1,123 @@
+.add_buyings_date_header {
+    display: inline-flex;
+}
+.Buyings_Packet_container {
+    display: grid;
+    width: 100%;
+    position: relative;
+    border-radius: 15px;
+    top: 20px;
+}
+.DatePickerIcon_label{
+    display: flex;
+}
+.Buyings_Packet_ul {
+    display: inline-flex;
+    background: whitesmoke;
+    padding: 10px;
+    justify-content: center;
+    gap: 2vw;
+    width: 100%;
+}
+.add_Buyings_input {
+    border: solid 1px lightgrey;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 7px;
+    width: 100%;
+    outline-color: #008eff;
+}
+.btn-box {
+    display: flex;
+    gap: 5px;
+    width: 100px;
+    background: #ffffff;
+    justify-content: start;
+    border-radius: 4px;
+}
+.btns_lines_control{
+    align-self: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+}
+.btns_lines_control.btn_remove {
+    background: #ff7171;
+}
+.btns_lines_control.btn_add {
+    background: #005aff;
+}
+
+div#add_buyings_submit_btn_div {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.MuiAutocomplete-root.css-17rtl2b-MuiAutocomplete-root {
+    display: inline-block;
+    width: 100%;
+}
+/*------------------------------Success Message--------------------------------*/
+
+div#Loading_Dialog {
+    width: 100%;
+    height: 100%;
+    background: #ffffffba;
+    position: fixed;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-backdrop-filter: blur(3px);
+}
+.Success_Dialog_hidden {
+    width: 30%;
+    height: max-content;
+    background: #e4ff78f5;
+    position: fixed;
+    z-index: 2;
+    font-size: 1.5vw;
+    left: 50%;
+    bottom: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    padding: 1%;
+    box-shadow: 0px 0px 8px #aeaeae;
+    transition: all 0.5s ease-in-out;
+}
+
+.Success_Dialog_show {
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    bottom: 50%;
+}
+
+
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+	.Page_Container {
+		padding-bottom: 150px;
+	}
+	
+	.MuiAutocomplete-root.css-17rtl2b-MuiAutocomplete-root {
+		width: 100%;
+	}
+	.btns_lines_control.btn_remove {
+		padding: 5px;
+	}
+	.btns_lines_control.btn_add {
+		padding: 5px;
+	}
+	.add_buyings_td:nth-of-type(1):before { content: "   اسم التاجر ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;margin-right: 10px; text-align: center; }
+	.add_buyings_td:nth-of-type(2):before { content: " المنتج ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;;margin-right: 10px; text-align: center;}
+	.add_buyings_td:nth-of-type(3):before { content: " السعر  ";  float: right;width: 20vw; color:rgb(3 93 255);margin-left: 10px;;margin-right: 10px; text-align: center; }
+    .add_buyings_td:nth-of-type(4):before { content: " الكمية ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;;margin-right: 10px; text-align: center;}
+    .add_buyings_td:nth-of-type(5):before { content: " الاجمالي ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;;margin-right: 10px; text-align: center;}
+	.add_buyings_td:nth-of-type(6):before { content: " الملاحظات ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;;margin-right: 10px; text-align: center; }
+}

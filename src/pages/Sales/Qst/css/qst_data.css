@@ -1,0 +1,77 @@
+#Page_Container_Qst_data {
+    direction: rtl;
+    width: 100%;
+    top: 45px;
+    position: absolute;
+    height: -webkit-fill-available;
+    background: rgb(5 5 5 / 3%);
+}
+
+svg.DatePickerIcon {
+    font-size: 24px;
+    cursor: pointer;
+}
+.DatePickerIcon_content {
+    align-self: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+nav.MuiPagination-root.MuiPagination-text.css-1oj2twp-MuiPagination-root {
+    margin-left: 4%;
+}
+
+th#total_price_th {
+    background: rgb(255 203 108);
+    color: black;
+}
+td#total_price_td {
+    background: rgb(255 255 189);
+}
+th#rest_price_th {
+    background: #fe03338f;
+}
+td#rest_price_td {
+    background: #8a8a8a36;
+    color: #433b3c;
+    font-weight: 600;
+}
+/*-----------------------------media Screens---------------------------------*/
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    td.table_td.qst_td {
+        margin-bottom: 3px;
+        margin-top: 2px;
+        display: flex;
+    }
+    .qst_td_value {
+        text-align: start;
+        width: 94vw;
+        padding-right: 15px;
+        background: #ffffff;
+        border-radius: 0px;
+        margin-left: 6vw;
+    }
+    td#total_price_td {
+        background: rgb(255, 255, 255);
+    }
+    td#rest_price_td {
+        background: #ffffff36;
+        color: #000000;
+    }
+    td.table_td {
+         padding: 0px; 
+    }
+	/*
+	Label the data
+	*/
+	.qst_td:nth-of-type(1):before { content: "الكود";  float: right; width: 30vw;  color: rgb(255 255 255); background: rgb(0 120 222); padding-bottom: 4px;} 
+	.qst_td:nth-of-type(2):before { content: " الاسم ";  float: right; width: 30vw;  color: rgb(255 255 255); background: rgb(0 120 222);padding-bottom: 4px; }
+	.qst_td:nth-of-type(3):before { content: "الرقم القومي";  float: right; width: 30vw;  color: rgb(255 255 255); background: rgb(0 120 222); padding-bottom: 4px; }
+	.qst_td:nth-of-type(4):before { content: " الاجمالي  ";  float: right; width: 30vw; color: rgb(255 255 255); background: rgb(0 120 222);padding-bottom: 4px; }
+	.qst_td:nth-of-type(5):before { content: " المتبقي ";  float: right; width: 30vw; color: rgb(255 255 255); background: rgb(0 120 222);padding-bottom: 4px; }
+	.qst_td:nth-of-type(6):before { content: "تاريخ البيعة";  float: right; width: 30vw; color: rgb(255 255 255); background: rgb(0 120 222);padding-bottom: 4px; }
+}

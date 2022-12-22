@@ -1,0 +1,152 @@
+.Add_file_header {
+    background: rgb(41 41 41);
+    text-align: center;
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: -3px;
+}
+button.Submit_file_button {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+    left: 0;
+    background:rgb(0 142 255);
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 1.1rem;
+    transition: all 0.2s ease-in-out;
+}
+button.Submit_file_button:hover {
+    transition: all 0.2s ease-in-out;
+    background: rgb(96, 0, 251);
+}
+.add_file_icon_div {
+    width: 80%;
+    height: 81vh;
+    cursor: pointer;
+}
+svg.Add_files_icon {
+    position: absolute;
+    top: 40%;
+    width: 20%;
+    height: 20%;
+    left: 30%;
+    color: rgb(0 0 0);
+    cursor: pointer;
+}
+
+.file_name_div {
+    position: relative;
+    top: 65%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+svg#file_exist_color {
+    color: rgb(114 114 249);
+}
+
+
+/*/------------------Uploading animation -----------------*/
+.uploading_animation {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    left: 0%;
+    width: 80%;
+    top: 30%;
+}
+
+div#success_uploading_MSG {
+    left: 40%;
+}
+
+/*------------Alert_MSG_Container---------------*/
+.Alert_Header {
+    background: rgb(255 40 40);
+    margin-top: -18px;
+    text-align: center;
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.Alert_MSG_Container {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    background: rgb(255 255 255);
+    color: black;
+    width: 80%;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 6px;
+    padding-top: 18px;
+    overflow-y: scroll;
+    height: calc(100vh - 60px);
+}
+.Alert_ul {
+    border-bottom: solid 2px rgb(48 48 48);
+    margin-bottom: 2px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.Alert_li {
+    display: flex;
+    direction: rtl;
+    width: 100%;
+    background: #f4f4f4;
+    margin-top: 1px;
+}
+button.Alert_msg_button {
+    width: 80%;
+    padding: 20px;
+    background: rgb(64 64 64);
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+button.Alert_msg_button:hover {
+    background: rgb(0, 0, 0);
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+
+
+@media screen and (max-width:1075px) {
+    .Add_file_header {
+        width: 100%;
+        margin-top: -1px;
+    }
+    .add_file_icon_div {
+        width: 100%;
+        text-align: -webkit-center;
+    }
+    svg.Add_files_icon {
+        position: relative;
+        left: 0%;
+    }
+    button.Submit_file_button {
+        width: 100%;
+    }
+    .Alert_MSG_Container {
+        width: 100%;
+    }
+    button.Alert_msg_button {
+        width: 100%;
+    }
+}

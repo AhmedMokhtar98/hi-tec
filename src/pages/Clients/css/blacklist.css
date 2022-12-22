@@ -1,0 +1,23 @@
+.Page_Container.black_list_container {
+    background: rgb(255 236 236);
+    height: 100vh;
+}
+.table_grap.black_list {
+    background: rgb(25, 25, 25);
+}
+tr.table_tr.black_list_tr {
+    background: rgb(255 255 255);
+    border-bottom: solid 1px rgb(103 0 0);
+    color: rgb(0 0 0);
+    font-weight: bold;
+    transition: all 0.1s ease-in-out;
+}
+tr.table_tr.black_list_tr:hover{
+    background: rgb(255, 200, 200);
+    color: rgb(0, 0, 0);
+    transition: all 0.1s ease-in-out;
+}
+th.table_th.black_list_th {
+    background: rgb(247 54 54);
+    color: rgb(255, 255, 255);
+}

@@ -1,0 +1,338 @@
+.Top_NavBar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgb(27 27 27);
+    direction: rtl;
+    z-index: 200;
+}
+.dashboard_center_content_container {
+    margin-top: 60px;
+    margin-bottom: 20vh;
+}
+.Top_nav_logo_container {
+    display: inline-flex;
+    color: rgb(0 0 0);
+    width: 80%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 20px;
+}
+.Top_nav_logo {
+    font-size: 25px;
+    width: max-content;
+    color: white;
+    margin-right: 5px;
+}
+span.dash_board_branchname {
+    font-size: 14px;
+    color: rgb(239 197 54);
+}
+.Top_nav_logo_admin_panel {
+    font-weight: 300;
+    align-self: end;
+    font-size: 16px;
+    margin-left: 5px;
+}
+svg.admin_arrow_back {
+    position: fixed;
+    top: 13px;
+    left: 20px;
+    color: black;
+    background: #ffffff;
+    padding: 7px;
+    border-radius: 40px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 300;
+}
+svg.admin_arrow_back:hover {
+    background: rgb(29, 29, 29);
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+svg.admin_panel_burger_menu_icon {
+    background: rgb(86 86 86);
+    padding: 8px;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/*---------------left Menu Show Hide-------------*/
+.Admin_Right_MENU.admin_menu_hidden {
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+}
+.admin_menu_show{
+    transform: translateX(0%);
+}
+/*---------------left Menu-------------*/
+
+svg#Top_NavBar_settings_icon {
+    position: fixed;
+    left: 30px;
+    top: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.gear_on{
+    color: rgb(228 255 0);
+    transform: rotate(180deg);
+    transition: all 0.5s ease-in-out;
+}
+.gear_off{
+    color: rgb(255, 255, 255);
+    transform: rotate(0deg);
+    transition: all 0.5s ease-in-out;
+}
+
+#Settings_menu_right {
+    position: fixed;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background: #dedede;
+    color: white;
+}
+.settings_menu_hide{
+    transform: translateX(-100%);
+    transition:  all 0.3s ease-in-out;
+}
+.settings_menu_show{
+    transform: translateX(0%);
+    transition:  all 0.3s ease-in-out;
+}
+
+.admin_backdrop_menu {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgb(255 255 255 / 78%);
+    z-index: 90;
+}
+.Admin_Right_Menu_li {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    background: #fc4a4a;
+}
+
+span.tranfer_count_number {
+    color: rgb(255 255 255);
+    background: rgb(255 47 47);
+    padding: 3px;
+    border-radius: 50px;
+    position: absolute;
+    left: 25px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+/*---------------Admin_Right_MENU------------------*/
+.Admin_Right_MENU {
+    height: 93vh;
+    background: rgb(27 27 27);
+    position: fixed;
+    right: 0;
+    top: 57px;
+    width: 20%;
+    transition: all 0.5s ease-in-out;
+    overflow-y: scroll;
+}
+.Admin_Left_Menu_li {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: rgb(255, 255, 255);
+    border-bottom: solid 1px black;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: start;
+    direction: rtl;
+    display: flex;
+    align-items: self-end;
+    gap: 5px;
+    background: rgb(61 61 61);
+}
+.Admin_Left_Menu_li_active {
+    background: #0072ff;
+    font-size: 17px;
+    font-weight: bolder;
+    color: white;
+    display: flex;
+    gap: 5px;
+    place-items: self-end;
+}
+@media screen and (max-width:1260px) {
+    .Admin_Left_Menu_li{
+        font-size: 14px;
+    }
+    .Admin_Left_Menu_li_active{
+        font-size: 14px;
+    }
+    
+}
+
+.Admin_Left_Menu_li_dropdown {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: end;
+    color: rgb(0 0 0);
+    cursor: pointer;
+    text-decoration: none;
+    border-right: solid 1px #fafafa;
+    border-left: solid 1px rgb(14 14 15);
+    margin-bottom: 1px;
+    background: #ffffff;
+}
+.Admin_Left_Menu_li_dropdown_active {
+    background: #0066ff;
+    font-size: 17px;
+    color: white;
+    text-align: end;
+}
+.L_dropdown_hide{
+    overflow: hidden;
+    max-height: 0px;
+    transition: all 0.2s ease-in-out;
+    transform: scaleY(0);    
+     transform-origin: top;
+     display: grid;
+}
+.L_dropdown_show{
+    overflow: hidden;
+    max-height: 330px;
+    transition: all 0.2s ease-in-out;
+    transform: scaleY(1);    
+     transform-origin: top;
+     display: grid;
+}
+
+
+
+.R1_dropdown_hide{
+    overflow: hidden;
+    max-height: 0px;
+    transition: all 0.2s ease-in-out;
+    transform: scaleY(0);    
+     transform-origin: top;
+}
+.R1_dropdown_show{
+    overflow: hidden;
+    max-height: 100px;
+    transition: all 0.2s ease-in-out;
+    transform: scaleY(1);    
+     transform-origin: top;
+}
+.Admin_Right_Menu_li_language_menu_li {
+    padding: 10px;
+    background: #ffffff;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    cursor: pointer;
+    color: #000000;
+    border-left: solid 2px #0088ff;
+}
+.Admin_Right_Menu_li_language_menu_li:hover {
+    background: rgb(233, 233, 233);
+}
+
+
+
+
+/*--------------icons ------------------*/
+svg#arrow_icon {
+    font-size: 25px;
+    margin: -7px;
+    margin-left: 5px;
+}
+.arrow_on {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in-out;
+}
+.arrow_off {
+    transform: rotate(0deg);
+    transition: all 0.3s ease-in-out;
+}
+
+a#admin_panel_logout_btn {
+    background: rgb(255 78 65);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+}
+a#admin_panel_logout_btn:hover {
+    background: rgb(140, 0, 0);
+    transition: all 0.3s ease-in-out;
+}
+
+
+@media screen and (max-width:1075px) {
+    .Admin_Right_MENU {
+        position: fixed;
+        top: 57px;
+        right: 0;
+        width: 40%;
+        z-index: 100;
+        height: calc(100vh - 57px);
+    }
+    .Admin_Right_MENU {
+        background: rgb(57 57 57);
+    }
+    .Admin_Left_Menu_li{
+        color: white;
+    }
+    .Top_NavBar {
+        position: fixed;
+        top: 0;
+        z-index: 200;
+    }
+
+}
+
+@media screen and (max-width:670px) {
+    span.dash_board_word {
+        font-size: 1rem;
+    }
+    .Admin_Right_MENU {
+        width: 50vw;
+    }
+    .Admin_Left_Menu_li {
+        font-size: 12px;
+    }
+    a.Admin_Left_Menu_li_dropdown {
+        font-size: 13px;
+    }
+    .Admin_Left_Menu_li {
+        padding-left:0px; 
+        padding-right: 15px;
+    }
+    .Admin_Left_Menu_li_dropdown {
+        padding-left: 0px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width:670px) {
+    span.tranfer_count_number {
+        left: 52px;
+        width: 13px;
+        height: 13px;
+        font-size: 10px;
+    }
+}

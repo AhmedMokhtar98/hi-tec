@@ -1,0 +1,48 @@
+.BottomNav {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    background: whitesmoke;
+    border-top: solid 1px darkgrey;
+    z-index: 10;
+}
+.BottomNav_li {
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+    width: 20vw;
+    text-align: center;
+    padding: 2px;
+}
+
+svg#plus_circle {
+    font-size: 22px;
+    transform: scale(1.5);
+    color: #ffffff;
+    margin-left: 6px;
+    background: linear-gradient(45deg, #3f51b5, #00ffb6);
+    border-radius: 50px;
+}
+.BottomNav_li_icon {
+    text-align: center;
+    font-size: 21px;
+    cursor: pointer;
+}
+.BottomNav_li_label {
+    font-size: 14px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.BottomNav_li:hover{
+    color: #0077df;
+}
+
+
+@media screen and (max-width:450px) {
+    .BottomNav_li {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

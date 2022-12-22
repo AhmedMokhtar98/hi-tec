@@ -1,0 +1,25 @@
+button.EndDayBtn {
+    width: 80%;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: rgb(73 73 73);
+    border: solid 1px rgb(234 234 234);
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    text-align: center;
+}
+button.EndDayBtn:hover {
+    background: rgb(0 125 254);
+    color: white;
+}
+
+@media screen and (max-width:1075px) {
+    button.EndDayBtn {
+        width: 100%;
+}
+}

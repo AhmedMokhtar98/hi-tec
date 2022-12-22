@@ -1,0 +1,43 @@
+svg.DatePickerIcon {
+    font-size: 24px;
+    cursor: pointer;
+}
+.DatePickerIcon_content {
+    align-self: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+nav.MuiPagination-root.MuiPagination-text.css-1oj2twp-MuiPagination-root {
+    margin-left: 4%;
+}
+
+th#total_price_th {
+    background: moccasin;
+}
+/*-----------------------------media Screens---------------------------------*/
+td.table_td.inquiries_td {
+    width: auto; 
+}
+.No_Data_Syntax {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 27px;
+}
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 760px) and (max-device-width: 1024px)  {
+   
+    
+	/*
+	Label the data
+	*/
+	.inquiries_td:nth-of-type(1):before { content: "اسم العميل";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px; }
+	.inquiries_td:nth-of-type(2):before { content: " الرقم القومي ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;}
+	.inquiries_td:nth-of-type(3):before { content: "اسم المعرض";  float: right;width: 20vw; color:rgb(3 93 255);margin-left: 10px; }
+    .inquiries_td:nth-of-type(4):before { content: "التاريخ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;}
+	
+}

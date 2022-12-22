@@ -1,0 +1,111 @@
+.Qst_Loop_Container {
+    position: relative;
+    top: 0px;
+}
+.Qst_Loop_UserInfo {
+    display: inline-flex;
+    width: 100%;
+    background: #313131;
+    color: white;
+    padding-bottom: 10px;
+}
+.Qst_Loop_UserInfo_li {
+    margin-right: 35px;
+    margin-left: 5px;
+}
+input.qst_loop_Input {
+    padding: 5px;
+    border: solid 1px #d2d2d2;
+    background: white;
+    border-radius: 5px;
+    padding-right: 10px;
+    font-size: 1.01rem;
+    margin-top: 5px;
+    color: #3300ff;
+    cursor: pointer;
+}
+td#worth_date_td {
+    color: #e91e63;
+    font-weight: 600;
+    width: 15%;
+}
+input#fine_input {
+    width: 44px;
+    text-align: center;
+    padding: 5px;
+    color: #e40000;
+    background: white;
+}
+input.qst_loop_Input {
+    width: 80%;
+}
+
+button#purchase_all {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background: rgb(112 89 255);
+    color: white;
+    font-size: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    cursor: pointer;
+}
+
+input.purchase_all_employee_input {
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px grey;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+@media screen and (max-width:950px) {
+    .Qst_Loop_Container {
+        position: relative;
+        top: 13px;
+    }
+}
+@media screen and (max-width:800px) {
+    .Qst_Loop_UserInfo {
+        display: block;
+    }
+    input.qst_loop_Input {
+        width: max-content;
+    }
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    input.qst_loop_Input {
+        width: max-content;
+    }
+    td#worth_date_td {
+      width: max-content; 
+    }
+    td.table_td {
+        width: max-content;
+        display: flex;
+        gap: 8px;
+        width: 100%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+    .css-1rwt2y5-MuiButtonBase-root-MuiButton-root.Mui-disabled {
+        color: rgb(0 0 0 / 65%);
+        width: 100vw;
+        background: rgb(16 90 226 / 17%);
+    }
+	/*
+	Label the data
+	*/
+	.qst_loop:nth-of-type(1):before { content: "";  float: right;  color: rgb(255 255 255); background: rgb(0 87 162); padding-bottom: 4px; padding-top: 4px;} 
+	.qst_loop:nth-of-type(2):before { content: " تاريخ الاستحقاق ";  float: right; width: 30vw;  color: rgb(255 255 255); background: rgb(0 87 162);padding-bottom: 4px;padding-top: 4px; }
+	.qst_loop:nth-of-type(3):before { content: "القسط";  float: right; width: 30vw;  color: rgb(255 255 255); background: rgb(0 87 162); padding-bottom: 4px;padding-top: 4px; }
+	.qst_loop:nth-of-type(4):before { content: "غ";  float: right; width: 30vw; color: rgb(255 255 255); background: rgb(0 87 162);padding-bottom: 4px;padding-top: 4px; }
+	.qst_loop:nth-of-type(5):before { content: "المدفوع";  float: right; width: 30vw; color: rgb(255 255 255); background: rgb(0 87 162);padding-bottom: 4px;padding-top: 4px; }
+	.qst_loop:nth-of-type(6):before { content: "المحصل";  float: right; width: 30vw; color: rgb(255 255 255); background: rgb(0 87 162);padding-bottom: 4px;padding-top: 4px; }
+	.qst_loop:nth-of-type(7):before { content: "تاريخ السداد";  float: right; width: 30vw; color: rgb(255 255 255); background: rgb(0 87 162);padding-bottom: 4px;padding-top: 4px; }
+	.qst_loop:nth-of-type(8):before { content: "الملاحظات";  float: right; width: 30vw; color: rgb(255 255 255); background: rgb(0 87 162);padding-bottom: 4px;padding-top: 4px; }
+}

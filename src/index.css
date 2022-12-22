@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button.print_button {
+  position: relative;
+  left: 0;
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background: rgb(238 238 238);
+  border: solid 1px lightgrey;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 8;
+  transition: all 0.2s ease-in-out;
+}
+button.print_button:hover {
+  background: rgb(53, 53, 53);
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+@media screen and (max-width:950px) {
+  button.print_button {
+    margin-top: 13px;
+    width: 25%;
+  }
+}
+
+
+
+.spinner_container {
+  width: 100%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.spinner_container_small {
+  position: relative;
+  left: 40%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+.spinner {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+#small_spinner{
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.spinner.spinner-circle {
+  border-top: 4px rgb(0, 89, 253) solid;
+  border-radius: 50%;
+  -webkit-animation: animate 0.6s infinite linear;
+  animation: animate 0.6s infinite linear;
+}
+
+@-webkit-keyframes animate {
+  from {
+      -webkit-transform: rotate(0deg);
+ }
+  to {
+      -webkit-transform: rotate(359deg);
+ }
+}
+@keyframes animate {
+  from {
+      transform: rotate(0deg);
+ }
+  to {
+      transform: rotate(359deg);
+ }
+}

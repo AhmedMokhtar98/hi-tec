@@ -1,0 +1,360 @@
+.inquiry_info_container {
+    position: relative;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.choose_client_labell {
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.inquiry_info_ {
+    position: absolute;
+    top: 2vh;
+    width: 30vw;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.inquiry_info_Sections {
+    width: 100%;
+    display: inline-flex;
+    justify-content:center;
+    gap: 15px;
+}
+
+div#inquiry_info_sections {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    display: grid;
+    place-items: center;
+}
+
+.Section_splite_row_qst {
+    display: inline-flex;
+    width: 100%;
+    flex-flow: wrap;
+    place-content: space-between;
+    padding-bottom: 30px;
+}
+.Sections__Rows {
+    width: 85%;
+    padding-right: 20px;
+    box-shadow: 0px 0px 8px #ececec;
+    border-radius: 25px;
+}
+.inquiry_section_headers {
+    background: #0051a414;
+    padding: 10px;
+    color: #3f51b5;
+    width: max-content;
+    border-radius: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.Input_Section_inquiry {
+    width: 17%;
+    display: grid;
+    margin-left: 2%;
+}
+label.label_inquiry_ {
+    color: #f46074;
+    font-size: 14px;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+input.inquiry_Inputt {
+    border: solid 1px lightgrey;
+    padding: 8px;
+    border-radius: 8px;
+    outline-color: #2196f3;
+    color: rgb(0, 0, 0);
+    -webkit-opacity: 1;
+    font-size: 1rem;
+    width: 100%;
+}
+input.inquiry_Inputt::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(129, 129, 129);
+    opacity: 1; /* Firefox */
+    font-size: 0.8rem;
+  }
+#specific_colored{
+    color: rgb(0, 81, 255);
+    -webkit-text-fill-color:   rgb(0, 81, 255);
+    -webkit-opacity: 1; 
+    font-size: 1rem;
+}
+select.inquiry_Inputt {
+    border: solid 1px lightgrey;
+    padding: 8px;
+    border-radius: 8px;
+    outline-color: #2196f3;
+    -webkit-appearance:none;
+    font-size: 1rem;
+    background: rgb(255, 255, 255);
+}
+
+
+div#Total_qst_price {
+    width: 100%;
+    text-align: center;
+    border-top: solid 1px #e4e4e4;
+    margin-top: 35px;
+    display: flex;
+    padding: 5px;
+}
+input#Total_qst_price_input {
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    background: white;
+    font-size: 18px;
+    color: rgb(0, 26, 255) ;
+    -webkit-text-fill-color: rgb(0, 26, 255); 
+    -webkit-opacity: 1; 
+}
+.clientCode_header {
+    font-weight: 400;
+    background: #ebf1f8;
+    width: max-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: blue;
+}
+.Code_menu {
+    width: 80%;
+    padding: 1%;
+    border-bottom: solid 1px #7a7a7a;
+    border-top: solid 1px grey;
+}
+button.AutoCodeBtn {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    background: #ffffff;
+    font-size: 1rem;
+    color: black;
+    margin-left: 5px;
+    border: solid 1px #d4d4d4;
+    transition: all 0.2s ease-in-out;
+}
+button.AutoCodeBtn:hover {
+    background: rgb(120 224 0 / 39%);
+    color: black;
+}
+input.CodeInput {
+    border: solid 1px #004e9e;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline-color: #004eff;
+    width: 20%;
+    font-size: 1rem;
+    padding-right: 15px;
+}
+
+.inquiry_bottom_btns_div {
+    width: 85%;
+    border-radius: 50px;
+    display: flex;
+    gap: 1vw;
+    margin-right: 7%;
+    margin-left: -15%;
+}
+button.inquiry_bottom_btn {
+    width: 100%;
+    background: #0051a4;
+    color: #ffffff;
+    border: none;
+    padding: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    transform: translateY(0px);
+    transition: all 0.2s ease-in-out;
+
+}
+button.inquiry_bottom_btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 30px 8px -20px #a8a8a8;
+    background: #4caf50;
+}
+button#Delete_inquiry_btnn {
+    background: indianred;
+    transition: all 0.2s ease-in-out;
+}
+
+button#Delete_inquiry_btnn:hover {
+    background: rgb(255, 51, 51);
+}
+
+
+
+/*------------------------------Media Query-----------------------------------*/
+
+@media screen and (max-width:1240px) {
+    div#inquiry_info_sections {
+        padding-bottom: 80px;
+    }
+    .Input_Section_inquiry {
+        display: inline-grid;
+        margin-left: 5%;
+        margin-right: 5%;
+        width: auto;
+    }
+    .Select_Section_qst {
+        width: 18%;
+        margin-left: 58px;
+    }
+}
+@media screen and (max-width:930px) {
+    .Section_splite_row_qst {
+        width: 96%;
+    }
+    
+    .Input_Section_inquiry {
+        display: inline-grid;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 40%;
+    }
+    
+}
+
+@media screen and (max-width:645px) {
+    .Input_Section_inquiry {
+        width: 45%;
+    }
+}
+@media screen and (max-width:560px) {
+    input.inquiry_Inputt {
+        width: 100%;
+    }
+}
+@media screen and (max-width:570px) {
+    .Section_splite_row_qst {
+        width: 91%;
+    }
+}
+
+@media screen and (max-width:540px) {
+    .Section_splite_row_qst {
+        width: 86%;
+    }
+    input.inquiry_Inputt {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:465px) {
+    .Sections__Rows {
+        width: 100%;
+        padding-right: 0;
+        box-shadow: 0px 0px 8px #ececec;
+        border-radius: 0;
+    }
+    .Section_splite_row_qst {
+        width: 97%;
+    }
+    .Input_Section_inquiry {
+        width: 45%;
+    }
+}
+@media screen and (max-width:400px) {
+    .Sections__Rows {
+        box-shadow: none;
+        border-radius: 0;
+        width: 90vw;
+        padding: 0px;
+        margin: 0;
+    }
+  
+    .Section_splite_row_qst {
+        display: inline-flex;
+        place-content: center;
+        width: 100%;
+    }
+    .Input_Section_inquiry {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    input.inquiry_Inputt {
+        border: solid 1px lightgrey;
+        padding: 8px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border-radius: 8px;
+        outline-color: #2196f3;
+        width: 85vw;
+    }
+    select.inquiry_Inputt {
+        border: solid 1px lightgrey;
+        padding: 8px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border-radius: 8px;
+        outline-color: #2196f3;
+        width: 90vw;
+    }
+}
+
+
+div#Loading_Dialog_fixed {
+    width: 100%;
+    height: 100%;
+    background: #ffffffba;
+    position: fixed;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.Success_Dialog_hidden_fixed {
+    width: 30%;
+    height: max-content;
+    background: #e4ff78f5;
+    position: fixed;
+    z-index: 2;
+    font-size: 1.5vw;
+    left: 50%;
+    bottom: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    padding: 1%;
+    box-shadow: 0px 0px 8px #aeaeae;
+    transition: all 0.5s ease-in-out;
+}
+
+.Success_Dialog_show_fixed {
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    bottom: 50%;
+}
+
+button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.Problems_buttons.css-sghohy-MuiButtonBase-root-MuiButton-root {
+    position: relative;
+    float: left;
+    width: 10%;
+    padding: 7px;
+    background: rgb(226 33 0);
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 8;
+    transition: all 0.2s ease-in-out;
+    margin-right: 10px;
+    box-shadow: none;
+    border-radius: inherit;
+}
+

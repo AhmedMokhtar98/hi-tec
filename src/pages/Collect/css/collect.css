@@ -1,0 +1,107 @@
+th.home_table_th {
+    padding: 10px;
+    background: #eaeaea;
+    border-right: solid 1px #e0e0e0;
+}
+td.home_table_td {
+    text-align: center;
+}
+td#home_premium_td {
+    color: #1456d0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: #c8c8c847;
+}
+th#home_premium_th {
+    background: #ffd587;
+}
+.home_table_Input {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: solid 1px #d2d2d2;
+    background: white;
+    border-radius: 5px;
+    padding-right: 10px;
+    font-size: 1.01rem;
+    margin-top: 5px;
+    color: #3300ff;
+    cursor: pointer;
+    width: 78%;
+}
+input#fine_input_home {
+    width: 44px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #e40000;
+    background: white;
+}
+.No_Data_Syntax {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 27px;
+}
+@media only screen and (max-width: 1300px){
+    td.home_table_td {
+        padding: 0px;
+        font-size: 12px;
+    }
+
+    input.home_table_Input {
+        font-size: 12px;
+        text-align: start;
+    }
+}
+@media only screen and (max-width: 760px){
+    .td_div_home_table {
+        width: 70%;
+        text-align: initial;
+        border: solid 1px rgb(211 211 211);
+        padding: 5px;
+        border-radius: 5px;
+    }
+}
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    input.home_table_Input {
+        font-size: 15px;
+        text-align: start;
+    }
+    td.home_table_td {
+        font-size: 15px;
+        display: flex;
+        gap: 1%;
+        width: 99%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    td.table_td.home_table_td {
+        width: 99%;
+    }
+    input#fine_input_home {
+        width: 70%;
+    }
+    input.home_table_Input {
+        width: 70%;
+    }
+    button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.Mui-disabled.css-79xub{        color: rgb(0, 0, 0);
+        background: rgb(225 245 184);
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        font-weight: bold;
+    }
+	.home_table_td:nth-of-type(1):before { content: "";  float: right; width: 0vw; color:rgb(3 93 255); margin-left: 10px;margin-right: 10px; text-align: center;font-weight: bold; }
+	.home_table_td:nth-of-type(2):before { content: "القسط";  float: right; width: 30%;  color: rgb(255 255 255); background:rgb(84 109 121); padding-bottom: 4px;font-weight: bold; }
+	.home_table_td:nth-of-type(3):before { content: "اسم العميل";  float: right; width: 30%;  color: rgb(255 255 255); background:rgb(84 109 121); padding-bottom: 4px;font-weight: bold;}
+	.home_table_td:nth-of-type(4):before { content: "الكود";  float: right; width: 30%;  color: rgb(255 255 255); background:rgb(84 109 121); padding-bottom: 4px;font-weight: bold;}
+    .home_table_td:nth-of-type(5):before { content: "تاريخ الاستحقاق";  float: right; width: 30%;  color: rgb(255 255 255); background:rgb(84 109 121); padding-bottom: 4px;font-weight: bold;}
+    .home_table_td:nth-of-type(6):before { content: "تاريخ الدفع";  float: right; width: 30%;  color: rgb(255 255 255); background:rgb(84 109 121); padding-bottom: 4px;font-weight: bold;}
+	.home_table_td:nth-of-type(7):before { content: " غ ";  float: right; width: 30%;  color: rgb(255 255 255); background:rgb(84 109 121); padding-bottom: 4px;font-weight: bold; }
+	.home_table_td:nth-of-type(8):before { content: "المدفوع";  float: right; width: 30%;  color: rgb(255 255 255); background:rgb(84 109 121); padding-bottom: 4px;font-weight: bold; }
+	.home_table_td:nth-of-type(9):before { content: "المحصل";  float: right; width: 30%;  color: rgb(255 255 255); background:rgb(84 109 121); padding-bottom: 4px; font-weight: bold;}
+	.home_table_td:nth-of-type(10):before { content: "الملاحظات";  float: right; width: 30%;  color: rgb(255 255 255); background:rgb(84 109 121); padding-bottom: 4px; font-weight: bold;}
+	.home_table_td:nth-of-type(11):before { content: "";  }
+}

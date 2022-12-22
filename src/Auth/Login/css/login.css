@@ -1,0 +1,197 @@
+.Auth_Container {
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    justify-content: center;
+    width: max-content;
+    text-align: center;
+}
+
+img.login_image {
+    height: 470px;
+    width: 470px;
+    z-index: -1;
+}
+a.active {
+    text-decoration: none;
+}
+.Auth_heading_container {
+    position: relative;
+    z-index: 100;
+}
+h1.Auth_Header {
+    font-size: 4rem;
+    font-family: 'Tajawal', sans-serif;
+    align-self: center;
+    margin-bottom: -40px;
+}
+h5.Auth_header {
+    color: rgb(255, 193, 5);
+    font-size: 2rem;
+    font-family: 'Tajawal', sans-serif;
+    align-self: center;
+}
+form.Auth_Form {
+    position: relative;
+    display: grid;
+    box-shadow: 0px 0px 20px #e6e6e6;
+    background: white;
+    width: 35vw;
+    border-radius: 8px;
+    padding: 20px;
+    margin-left: 0;
+    text-align: end;
+}
+.form_error_msg {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    color: red;
+    margin-top: -30px;
+}
+label.login_input_label {
+    font-weight: bold;
+    color: rgb(0 78 166);
+}
+input.Auth_input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 1px lightgrey;
+    border-radius: 8px;
+    width: 99%;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    margin-left: -3px;
+    outline-color: rgb(0 142 255);
+    outline-width: thin;
+    direction: rtl;
+    padding-right: 10px;
+    font-size: 1rem;
+}
+input.err_input {
+    outline-style: auto;
+    outline-color: #ffa6a6;
+}
+button.Auth_btn {
+    background: rgb(0, 104, 189);
+    outline: none;
+    border: none;
+    color: white;
+    padding: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.Auth_breaker_line {
+    width: 100%;
+    height: 0.5px;
+    background: #c7c7c7;
+    margin-top: 10px;
+}
+
+
+.register_success_msg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+}
+/*------------------------------connect Message--------------------------------*/
+
+div#Loading_Dialog {
+    width: 100%;
+    height: 100%;
+    background: #ffffffba;
+    position: fixed;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-backdrop-filter: blur(3px);
+}
+.Connect_Dialog_hidden {
+    width: 30%;
+    height: max-content;
+    background: rgb(255 55 55);
+    color: white;
+    position: fixed;
+    z-index: 2;
+    font-size: 1.5rem;
+    left: 50%;
+    bottom: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    padding: 1%;
+    transition: all 0.5s ease-in-out;
+}
+
+.Connect_Dialog_show {
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    bottom: 0;
+}
+
+
+
+/*------------------------------------Media Query-----------------------------------------------*/
+
+@media  screen and (max-width: 1150px) {
+    form.Auth_Form {
+        position: relative;
+        display: grid;
+        box-shadow: 0px 0px 20px #e6e6e6;
+        background: white;
+        width: 60vw;
+        border-radius: 8px;
+        padding: 20px;
+        margin-left: 0;
+        text-align: end;
+        box-shadow: none;
+    }
+    .background_style {
+        width: 100%;
+        background: rgb(255, 255, 255);
+        border-top-right-radius: 0;
+    }
+    .Auth_heading_container {
+        position: fixed;
+        z-index: 100;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, 0px);
+        gap: 10px;
+    }
+
+    .Auth_heading_container {
+        display: flex;
+        direction: rtl;
+    }
+    h5.Auth_header {
+        margin: 0;
+    }
+    h1.Auth_Header { margin-bottom: 0; margin-top: 0;font-size: 2rem;}
+    .Connect_Dialog_hidden {
+        width: 80%;
+        font-size: 1rem;
+    }
+  }
+
+@media  screen and (max-width: 560px) {
+    form.Auth_Form {
+        width: 90vw;
+    }
+    .Auth_heading_container {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    h1.Auth_Header {font-size: 1.8rem;}
+
+}

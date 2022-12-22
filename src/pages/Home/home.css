@@ -1,0 +1,47 @@
+img.home_image {
+    height: 470px;
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 470px;
+    z-index: -1;
+}
+.MuiGrid-root.MuiGrid-grid-xs-2.css-13x2423-MuiGrid-root {
+    box-shadow: 0px 0px 8px grey;
+    padding: 30px;
+    background: rgb(48 48 48);
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+}
+.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-2.Home_Cards.css-mhc70k-MuiGrid-root {
+    gap: 5vw;
+    justify-content: center;
+    margin-top: 20px;
+}
+.MuiGrid-root.MuiGrid-grid-xs-6.css-1jssz31-MuiGrid-root {
+    box-shadow: 0px 0px 8px grey;
+    padding: 30px;
+    background: rgb(48 48 48);
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+}
+
+@media screen and (max-width:950px) {
+    img.home_image {
+        width: 370px;
+        height: 370px;
+    } 
+    
+}
+
+@media screen and (max-width:550px) {
+    img.home_image {
+        width: 270px;
+        height: 270px;
+    } 
+    
+}

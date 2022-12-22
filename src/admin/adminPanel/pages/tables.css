@@ -1,0 +1,113 @@
+td.ap_users_td {
+    padding: 10px;
+    text-align: center;
+}
+td.ap_garantees_td {
+    padding: 10px;
+    text-align: center;
+}
+td.products_td_admin {
+    padding: 10px;
+    text-align: center;
+}
+input.ap_users_update_input {
+    padding: 8px;
+    font-size: 1rem;
+    border: solid 1px grey;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-right: 2px;
+    text-align: end;
+}
+h2#mui-1 {
+    text-align: center;
+    font-weight: bold;
+    color: rgb(0 0 139);
+}
+input.ap_update_date_input {
+    padding: 8px;
+    font-size: 0.9rem;
+    border: solid 1px rgb(63 81 181);
+    border-radius: 8px;
+}
+.branchcorner {
+    direction: rtl;
+    width: 80%;
+}
+svg.add_product_icon {
+    font-size: 40px;
+    position: relative;
+    top: 5px;
+    width: 180px;
+    padding: 10px;
+    margin: -10px;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1);
+}
+svg.add_product_icon:hover {
+    transform: scale(0.9);
+    transition: all 0.2s ease-in-out;
+    color: blue;
+}
+
+
+@media screen and (max-width:1075px) {
+    .branchcorner {
+        width: 100%;
+    }
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    td.products_td_admin {
+        font-size: 15px;
+        display: flex;
+        gap: 1%;
+        width: 99%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+		background: rgb(242 242 242);
+    }
+    td.ap_users_td {
+        font-size: 15px;
+        display: flex;
+        gap: 1%;
+        width: 99%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+		background: rgb(242 242 242);
+    }
+    td.ap_garantees_td {
+        font-size: 15px;
+        display: flex;
+        gap: 1%;
+        width: 99%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+		background: rgb(242 242 242);
+    }
+	.products_td_admin:nth-of-type(1):before { content: " اسم المنتج ";  float: right; width: 25vw; color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center; }
+	.products_td_admin:nth-of-type(2):before { content: " سعر الوحدة ";  float: right;width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold;margin-left: 10px; text-align: center;}
+    .products_td_admin:nth-of-type(3):before { content: " الكمية ";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+    .products_td_admin:nth-of-type(4):before { content: " المعرض ";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+    .products_td_admin:nth-of-type(5):before { content: " - ";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+	
+	.ap_users_td:nth-of-type(1):before { content: "الصفحة الشخصية";  float: right; width: 25vw; color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center; }
+	.ap_users_td:nth-of-type(2):before { content: " اسم العميل";  float: right; width: 25vw; color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center; }
+	.ap_users_td:nth-of-type(3):before { content: "رقم الهاتف";  float: right;width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold;margin-left: 10px; text-align: center;}
+    .ap_users_td:nth-of-type(4):before { content: " الرقم القومي ";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+    .ap_users_td:nth-of-type(5):before { content: "العنوان";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+    .ap_users_td:nth-of-type(6):before { content: "الوظيفة";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+    .ap_users_td:nth-of-type(7):before { content: "تاريخ التسجيل";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+    .ap_users_td:nth-of-type(8):before { content: "الحالة";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+	
+	.ap_garantees_td:nth-of-type(1):before { content: "اسم الضامن";  float: right; width: 25vw; color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center; }
+	.ap_garantees_td:nth-of-type(2):before { content: "رقم الهاتف";  float: right;width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold;margin-left: 10px; text-align: center;}
+    .ap_garantees_td:nth-of-type(3):before { content: " الرقم القومي ";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+    .ap_garantees_td:nth-of-type(4):before { content: "العنوان";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+    .ap_garantees_td:nth-of-type(5):before { content: "الوظيفة";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+    .ap_garantees_td:nth-of-type(6):before { content: "العميل";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+    .ap_garantees_td:nth-of-type(7):before { content: "الرقم القومي للعميل";  float: right; width: 25vw;  color: rgb(0, 0, 0); background:rgb(255, 255, 255); font-weight: bold; margin-left: 10px;text-align: center;}
+}
+

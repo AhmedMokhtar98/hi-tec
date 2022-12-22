@@ -1,0 +1,32 @@
+td#finance_date {
+    background: cornsilk;
+}
+td#finance_initial_account {
+    color: #1b5ef8;
+    font-weight: 700;
+}
+td#finance_final_account {
+    color: rgb(255 82 0);
+    font-weight: 700;
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 760px) and (max-device-width: 1024px)  {
+	td#finance_date {
+		background: rgb(201 227 249);
+		color: black;
+		font-weight: 600;
+		text-align: revert;
+	}
+	.finance_td:nth-of-type(10):before { content: " الرصيد اخر اليوم ";  float: right; width: 50vw; }
+	.finance_td:nth-of-type(9):before { content: " اجمالي المنصرف "; float: right; width: 50vw; }
+	.finance_td:nth-of-type(8):before { content: " منصرف اخر"; float: right; width: 50vw; }
+	.finance_td:nth-of-type(7):before { content: "منصرف بضاعة";  float: right; width: 50vw; }
+	.finance_td:nth-of-type(6):before { content: "اجمالي الوارد ";  float: right; width: 50vw; }
+	.finance_td:nth-of-type(5):before { content: "التحصيل";  float: right; width: 50vw; }
+	.finance_td:nth-of-type(4):before { content: "الاستعلامات";  float: right; width: 50vw; }
+	.finance_td:nth-of-type(3):before { content: "المقدمات";  float: right; width: 50vw; }
+	.finance_td:nth-of-type(2):before { content: "الرصيد اول اليوم";  float: right; width: 50vw; }
+	.finance_td:nth-of-type(1):before { content: "التاريخ";  float: right; width: 10vw; }
+}

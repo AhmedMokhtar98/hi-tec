@@ -1,0 +1,356 @@
+.Adding_form_container {
+    position: relative;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.Sections {
+    width: 100%;
+    display: inline-flex;
+    justify-content:center;
+    gap: 15px;
+}
+.Bulk_grid {
+    width: 100%;
+}
+.Bulk_grid_line {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    grid-gap: 15px;
+    gap: 15px;
+    margin-right: 7vw;
+    margin-left: 7vw;
+}
+div#Client_Data_Sections {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: solid 1px #aeaeae;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
+.add_cash_input_Row {
+    display: grid;
+}
+.Section_splite_column {
+    display: grid;
+    gap: 10px;
+    width: 40%;
+}
+.add_cash_input {
+    width: 80%;
+    padding: 8px;
+    border-radius: 6px;
+    border: solid 1px darkgrey;
+    outline-color: #0066fe;
+}
+.MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    margin-left: 6px;
+    width: 80%;
+}
+
+
+
+/*-----------------handmade Table -------------------*/
+
+div#Orders_Data_Section {
+    max-height: 35vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding-bottom: 70px;
+    min-height: 35vh;
+}
+.Orders_Data_Section_table_container {
+    text-align: center;
+}
+/* width */
+div#Orders_Data_Section::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  div#Orders_Data_Section::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  div#Orders_Data_Section::-webkit-scrollbar-thumb {
+    background: #bbbbbb;
+    border-radius: 10px;
+    padding-top: 100px;
+  }
+
+select.AddCashTable_select {
+    width: 100%;
+    padding: 7px;
+    border-radius: 8px;
+    border: solid 1px darkgrey;
+}
+.add_cash_table_input {
+    width: 80%;
+    padding: 8px;
+    border-radius: 6px;
+    border: solid 1px darkgrey;
+    outline-color: #0066fe;
+}
+.addCashTable_btn {
+    padding: 8px;
+    border: none;
+    width: 80%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button#add_row_btn {
+    background: white;
+    color: white;
+    border: solid 1px #0068fe;
+    color: #005aff;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+}
+button#add_row_btn:hover {
+    transform: scale(0.95);
+    background: rgba(0, 4, 255, 0.781);
+    color: white;
+}
+button#remove_row_btn {
+    background: #ffffff;
+    color: #ff0000;
+    border: solid 1px red;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+}
+button#remove_row_btn:hover {
+    transform: scale(0.95);
+    background: crimson;
+    color: white;
+}
+
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.MuiOutlinedInput-root.MuiInputBase-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root {
+    padding: 6px;
+    margin-top: -3px;
+}
+input#custom-input-demo {
+    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/*----------------------------------bottom btns-----------------------------------*/
+
+.Section.add_cash_form_bottom {
+    background: #f7f7f7;
+    color: rgb(0, 0, 0);
+    padding-top: 0;
+    padding-bottom: 0px;
+    width: 100%;
+    z-index: 5;
+    display: grid;
+    justify-content: center;
+    bottom: 1px;
+    position: fixed;
+}
+input.totaL_price_input {
+    padding: 10px;
+    background: #ffffff26;
+    border: none;
+    margin-right: 10px;
+    border-radius: 5px;
+    text-align: center;
+    outline: none;
+    width: 77%;
+    background: #d6eaff;
+    color: rgb(255, 69, 0);
+    -webkit-text-fill-color: rgb(255, 69, 0); 
+    -webkit-opacity: 1; 
+    font-weight: 600;
+}
+div#btns_div {
+    display: inline-flex;
+    width: 65%;
+    gap: 27%;
+    position: absolute;
+    left: 0px;
+}
+.submit_btn_div {
+    width: 100%;
+}
+.delete_all_btn_div {
+    position: absolute;
+    left: 0;
+    width: 20%;
+}
+button#submit_btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    background: #404040;
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+button#submit_btn:hover {
+    background: rgb(2, 55, 153);
+}
+button#delete_all_rows_btn {
+    width: 100%;
+    color: white;
+    padding: 10px;
+    border: navajowhite;
+    background: #db5a5afa;
+}
+.add_cash_form_bottom_li_overall_price {
+    position: relative;
+    color: rgb(0, 0, 0);
+    display: inline-flex;
+    text-align: center;
+    background: whitesmoke;
+    width: 80%;
+}
+label.add_cash_total_price_label {
+    width: 20%;
+    align-self: center;
+}
+.add_cash_form_bottom_li {
+    color: black;
+    width: 40%;
+}
+div#btns_div {
+    width: 100vw;
+    position: relative;
+    justify-content: center;
+}
+
+
+/*------------------------------Success Message--------------------------------*/
+
+div#Loading_Dialog {
+    width: 100%;
+    height: 100%;
+    background: #ffffffba;
+    position: fixed;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-backdrop-filter: blur(3px);
+}
+.Success_Dialog_hidden {
+    width: 30%;
+    height: max-content;
+    background: #e4ff78f5;
+    position: fixed;
+    z-index: 2;
+    font-size: 1.5vw;
+    left: 50%;
+    bottom: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    padding: 1%;
+    box-shadow: 0px 0px 8px #aeaeae;
+    transition: all 0.5s ease-in-out;
+}
+
+.Success_Dialog_show {
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    bottom: 50%;
+}
+
+
+/*------------------------------Media Query-----------------------------------*/
+@media screen and (max-width:950px) {
+    .Section.add_cash_form_bottom {
+        bottom: 57px;
+    }
+}
+@media screen and (max-width:620px) {
+    .MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+        width: 100%;
+    }
+    input#mui-1 {
+        padding: 6px;
+    }
+    div#Client_Data_Sections {
+        display: grid;
+    }
+    .Section_splite_column {
+        width: 90vw;
+        place-items: center;
+    }
+    .add_cash_input_Row {
+        display: grid;
+        width: 100%;
+    }
+    input.add_cash_input {
+        width: 97%;
+    }
+    label.add_cash_input_label {
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    .add_cash_input_Row {
+        width: 90%;
+    }
+    input.add_cash_input {
+        width: 97%;
+    }
+    td.AddCashTable_td {
+        width: auto;
+    } 
+    label.add_cash_total_price_label {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width:400px) {
+    label.add_cash_total_price_label {
+        width: 25%;
+        font-size: 11px;
+        margin-right: 3%;
+        font-weight: bolder;
+    }
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 760px) and (max-device-width: 1024px)  {
+    tr {
+        border: 1px solid rgb(242 242 242);
+        margin-bottom: 10px;
+        background: rgb(255, 255, 255);
+        margin-top: 10px;
+    }
+	/*
+	Label the data
+	*/
+	.add_cash_td:nth-of-type(1):before { content: "  المنتج ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px; }
+	.add_cash_td:nth-of-type(2):before { content: " السعر ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;}
+	.add_cash_td:nth-of-type(3):before { content: " الكمية  ";  float: right;width: 20vw; color:rgb(3 93 255);margin-left: 10px; }
+    .add_cash_td:nth-of-type(4):before { content: " الاجمالي ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;}
+    .add_cash_td:nth-of-type(5):before { content: " اضافة ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;}
+	.add_cash_td:nth-of-type(6):before { content: " حذف ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px; }
+	
+}

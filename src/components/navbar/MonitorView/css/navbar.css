@@ -1,0 +1,339 @@
+.NavStack {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background: rgb(255 255 255);
+    border-bottom: solid 1px #e2e2e2;
+}
+.Logo_section {
+    display: inline-flex;
+    padding-right: 20px;
+    cursor: pointer;
+}
+img.nav_logo_img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 2px;
+}
+.CategoryNav {
+    display: inline-flex;
+    width: max-content;
+    justify-content: center;
+    background: rgb(115 115 115);
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.Category_Nav_li {
+    padding: 15.5px;
+    cursor: pointer;
+    position: relative;
+    width: max-content;
+    background: rgb(241 241 241);
+}
+div#nav_left_li {
+    border-top-left-radius: 80px;
+    padding-left: 30px;
+}
+div#nav_right_li {
+    border-top-right-radius: 80px;
+    padding-right: 30px;
+}
+
+.Category_Nav_li:hover {
+    background: rgb(96, 0, 252);
+}
+
+.Category_Nav_li:hover .category_name{
+    color: white;
+}
+/*--------------------------------------*/
+.NavBar {
+    display: inline-flex;
+    width: 100%;
+    top: 0;
+    position: sticky;
+    color: black;
+}
+.NavBar_left_content {
+    display: inline-flex;
+    position: relative;
+    left: 5%;
+    width: 35%;
+}
+
+.NavBar_Logo {
+    font-weight: 500;
+    align-self: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    cursor: pointer;
+    width: max-content;
+    text-align: center;
+    color: rgb(0 0 0);
+    font-size: 1.09rem;
+}
+
+/***********User Info*********/
+.NavBar_user_info {
+    display: inline-flex;
+    border-radius: 30px;
+    cursor: pointer;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+}
+
+button#Navbar_user_info_btn {
+    font-weight: 400;
+    text-transform: capitalize;
+    padding: 12px;
+    width: 150px;
+}
+.Navbar_username {
+    align-self: center;
+    color: black;
+    font-family: system-ui;
+    font-size: 1rem;
+}
+.NavBar_dropDown_icon {
+    font-size: 23px;
+    align-self: center;
+    background: #f1f1f1;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.nav_dropdown_icon{
+    height: 100%;
+}
+
+
+/*-----------dropdown_menu------------*/
+.Navbar_dropdown_active_li {
+    background: linear-gradient(240deg, #c8aaff, #77fff2);
+}
+
+.NavBar_dropdown_menu {
+    position: fixed;
+    right:0;
+    top: 54px;
+    background: #ffffff;
+    width: 150px;
+    text-align: right;
+    color: black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0px 17px 13px -6px grey;
+}
+button.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.MuiButtonBase-root.NavBar_dropdown_menu_li.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+    color: black;
+    font-size: 16px;
+}
+.NavBar_dropdown_menu_li {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #a9a9a961;
+    padding-right: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: black;
+}
+
+.NavBar_dropdown_menu_li:hover {
+    background: rgba(0, 0, 0, 0.13) ;
+}
+a#Logout_btn {
+    text-decoration: none;
+}
+#Logout_btn {
+    background: #ff5050f7;
+    color: #ffffff;
+    border-top: solid 1px red;
+    border-radius: 0;
+}
+#Logout_btn:hover {
+    background: #ff0000f7;
+}
+.MuiBackdrop-root.css-1ji7omv-MuiBackdrop-root {
+    position: fixed;
+    top:0px;
+    background-color: rgb(255 255 255 / 0%);
+}
+
+
+/*--------------------category_dropdown_menu---------------------*/
+.category_dropdown_menu {
+    position: absolute;
+    background: #ffffff;
+    top: 54px;
+    left: 0;
+    width: max-content;
+    display: none;
+    gap: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    box-shadow: 0px 10px 8px #00000069;
+}
+
+.dropdown_hide{
+    display: none;
+}
+.Category_Nav_li:hover .category_dropdown_menu {
+    display: inline-flex;
+}
+.category_dropdown_menu_column {
+    text-align: end;
+}
+.category_dropdown_menu_li {
+    padding: 5px;
+    color: black;
+}
+
+a.NavLink_a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    width: 100%;
+    place-content: center;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    transition: all 0.1s ease-in-out;
+    background-color: white;
+}
+a.NavLink_a:hover {
+    transition: all 0.1s ease-in-out;
+    background-color: rgb(228, 228, 228);
+    color: white;
+}
+
+h3.category_dropdown_menu_header {
+    font-weight: 400;
+    color: #e91e63;
+    display: inline;
+}
+
+svg.category_icons {
+    margin-right: 6px;
+    font-size: 20px;
+    position: relative;
+    top: 5px;
+}
+svg.notification_icon {
+    font-size: 24px;
+    color: rgb(75 84 104);
+    cursor: pointer;
+    border-radius: 60px;
+    padding: 1px;
+}
+
+
+/*----------------------------Notification----------------------------------*/
+.nf_h1 {
+    padding: 10px;
+    background: rgb(0 255 187);
+    margin-top: -8px;
+}
+.nf_username {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgb(236 247 255);
+}
+.nf_premuim {
+    direction: initial;
+    width: 100%;
+    text-align: end;
+    color: rgb(0 0 0);
+}
+.notification_li {
+    width: 100%;
+    direction: rtl;
+    background: rgb(225 225 225);
+}
+.MuiAvatar-root.MuiAvatar-circular.MuiAvatar-colorDefault.css-azeo8y-MuiAvatar-root {
+    background: white;
+    border: none;
+}
+span.nf_count {
+    position: absolute;
+    color: white;
+    left: 27px;
+    top: 12px;
+    border: solid 1px white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    border-radius: 50px;
+    background: red;
+    font-size: 14px;
+}
+@media screen and (max-width:1050px) {
+    .Category_Nav_li {
+         margin-left: 0px; 
+         margin-right: 0px; 
+    }
+    .NavBar_Logo {
+        transform: scale(0.9);
+        margin-left: 10px;
+    }
+}
+@media screen and (max-width:1010px) {
+    .NavBar_Logo {
+        transform: scale(0.8);
+        margin-left: -5px;
+    }
+}
+@media screen and (max-width:950px) {
+    .NavBar_user_info {
+        position: absolute;
+        right: 0vw;
+        top: 8px;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .NavBar_user_info {
+        position: absolute;
+        right: 0;
+        top: 7px;
+    }
+    .NavBar_dropdown_menu {
+        right: 9%;
+        top: 53px;
+    }
+}
+
+@media screen and (max-width:770px) {
+    .NavBar_Logo {
+        width: 40%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .NavBar_Logo {
+        font-size: 14px;
+    }
+    .NavBar_dropdown_menu {
+        right: 3%;
+        top: 50px;
+    }
+}
+@media screen and (max-width:345px) {
+    .NavBar_Logo {
+        font-size: 12px;
+    }
+}

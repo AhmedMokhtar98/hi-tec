@@ -1,0 +1,186 @@
+/*-------------END DAY-----------------*/
+.dashboard_cards {
+    direction: rtl;
+    display: block;
+    width: 80%;
+}
+.end_day_account_info {
+    display: flex;
+    background: #f6f6f6;
+}
+.dashboard_card {
+    padding: 45px;
+    background: white;
+    width: max-content;
+    box-shadow: 0px 0px 8px #a0a0a054;
+    border-radius: 20px;
+    margin: 11px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+}
+.dashboard_card:hover {
+    box-shadow: 0px 0px 8px #52525283;
+    transition: all 0.2s ease-in-out;
+
+}
+.end_day_card_date.end_day_card {
+    background: rgb(240 240 240);
+    box-shadow: none;
+}
+.dashboard_card.initial_account {
+    background: rgb(212 255 229);
+}
+.dashboard_card.final_account {
+    background: rgb(204 227 255);
+}
+.end_day_prefix {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 5px;
+    color: #000000;
+}
+.end_day_suffix {
+    font-size: 19px;
+    color: rgb(0 90 255);
+    font-weight: 400;
+    align-self: center;
+}
+.end_day_card_date {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: white;
+    width: max-content;
+    box-shadow: 0px 0px 8px #a0a0a054;
+    border-radius: 20px;
+    margin: 11px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.end_day_prefix.end_day_date_prefix {
+    font-weight: 800;
+    margin-left: 10px;
+}
+.end_day_suffix.end_day_date_suffix {
+    text-align: center;
+    color: #454564;
+    font-size: 18px;
+    border-bottom: solid 3px #36ea76;
+}
+.end_day_income_info {
+    display: flex;
+}
+.end_day_out_info {
+    display: flex;
+}
+
+input.input_other_expense {
+    border: solid 1px #d2d2d2;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+/*-------------USERS-----------------*/
+.users_cards {
+    direction: rtl;
+    display: flex;
+    width: 80%;
+    background: rgb(240 255 255);
+}
+.users_card {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: white;
+    width: max-content;
+    box-shadow: 0px 0px 8px #a0a0a054;
+    border-radius: 20px;
+    margin: 11px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.words_suffix {
+    text-align: center;
+    color: #454564;
+    font-size: 18px;
+    border-bottom: solid 3px #36ea76;
+}
+/*-------------PRODUCTS-----------------*/
+.products_cards {
+    direction: rtl;
+    display: flex;
+    width: 80%;
+}
+.products_card {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: white;
+    width: max-content;
+    box-shadow: 0px 0px 8px #a0a0a054;
+    border-radius: 20px;
+    margin: 11px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.table_search_contents_ap {
+    display: inline-flex;
+    background: #efefef;
+    width: 80%;
+    direction: rtl;
+}
+
+
+@media screen and (max-width:1220px) {
+    .dashboard_card {
+        display: block;
+        text-align: center;
+    }
+    .products_cards {
+        width: 100%;
+    }
+}
+@media screen and (max-width:1075px) {
+    .dashboard_cards {
+        width: 100%;
+    }
+    .users_cards {
+        width: 100%;
+    }
+    .table_grap {
+        width: 100%;
+    }
+    .products_cards {
+    width: 100%;
+}
+.table_search_contents_ap {
+    width: 100%;
+}
+}
+
+@media screen and (max-width:850px) {
+    .end_day_income_info {
+        display: block;
+    }
+    .dashboard_card {
+        width: 90%;
+        margin: 0px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .end_day_out_info {
+        display: block;
+    }
+}

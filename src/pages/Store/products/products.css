@@ -1,0 +1,18 @@
+span.products_count {
+    font-size: 13px;
+    margin-right: 10px;
+	color: rgb(255 247 0);
+}
+td.table_td.cashes_td {
+    width: auto;
+}
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+	/*
+	Label the data
+	*/
+	.products_td:nth-of-type(1):before { content: " اسم المنتج ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px; }
+	.products_td:nth-of-type(2):before { content: " الكمية ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;}
+	.products_td:nth-of-type(3):before { content: " سعر الوحدة ";  float: right;width: 20vw; color:rgb(3 93 255);margin-left: 10px; }
+}

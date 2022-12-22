@@ -1,0 +1,40 @@
+
+td#advances_prepaid_td {
+    color: #1456d0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: #c8c8c847;
+    width: 10%;
+}
+th#advances_preprepaid_th {
+    background: #ffd587;
+}
+.No_Data_Syntax {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 27px;
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 760px) and (max-device-width: 1024px)  {
+    td#advances_prepaid_td {
+        color: #050505;
+        font-size: 1.1rem;
+        font-weight: 500;
+        background: #ffffff47;
+        width: 100%;
+    }
+	/*
+	Label the data
+	*/
+	.advances_td:nth-of-type(1):before { content: "  المقدم ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px; }
+	.advances_td:nth-of-type(2):before { content: " القسط ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;}
+	.advances_td:nth-of-type(3):before { content: " المدة  ";  float: right;width: 20vw; color:rgb(3 93 255);margin-left: 10px; }
+    .advances_td:nth-of-type(4):before { content: " البضاعة ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;}
+    .advances_td:nth-of-type(5):before { content: " الكود ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;}
+    .advances_td:nth-of-type(6):before { content: " الاسم ";  float: right; width: 20vw; color:rgb(3 93 255); margin-left: 10px;}
+	
+}
