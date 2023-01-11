@@ -50,7 +50,7 @@ const getData = async()=>{
 useEffect(() => {
     getData()
 },[])
-useEffect(async() => {
+useEffect(() => {
     getData()
 },[employee])
 
@@ -246,31 +246,40 @@ const PurchaseAll = (e)=>{
                                 {item.status === 'true'? 
                                 <Button disabled variant="outlined" onClick={()=>Submit(i)}>تم</Button>
                                 :
-                                <Button variant="outlined" onClick={()=>Submit(i)}>تسديد</Button>
+                                <>
+                                {auth != 'collect' &&
+                                    <Button variant="outlined" onClick={()=>Submit(i)}>تسديد</Button>
+                                }
+                                </>
                                 }
                            </td>
                         </tr>
                     ))} 
                 </table>
             </div>
-            {RestPrice > 0 ? 
-            <Button id="purchase_all" variant="outlined" onClick={()=>{setPopup(true)}}>تسديد الكل {RestPrice}</Button>
-            : 
-            <Button id="purchase_all" variant="outlined" style={{background:'grey'}}>تم السداد بالكامل</Button>
-            }
-            {popup ? 
-            <div className="Are_you_sure_delete_container">
-                <div className="Are_you_sure_delete_div">
-                    <div className="Are_you_sure_delete_word" >هل انت متأكد من دفع المبلغ ({RestPrice}) جنيها بالكامل  ؟</div>
-                   <form onSubmit={PurchaseAll}>
-                        التوقيع<input type="text" name="employee" onChange={(e)=>{setEmployee(e.target.value)}} className="purchase_all_employee_input" required/>
-                        <button className="handel_delete_btns" id="confirm_delete_btn" type="submit">نعم</button>    
-                        <button className="handel_delete_btns" id="cancel_delete_btn" onClick={()=>{setPopup(false)}}>لا</button>
-                    </form>
-                </div> 
-            </div>
-            : 
-            ''}
+            {auth != 'collect' &&
+            <>
+                {RestPrice > 0 ? 
+                <Button id="purchase_all" variant="outlined" onClick={()=>{setPopup(true)}}>تسديد الكل {RestPrice}</Button>
+                : 
+                <Button id="purchase_all" variant="outlined" style={{background:'grey'}}>تم السداد بالكامل</Button>
+                }
+                {popup ? 
+                <div className="Are_you_sure_delete_container">
+                    <div className="Are_you_sure_delete_div">
+                        <div className="Are_you_sure_delete_word" >هل انت متأكد من دفع المبلغ ({RestPrice}) جنيها بالكامل  ؟</div>
+                    <form onSubmit={PurchaseAll}>
+                            التوقيع<input type="text" name="employee" onChange={(e)=>{setEmployee(e.target.value)}} className="purchase_all_employee_input" required/>
+                            <button className="handel_delete_btns" id="confirm_delete_btn" type="submit">نعم</button>    
+                            <button className="handel_delete_btns" id="cancel_delete_btn" onClick={()=>{setPopup(false)}}>لا</button>
+                        </form>
+                    </div> 
+                </div>
+                : 
+                ''}
+            </>
+        }
+
 
         </div>
     )

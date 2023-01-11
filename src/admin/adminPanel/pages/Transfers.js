@@ -68,7 +68,7 @@ const GetData = async()=>{
          setloading(false)
      })
 }
-useEffect(async()=>{ GetData() },[])
+useEffect(()=>{ GetData() },[])
 
 const HandleSearch = (e)=>{
     setSearch(e.target.value)

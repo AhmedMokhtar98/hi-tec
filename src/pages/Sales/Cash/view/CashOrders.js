@@ -90,7 +90,7 @@ const getCashOrders = async()=>{
     }
 }
 
-useEffect(async()=>{ getCashOrders() },[])
+useEffect(()=>{ getCashOrders() },[])
 useEffect(()=>{ getCashOrders() },[bransh])
 
 const SetBranch = (e)=>{

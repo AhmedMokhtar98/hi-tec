@@ -46,6 +46,8 @@ import OutBuyings from './pages/Store/OutBuyings/OutBuyings';
 import AddOutBuyings from './pages/Store/OutBuyings/AddOutBuyings';
 import UserProfile from './admin/adminPanel/pages/UserProfile';
 import NavAuth from './components/navbar/MonitorView/NavAuth';
+import RateClients_EndedQsts from './admin/adminPanel/pages/RateClients_EndedQsts';
+import Rate from './admin/adminPanel/pages/Rate';
 
 function App() {
   const [matches, setMatches] = useState(window.matchMedia("(min-width: 950px)").matches)
@@ -62,8 +64,16 @@ function App() {
                 <Route exact path="/login" component={Login}/>
                 {localStorage.getItem('token') && jwt_decode(localStorage.getItem('token')).authority === 'marketing' ?
                 <>
-                <NavAuth/>
+                 <NavAuth/>
                  <Route exact path={`/products`} ><Products /></Route> 
+                </>
+                : ''}
+
+                {localStorage.getItem('token') && jwt_decode(localStorage.getItem('token')).authority === 'collect' ?
+                <>
+                 <NavAuth/>
+                 <Route exact path={`/qst-data`} ><QstData /></Route> 
+                 <Route exact path={`/qst-loop/:code`} ><QstLoop /></Route>
                 </>
                 : ''}
                     <Route  path="/dashboard" render={({ match: { url } }) => (<>
@@ -73,6 +83,8 @@ function App() {
                       <PrivateRoute exact path={`${url}/users/:nat_id`} component={UserProfile}/>
                       <PrivateRoute exact path={`${url}/garantees`} component={Garantees}/>
                       <PrivateRoute exact path={`${url}/products`} component={ProductsStics}/>
+                      <PrivateRoute exact path={`${url}/ended-qsts`} component={RateClients_EndedQsts}/>
+                      <PrivateRoute exact path={`${url}/ended-qsts/rate-users/:code`} component={Rate}/>
                       <PrivateRoute exact path={`${url}/order-transfers`} component={Transfers}/>
                       <PrivateRoute exact path={`${url}/sent-orders`} component={SentOrders}/>
                       <PrivateRoute exact path={`${url}/recieved-orders`} component={RecievedOrders}/>
@@ -103,8 +115,6 @@ function App() {
                   <PrivateRoute exact path={`/blacklist`} ><Blacklist /></PrivateRoute>
                   <PrivateRoute exact path={`/cash-orders`} ><CashOrders /></PrivateRoute>
                   <PrivateRoute exact path={`/cash-orders/:nat_id/:date`} ><CashOrderInfo /></PrivateRoute>
-                  <PrivateRoute exact path={`/qst-data`} ><QstData /></PrivateRoute>
-                  <PrivateRoute exact path={`/qst-loop/:code`} ><QstLoop /></PrivateRoute>
                   <PrivateRoute exact path={`/advances`} ><Advances /></PrivateRoute>
                   <PrivateRoute exact path={`/buyings`} ><Buyings /></PrivateRoute>
                   <PrivateRoute exact path={`/add-buyings`} ><AddBuyings /></PrivateRoute>
@@ -112,7 +122,9 @@ function App() {
                   <PrivateRoute exact path={`/add-out-buyings`} ><AddOutBuyings /></PrivateRoute>
                   <PrivateRoute exact path={`/finance`} ><Finance /></PrivateRoute>
                   <PrivateRoute exact path='/test' ><Test/></PrivateRoute>
-                  {localStorage.getItem('token') && jwt_decode(localStorage.getItem('token')).authority != 'marketing' ? <Route exact path={`/products`} ><Products /></Route> : ''}
+                  {localStorage.getItem('token') && (jwt_decode(localStorage.getItem('token')).authority != 'marketing')  ? <PrivateRoute exact path={`/products`} ><Products /></PrivateRoute> : ''}
+                  {localStorage.getItem('token') && (jwt_decode(localStorage.getItem('token')).authority != 'collect')  ? <PrivateRoute exact path={`/qst-data`} ><QstData /></PrivateRoute> : ''}
+                  {localStorage.getItem('token') && (jwt_decode(localStorage.getItem('token')).authority != 'collect')  ? <PrivateRoute exact path={`/qst-loop/:code`} ><QstLoop /></PrivateRoute> : ''}
                
                 </PrivateRoute>
                 {/* <Route exact path="/:category/:prefix-:suffix/:product_name/:id"  render={ (props)=> <Product {...props}  /> }></Route>   */}

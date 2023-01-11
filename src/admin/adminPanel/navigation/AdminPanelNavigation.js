@@ -111,8 +111,10 @@ useEffect(() => {
                         <NavLink  onClick={()=>setShowMenu(false)} to={`/dashboard/garantees`} className="Admin_Left_Menu_li_dropdown" activeClassName="Admin_Left_Menu_li_dropdown_active"><span>الضامنين</span>  <FiUsers/></NavLink>
                     </div>
 
-                   
-                    
+                    <div className="Admin_Right_MENU_li">
+                        <NavLink  onClick={()=>setShowMenu(false)} to={`/dashboard/ended-qsts`} activeClassName="Admin_Left_Menu_li_active"  className="Admin_Left_Menu_li"><IoMdStats/><span> التقييم</span> </NavLink>
+                    </div>
+
                     <div onClick={L2_dropdown} className="Admin_Left_Menu_li">اضافة بيانات بلا حدود<RiArrowDropDownLine className={L2_dropdownStatus ? 'arrow_on' : 'arrow_off'} id="arrow_icon"/></div>
                     <div className={L2_dropdownStatus ? 'L_dropdown_show' :'L_dropdown_hide'}>
                          <NavLink  onClick={()=>setShowMenu(false)} to={`/dashboard/add-products`} className="Admin_Left_Menu_li_dropdown" activeClassName="Admin_Left_Menu_li_dropdown_active"><span>  اضافة منتجات    </span>  <FcAddDatabase/></NavLink>

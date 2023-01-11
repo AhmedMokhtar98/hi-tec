@@ -38,7 +38,7 @@ const Logout = ()=>{
         });
 }
 
-useEffect(() => {
+useEffect(async() => {
     const handler = (e) => setMatches( e.matches );
     window.matchMedia("(min-width: 950px)").addListener(handler);
 },[])

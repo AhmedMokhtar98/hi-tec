@@ -51,7 +51,7 @@ useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchM
 
 const getData = ()=>{
     if(auth != 'admin'){
-        const body = {branch:branchname}
+        const body = {branch:branchname, bransh:bransh,auth:auth}
         axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-processes',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{

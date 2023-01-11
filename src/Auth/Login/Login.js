@@ -59,6 +59,7 @@ useEffect(() => {
 useEffect(() => { 
     if(redirect){
         if(authType === 'marketing'){history.push('/products')}
+       else if(authType === 'collect'){history.push('/qst-data')}
         else{history.push('/')}
     } 
 }, [redirect])

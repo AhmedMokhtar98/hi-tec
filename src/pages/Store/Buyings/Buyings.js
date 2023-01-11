@@ -40,7 +40,7 @@ const[url,setUrl]=useState(new URL(window.location));
 const[bransh,setBransh]=useState(url.searchParams.has('branch') ? params.get('branch').split(","):'الكل');
 
 /*--------Pagination--------------*/
-useEffect(() => {
+useEffect(async () => {
     const params = new URLSearchParams(window.location.search);
     (params.has('page') ? setCurrentPage(parseInt(params.get('page')))  : setCurrentPage(1) );
 },[])
@@ -55,8 +55,8 @@ const CountOverall = ()=>{
         setPagesNumbers(pages_count) 
     })
  }
- useEffect(() => { CountOverall() }, [])
- useEffect(() => { CountOverall() }, [bransh])
+ useEffect(async () => { CountOverall() }, [])
+ useEffect(async () => { CountOverall() }, [bransh])
 
 /*-------------------handle Search-----------------------*/
 const HandleSearch = (value)=>{setSearch(value);  setsearchType('text');}

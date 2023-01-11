@@ -80,10 +80,6 @@ const Notification = ()=>{
     });
 }
 
-useEffect(() => {
-    Notification()
-}, [])
-
     return (
             <div className="NavStack">
                 <div className="NavBar">

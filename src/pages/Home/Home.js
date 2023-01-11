@@ -4,7 +4,11 @@ import HeaderMenu from './../components/HeaderMenu';
 
 export default function Home() {
 const[matches1,setMatches1] = useState(window.matchMedia("(min-width: 950px)").matches)
-useEffect(() => {const handler1 = (e) => setMatches1( e.matches ); window.matchMedia("(min-width: 950px)").addListener(handler1);},[])
+
+useEffect(() => {
+  const handler1 = (e) => setMatches1( e.matches );
+   window.matchMedia("(min-width: 950px)").addListener(handler1);
+},[])
   return (
     <div className="Page_Container">
         <div className="Page_Header"> 

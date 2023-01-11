@@ -6,6 +6,7 @@ import axios from 'axios'
 export default function UserProfile() {
 const params = useParams()
 const[Data, setData] = useState([])
+const[fines, setFines] = useState(null)
 const[rate, setRate] = useState(null)
 const[issues, setIssues] = useState('')
 const[code, setCode] = useState(null)
@@ -26,17 +27,29 @@ const GetData = async()=>{
 
 useEffect(() => {
     GetData()
-    getRate()
+    getFines()
+    GetRate()
 }, [])
 
-const getRate = ()=>{
+const getFines = ()=>{
     const body = {nat_id:params.nat_id}
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/user-rate',body,{
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-user-fines',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
-        setRate(response.data.result.length)
+        setFines(response.data.result[0].count)
     })
 }
+
+const GetRate = ()=>{
+    const body = {nat_id:params.nat_id}
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-rate',body,{
+        headers:{"x-access-token":localStorage.getItem('token')}
+    }).then((response)=>{
+     console.log(response);
+     setRate(response.data.result[0].rate)
+    })
+}
+
 
 
   return (
@@ -47,11 +60,11 @@ const getRate = ()=>{
         <div className="profile_status_banner">
             <div className="banner_card_div" id="fines_card">
                 <div>عدد الغرامات</div>
-                <div className="rating_section">{rate}</div>
+                <div className="rating_section">{fines}</div>
             </div>
             <div className="banner_card_div" id="ratecondition_card">
                 <div>حالة العميل</div>
-                <div className="rating_section">{(rate == 0) ? 'ممتاز' :   (3 >= rate > 0) ? 'جيد' : (3 < rate <=6) ? 'مقبول' : (rate > 6) && 'غير منضبط'}</div>
+                <div className="rating_section">{(rate == 0) ? 'لم يتم التقييم بعد' :   ( rate == 1) ? 'سئ' : ( rate ==2) ? 'مقبول' : ( rate == 3) ? 'جيد ' : (rate == 4 ) ? 'جيد جدا' : (rate == 5) && 'ممتاز'}</div>
             </div>
             <div className="banner_card_div" id="branch_card">
                 <div>الفرع</div>

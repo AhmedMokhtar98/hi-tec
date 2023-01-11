@@ -10,10 +10,11 @@
 }
 
 img.login_image {
-    height: 470px;
-    width: 470px;
+    height: 20vw;
+    width: 20vw;
     z-index: -1;
 }
+
 a.active {
     text-decoration: none;
 }
@@ -184,6 +185,11 @@ div#Loading_Dialog {
   }
 
 @media  screen and (max-width: 560px) {
+    img.login_image {
+        height: 40vw;
+        width: 40vw;
+        z-index: -1;
+    }
     form.Auth_Form {
         width: 90vw;
     }
