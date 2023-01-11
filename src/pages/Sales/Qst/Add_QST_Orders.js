@@ -152,6 +152,8 @@ handlePayment = (e)=>{
 useEffect = ()=>{
         const {product_price,prepaid_auto,prepaid,premium,period} = this.state
         var x1 =  Number(product_price) + (Number(product_price) * 0.02) // سعر المنتج + 0.2
+
+        
         if(!prepaid_auto){// لو اوتوماتيك
             var advance = Math.floor(x1 * 0.20) // المقدم مفروض يتدفع
             this.setState({prepaid:advance})

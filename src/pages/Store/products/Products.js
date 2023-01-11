@@ -62,7 +62,7 @@ const X_Search = ()=>{
 }
 const GetData = ()=>{
     const body = {branch:branchname, bransh:bransh, auth:auth}
-    axios.post(`http://localhost:8080/api/products`,body,{
+    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products`,body,{
     headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         const x = response.data.result
