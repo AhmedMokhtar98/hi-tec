@@ -19,8 +19,6 @@ const[loading, setLoading]=useState(false)
 const[success_msg, setSuccessMsg]=useState(false)
 
 const handleOpenFileInput = () => { inputRef.current.click(); };
-
-
 const readUploadFile = (e) => {
     e.preventDefault();
     const file = e.target.files[0]; 
