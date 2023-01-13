@@ -209,7 +209,7 @@ ProductsMenu = ()=>{
     })
 }
 componentDidMount(){
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2')
+    axios.get('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2')
     .then((response)=>{
         const x = response.data.branches.filter((el)=>{return  el.branch_name !='الكل'})
         const obj = {'branch_name':''};
