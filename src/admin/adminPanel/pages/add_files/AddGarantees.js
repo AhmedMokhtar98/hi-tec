@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as xlsx from 'xlsx'
 import {BsFileEarmarkPlus,BsFileEarmarkText} from 'react-icons/bs'
 import './add_files.css'
-import Lottie from 'react-lottie';
+// import Lottie from 'react-lottie';
 import uploading from './component/uploading';
 import Button  from '@mui/material/Button';
 
@@ -111,7 +111,7 @@ const defaultOptions = {
         </form>
         }
         {loading ? <div className="uploading_animation">
-                    <Lottie options={defaultOptions} height={400} width={400}/>
+                    {/* <Lottie options={defaultOptions} height={400} width={400}/> */}
                   </div>
         : ''}
          <div id="success_uploading_MSG" className={success_msg ? "Success_Dialog_hidden Success_Dialog_show" : "Success_Dialog_hidden"}>تم اضافة {dataLength} عميل بنجاح !</div>
