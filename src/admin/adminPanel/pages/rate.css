@@ -59,7 +59,27 @@ button#purchase_all {
     padding-bottom: 8px;
     cursor: pointer;
 }
+.Page_Container_Rate {
+    direction: rtl;
+    width: 80%;
+    top: 45px;
+    position: absolute;
+}
+.table_grap_rate {
+    width: 100%;
+    direction: rtl;
+}
+.fines_card{
+    width: max-content;
+}
+.Rate_banner{
+    text-align: center;
+    display: flex;
+}
 
+div#ratecondition_card {
+    width: max-content;
+ }
 input.purchase_all_employee_input {
     padding: 5px;
     border-radius: 5px;
@@ -68,6 +88,12 @@ input.purchase_all_employee_input {
     margin-right: 5px;
 }
 
+@media screen and (max-width:1075px) {
+    .Page_Container_Rate {
+        width: 100%;
+    }
+
+}
 @media screen and (max-width:950px) {
     .Qst_Loop_Container {
         position: relative;
@@ -80,6 +106,31 @@ input.purchase_all_employee_input {
     }
     input.qst_loop_Input {
         width: max-content;
+    }
+    .Rate_banner{
+        text-align: center;
+        display: block;
+    }
+    .fines_card{
+        width:100%;
+    }
+    div#ratecondition_card {
+       width: 100%;
+    }
+    .rating_section {
+        text-align: center;
+        width: 100%;
+    }
+    .MuiBox-root.css-jm3i9k {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.user_rate_btn.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+        width: 100%;
+        background: aliceblue;
     }
 }
 

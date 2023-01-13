@@ -8,6 +8,7 @@ import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import {MdOutlineDateRange} from 'react-icons/md'
 import arLocale from "date-fns/locale/ar-EG";
 import './rate.css';
+import './tables.css'
 import  Button  from '@mui/material/Button';
 import jwt_decode from "jwt-decode";
 import GoBack from './../../../pages/components/Back';
@@ -113,8 +114,8 @@ useEffect(() => {   getData() },[])
 useEffect(() => {   getFines() },[Code])
 useEffect(() => {   GetRate() },[nat_id])
     return (
-        <div className="Page_Container" style={{ width: "80%"}}>
-            <div className="Page_Header"> 
+            <div className="Page_Container_Rate">
+                <div className="Page_Header"> 
                 <GoBack/>
                 {!matches1 && <HeaderMenu/>}
                 <div className="Header_word">تقييم العميل</div>
@@ -144,7 +145,7 @@ useEffect(() => {   GetRate() },[nat_id])
                         </div>
                     </div>
                     
-                    <div className="table_grap" >
+                    <div className="table_grap_rate" >
                        <table id="table_id" style={{direction: "rtl", width: "100%"}}>
                             {matches2 &&
                             <tr className="table_tr_head">
@@ -185,12 +186,12 @@ useEffect(() => {   GetRate() },[nat_id])
                                 </tr>
                             ))} 
                         </table>
-                    <div style={{display:'flex', textAlign:'center'}}>
-                        <div className="banner_card_div" id="fines_card" style={{width:'max-content'}}>
+                    <div  className="Rate_banner">
+                        <div className="banner_card_div" id="fines_card" >
                             <div>عدد الغرامات</div>
                             <div className="rating_section">{fines}</div>
                         </div> 
-                        <div className="banner_card_div" id="ratecondition_card" style={{width:'max-content'}}>
+                        <div className="banner_card_div" id="ratecondition_card">
                             <div>حالة العميل</div>
                             <div className="rating_section">{(value == 0) ? 'لم يتم التقييم بعد' :   ( value == 1) ? 'سئ' : ( value ==2) ? 'مقبول' : ( value == 3) ? 'جيد ' : (value == 4 ) ? 'جيد جدا' : (value == 5) && 'ممتاز'}</div>
                         </div>
