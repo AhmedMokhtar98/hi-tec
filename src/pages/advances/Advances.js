@@ -43,7 +43,7 @@ const selectSearchType = (e)=>{setSearchType(e.target.value)}
 const SubmitSearch = ()=>{
     if(auth != 'admin'){
         const body = {search:search,type:SearchType, branch:branchname}
-            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/advances`,body,{
+            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/advances-2`,body,{
             headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
             setData(response.data.result);
@@ -64,7 +64,7 @@ const SubmitSearch = ()=>{
     }
     else{
         const body = {search:search,type:SearchType, branch:bransh}
-        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-advances`,body,{
+        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-advances-2`,body,{
         headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
             setData(response.data.result);

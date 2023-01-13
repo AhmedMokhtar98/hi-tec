@@ -102,7 +102,7 @@ const Submit = (index)=>{
         console.log('state',state)
         const calc = ( Number(RestPrice) + Number(fine) ) - Number(paid)
         const body = {data:state, id:id, restprice:calc, code:Code, branch:branchname}
-        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/collect-qst',body,{
+        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/collect-qst-2',body,{
             headers:{"x-access-token":localStorage.getItem('token')}
         })
         .then((response)=>{
@@ -127,7 +127,7 @@ const SubmitSearch = async()=>{
     setLoading(true)
     if(auth != 'admin'){
         const data = {search:search,type:SearchType, branch:branchname}
-        await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-collect-today`,data,{
+        await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-collect-today-2`,data,{
             headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
             setData(response.data.result);

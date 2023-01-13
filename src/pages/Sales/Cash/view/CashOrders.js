@@ -56,7 +56,7 @@ useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchM
 const getCashOrders = async()=>{
     if(auth != 'admin'){
         const body = {branch:branchname}
-        await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/cash-orders',body,{
+        await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/cash-orders-2',body,{
             headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
             setData(response.data.orders)
@@ -73,7 +73,7 @@ const getCashOrders = async()=>{
     }
     else{
         const body = {branch:bransh}
-        await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-cash-orders',body,{
+        await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-cash-orders-2',body,{
             headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
             setData(response.data.orders)
@@ -150,7 +150,7 @@ const DeleteOrder = ()=>{
   if(popup.show){
     const body = {process_id:popup.id}
     console.log(body);
-    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/delete_cash_order`,body,
+    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/delete_cash_order-2`,body,
     {headers:{'x-access-token':localStorage.getItem('token')}})
     .then((response)=>{
         setData(data.filter((val)=>{
@@ -167,7 +167,7 @@ const DeleteMultiUsers = (e)=>{
     e.preventDefault()
     setloadingSmall(true)
     const body = {ids:selectedUsers}
-    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/delete_multi_cash_order`,body,
+    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/delete_multi_cash_order-2`,body,
     {headers:{'x-access-token':localStorage.getItem('token')}})
     .then((response)=>{
         setData(data.filter((val)=>{

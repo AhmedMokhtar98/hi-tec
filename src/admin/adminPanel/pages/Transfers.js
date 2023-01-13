@@ -57,7 +57,7 @@ useEffect(() => {
 },[])
 const GetData = async()=>{
     const body = {bransh:bransh}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-transfers',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-transfers-2',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
          const x = response.data.result
@@ -105,7 +105,7 @@ const HandleChange = (e,i)=>{
 }
 const UpdateData = async(i,product_id)=>{
     const body = {product_id:product_id, product_name:Data[i]['product_name'], product_price:Data[i]['product_price'], quantity:Data[i]['quantity']}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-update-products',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-update-products-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         const arr = [...Data]
@@ -118,7 +118,7 @@ const UpdateData = async(i,product_id)=>{
 const deleteAlertHandle = (id)=>{  setPopup({show:true, id:id })  }
 
 const DeleteProduct = async()=>{
-    await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-delete-product/${popup.id}`,{
+    await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-delete-product-2/${popup.id}`,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
        setData(Data.filter((val)=>{
@@ -163,7 +163,7 @@ const SendRequest = ()=>{
         else{
             const data = {branchname:transfer_branch ,branch:branch_2, product_id:product_id, product_name:transfer_name, quantity:transfer_qnty, note:transfer_note, price:price, total:transfer_qnty*price }
             console.log(data);
-            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/transfer_request`,data,{
+            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/transfer_request-2`,data,{
             headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
                 setOpen(false)
@@ -173,7 +173,7 @@ const SendRequest = ()=>{
     else{
         const data = {branchname:branchname ,branch:transfer_branch, product_id:product_id, product_name:transfer_name, quantity:transfer_qnty, note:transfer_note, price:price, total:transfer_qnty*price }
         console.log(data);
-        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/transfer_request`,data,{
+        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/transfer_request-2`,data,{
         headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
             setOpen(false)
@@ -184,7 +184,7 @@ const SendRequest = ()=>{
 
 
 useEffect(() => {
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches')
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2')
     .then((response)=>{
         const x = response.data.branches.filter((el)=>{return  el.branch_name !='الكل'})
         const obj = {'branch_name':''};

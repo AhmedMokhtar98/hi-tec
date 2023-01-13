@@ -43,7 +43,7 @@ useEffect(() => {
 
 const GetData = async()=>{
     const body = {branch:branchname, bransh:bransh, auth:auth}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/dashboard-garantees',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/dashboard-garantees-2',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
          setUsersCount(response.data.result.length)
@@ -100,7 +100,7 @@ const UpdateData = async(i)=>{
         g_work_address:Data[i]['g_work_address'],
     }
     console.log('body',body);
-     await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-update-garantee',body,{
+     await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-update-garantee-2',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
          setOpen(false);
@@ -110,7 +110,7 @@ const UpdateData = async(i)=>{
 const deleteAlertHandle = (id)=>{  setPopup({show:true, id:id })  }
 
 const DeleteUser = async()=>{
-    await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-delete-garantee/${popup.id}`,{
+    await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-delete-garantee-2/${popup.id}`,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
        setData(Data.filter((val)=>{

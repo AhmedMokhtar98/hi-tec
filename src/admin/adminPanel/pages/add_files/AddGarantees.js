@@ -24,7 +24,7 @@ const[success_msg, setSuccessMsg]=useState(false)
 const handleOpenFileInput = () => { inputRef.current.click(); };
 
 const getClients_ID = ()=>{
-    axios.get(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-clients-ids`)
+    axios.get(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-clients-ids-2`)
     .then(response =>{
         setClientsIds(response.data.result)
     })
@@ -76,7 +76,7 @@ const SubmitFile = (e)=>{
         if(FileType){
         setLoading(true)
             const body={data:array}
-            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-finite-garantees`,body)
+            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-finite-garantees-2`,body)
             .then(response =>{
                 setArray('')
                 setFileName('')

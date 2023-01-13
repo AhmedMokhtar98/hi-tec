@@ -55,7 +55,7 @@ useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchM
 
 const getData = async()=>{
     const body = {branch:branchname, code:Code, auth:auth}
-    await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-loop`,body,{
+    await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-loop-2`,body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         console.log(response.data.result);
@@ -71,7 +71,7 @@ const getData = async()=>{
 
 const getFines = ()=>{
     const body = { code:Code}
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-qst-process-fines',body,{
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-qst-process-fines-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         setFines(response.data.result[0].count)
@@ -93,7 +93,7 @@ function getLabelText(value) {
 
 const GetRate = ()=>{
     const body = {nat_id:nat_id}
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-rate',body,{
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-rate-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
      console.log(response);
@@ -103,7 +103,7 @@ const GetRate = ()=>{
 
 const SubmitRate = ()=>{
     const body = {rate:value,nat_id:nat_id}
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/rate-user',body,{
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/rate-user-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
      console.log(response);

@@ -28,7 +28,7 @@ const Submit = (e)=>{
         else{
             setLoading(true)
             const body = {password:password[0]['password_1'], userid:userid}
-            axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/change_password',body,
+            axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/change_password-2',body,
             {headers:{ "x-access-token":localStorage.getItem('token')} })
             .then((response)=>{
                 setLoading(false)

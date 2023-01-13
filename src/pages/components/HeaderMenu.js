@@ -32,7 +32,7 @@ const HoverScreen = ()=>{
     setHeaderDropDown(false)
 }
 const Logout = ()=>{
-    axios.get("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/logout")
+    axios.get("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/logout-2")
         .then((response)=>{
             console.log(response.data.LoggedOut);
             setLoginstatus(false);

@@ -32,7 +32,7 @@ useEffect(() => {
 },[])
 const GetData = async()=>{
     const body = {branch:branchname, auth:auth}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/recieved-transfers',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/recieved-transfers-2',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
          const x = response.data.result
@@ -75,7 +75,7 @@ const AcceptAlertHandle = (id,product_id,product_name,product_price,branch,qnty)
 
 const AcceptOrder = ()=>{
    const data = {id:popup.id, product_id:popup.product_id, product_name:popup.product_name, product_price:popup.product_price, branch_1:branchname, branch_2:popup.branch, qnty:popup.qnty}
-    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/accept-transfer-order`,data,{
+    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/accept-transfer-order-2`,data,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         alert('done')
@@ -88,7 +88,7 @@ const AcceptOrder = ()=>{
        setloadingSmall(false)
        setPopup({show:false,  id:null})
        const data2 = {id:popup.id, product_id:popup.product_id, product_name:popup.product_name, product_price:popup.product_price, branch_1:branchname, branch_2:popup.branch, qnty:popup.qnty}
-       axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/update-products-table`,data2,{
+       axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/update-products-table-2`,data2,{
         headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
             console.log(response);

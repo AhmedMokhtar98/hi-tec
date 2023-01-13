@@ -36,7 +36,7 @@ const[bransh,setBransh]=useState(url.searchParams.has('branch') ? params.get('br
 const getData = ()=>{
     if(auth != 'admin'){
         const body = {branch:branchname}
-        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/finance`,body,{
+        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/finance-2`,body,{
                 headers:{"x-access-token":localStorage.getItem('token')}
                 }).then((response)=>{
                 setData(response.data.result);
@@ -45,7 +45,7 @@ const getData = ()=>{
     }
     else{
         const body = {branch:bransh}
-        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-finance`,body,{
+        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-finance-2`,body,{
         headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
             setData(response.data.result);
@@ -77,7 +77,7 @@ const SubmitSearch = ()=>{
     setLoading(true)
     if(auth != 'admin'){
         const body = {search:search, branch:branchname}
-        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/finance-by-day`,body,{
+        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/finance-by-day-2`,body,{
         headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
         setLoading(false)
@@ -91,7 +91,7 @@ const SubmitSearch = ()=>{
     }
     else{
         const body = {search:search, branch:bransh}
-        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/finance-by-day`,body,{
+        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/finance-by-day-2`,body,{
         headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
         setLoading(false)

@@ -47,7 +47,7 @@ useEffect(async () => {
 
 const CountOverall = ()=>{
     const body = { branch:branchname}
-    axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/buyings-count",body,{
+    axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/buyings-count-2",body,{
         headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
         const arr = response.data.result[0]['count']
@@ -65,7 +65,7 @@ const SubmitSearch = ()=>{
     setLoading(true)
     if(auth != 'admin'){
         const data = {search:search, searchType:searchType, branch:branchname, offset:(currentPage-1)*10}
-            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/buyings-view`,data,{
+            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/buyings-view-2`,data,{
             headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
                 setLoading(false)
@@ -86,7 +86,7 @@ const SubmitSearch = ()=>{
     }
     else{
         const data = {search:search, searchType:searchType, branch:bransh ,offset:(currentPage-1)*10}
-        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-buyings-view`,data,{
+        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-buyings-view-2`,data,{
             headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
             setLoading(false)

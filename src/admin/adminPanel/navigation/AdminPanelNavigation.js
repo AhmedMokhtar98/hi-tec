@@ -51,7 +51,7 @@ useEffect(() => {
 },[])
 
 const Logout = ()=>{
-    axios.get("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/logout")
+    axios.get("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/logout-2")
         .then((response)=>{
             setLoginstatus(false);
             localStorage.removeItem('token');
@@ -61,7 +61,7 @@ const Logout = ()=>{
 }
 useEffect(() => {
     const data = {branch:branchname, auth:auth}
-    axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/recieved-transfer-count",data)
+    axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/recieved-transfer-count-2",data)
     .then((response)=>{
         console.log(response.data[0].count);
         setTransfersCountR(response.data[0].count)
@@ -72,7 +72,7 @@ useEffect(() => {
 
 useEffect(() => {
     const data = {branch:branchname}
-    axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/sent-transfer-count",data)
+    axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/sent-transfer-count-2",data)
     .then((response)=>{
         console.log(response.data[0].count);
         setTransfersCountS(response.data[0].count)

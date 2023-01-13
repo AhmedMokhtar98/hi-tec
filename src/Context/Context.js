@@ -18,7 +18,7 @@ export default function Context(props) {
         if(localStorage.getItem('token')){
            const check = jwt_decode(localStorage.getItem('token')).id
            setUserid(check)
-            await axios.get(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/login/${check}`,
+            await axios.get(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/login-2/${check}`,
             {headers:{ "x-access-token":localStorage.getItem('token')} })
             .then((response)=>{
                 console.log(response.data);

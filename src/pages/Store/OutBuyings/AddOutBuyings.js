@@ -118,7 +118,7 @@ SubmitData = async (e)=>{
         return item; 
     });
     const data = {buyings:buyings,ins:Insert,up:Update}
-    await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-out-buyings`,data,{
+    await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-out-buyings-2`,data,{
     headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         this.setState({
@@ -155,7 +155,7 @@ componentDidUpdate(prevState) {
 GetProductsMenu = ()=>{
     this.context.setNavHidden(true)
     const body ={ branch:this.state.branchname }
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/out-products-select',body)
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/out-products-select-2',body)
     .then((response)=>{
         this.setState({Products:response.data.result})
     })
@@ -164,7 +164,7 @@ GetProductsMenu = ()=>{
 componentDidMount(){
     this.GetProductsMenu()
     if(this.state.auth ==='admin'){
-        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches')
+        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2')
         .then((response)=>{
             const x = response.data.branches.filter((el)=>{return  el.branch_name !='الكل'})
             const obj = {'branch_name':''};

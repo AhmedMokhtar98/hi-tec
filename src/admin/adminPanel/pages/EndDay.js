@@ -20,7 +20,7 @@ const [success_msg , setSuccessMsg] = useState(false);
 
 const GetData = () => {
    const body = {date:date,branch:branchname}
-    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-details-today`,body,{
+    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-details-today-2`,body,{
     headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         setAdvances(response.data.alldata[0].advances)

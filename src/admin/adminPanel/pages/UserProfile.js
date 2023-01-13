@@ -14,7 +14,7 @@ const[branch, setUserBranch] = useState('')
 
 const GetData = async()=>{
     const body = {nat_id:params.nat_id}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/user-profile',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/user-profile-2',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
         console.log(response);
@@ -33,7 +33,7 @@ useEffect(() => {
 
 const getFines = ()=>{
     const body = {nat_id:params.nat_id}
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-user-fines',body,{
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-user-fines-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         setFines(response.data.result[0].count)
@@ -42,7 +42,7 @@ const getFines = ()=>{
 
 const GetRate = ()=>{
     const body = {nat_id:params.nat_id}
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-rate',body,{
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/get-rate-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
      console.log(response);

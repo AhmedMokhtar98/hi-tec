@@ -48,7 +48,7 @@ useEffect(() => {
 
 const CountOverall = ()=>{
    const body = { branch:branchname}
-   axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/blocked_inquiries_overall_count",body)
+   axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/blocked_inquiries_overall_count-2",body)
    .then((response) =>{
        const arr = response.data.result[0]['count']
        const pages_count =  Math.ceil((arr) / postsPerPage);
@@ -62,7 +62,7 @@ useEffect(() => { CountOverall() }, [])
 const GetData = async()=>{
     setloading(true)
     const body={branch:branchname,auth:auth, offset:(currentPage-1)*20}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/blocked_inqueries',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/blocked_inqueries-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         setData(response.data.result)
@@ -97,7 +97,7 @@ const SubmitSearch = ()=>{
     if(search.length > 0){
         setloading(true)
         const body={branch:branchname, search:search}
-        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/blocked_inqueries_search',body,{
+        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/blocked_inqueries_search-2',body,{
             headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
             setData(response.data.result)

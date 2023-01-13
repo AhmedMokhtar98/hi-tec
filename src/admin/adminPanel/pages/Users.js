@@ -57,7 +57,7 @@ const [open, setOpen] = React.useState(false);
 
 const GetData = async()=>{
     const body = {branch:branchname, bransh:bransh, auth:auth, status:status}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/dashboard-clients',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/dashboard-clients-2',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
          setUsersCount(response.data.result.length)
@@ -115,7 +115,7 @@ const UpdateData = async(i)=>{
         salary:Data[i]['salary'],
         work_address:Data[i]['work_address'],
     }
-     await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-update-clients',body,{
+     await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-update-clients-2',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
          setOpen(false);
@@ -128,7 +128,7 @@ const deleteAlertHandle = (id)=>{  setPopup({show:true, id:id })  }
 
 const DeleteUser = async()=>{
      alert(popup.id)   
-     await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-delete-client/${popup.id}`,{
+     await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-delete-client-2/${popup.id}`,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
         setData(Data.filter((val)=>{

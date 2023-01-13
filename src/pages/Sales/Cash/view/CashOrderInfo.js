@@ -19,7 +19,7 @@ useEffect(() => {const handler1 = (e) => setMatches1( e.matches ); window.matchM
 const OrderInfo =()=>{
     setLoading(true)
     const body = {code:code}
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/cash-order-info',body,
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/cash-order-info-2',body,
     {headers:{ "x-access-token":localStorage.getItem('token')} })
     .then((response)=>{
         setLoading(false)

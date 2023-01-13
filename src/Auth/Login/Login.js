@@ -29,7 +29,7 @@ const Submit = (e)=>{
     else{
         setLoading(true)
         const data = loginData[0]
-        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/login',data)
+        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/login-2',data)
         .then((response)=>{
             setLoading(false)
             setErrMsg(response.data.error_msg)

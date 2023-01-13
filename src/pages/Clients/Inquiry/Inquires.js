@@ -52,7 +52,7 @@ useEffect(() => {
 
 const CountOverall = ()=>{
    const body = { branch:branchname}
-   axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiries-overall-count",body)
+   axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiries-overall-count-2",body)
    .then((response) =>{
        const arr = response.data.result[0]['count']
        const pages_count =  Math.ceil((arr) / postsPerPage);
@@ -66,7 +66,7 @@ useEffect(() => { CountOverall() }, [])
 const GetData = async()=>{
     setloading(true)
     const body={branch:branchname,auth:auth, offset:(currentPage-1)*20}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inqueries',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inqueries-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         setData(response.data.result)
@@ -102,7 +102,7 @@ const SubmitSearch = ()=>{
         if(auth != 'admin'){
             setloading(true)
             const body={branch:branchname, search:search}
-            axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inqueries-search',body,{
+            axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inqueries-search-2',body,{
                 headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
                 setData(response.data.result)
@@ -119,7 +119,7 @@ const SubmitSearch = ()=>{
         else{
             setloading(true)
             const body={branch:bransh, search:search}
-            axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inqueries-search',body,{
+            axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inqueries-search-2',body,{
                 headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
                 setData(response.data.result)

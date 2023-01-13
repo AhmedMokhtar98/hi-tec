@@ -91,7 +91,7 @@ CodeAutoFillHandle = ()=>{
 AutoFill = (option)=>{
     this.setState({Clientdata:[option],Code:option.code,CodeExist:false})
     const body = {client_id:option.nat_id}
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-garantees-select',body)
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-garantees-select-2',body)
     .then((response)=>{
         this.setState({
             SG1V:null,
@@ -201,7 +201,7 @@ Submit =(e)=>{
     const x = Object.assign({}, ...this.state.Garantee_2_data)
     const G2Data = Object.assign({"client_id":this.state.Clientdata[0].nat_id}, x);
     const body ={ data:Qstdata, loop:this.state.QstLoop,addG2:this.state.G2_not_exist,G2Data:G2Data}
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-qst-process',body)
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-qst-process-2',body)
     .then((response)=>{
             this.setState({loading:false})
             this.setState({success_msg:true})
@@ -245,14 +245,14 @@ componentDidUpdate(prevState) {
 
 componentDidMount(){
     this.context.setNavHidden(true)
-    axios.get('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/codes')
+    axios.get('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/codes-2')
     .then((response)=>{ this.setState({CodesArray:response.data.result}) })
 
     const data = {branch:this.state.branchName}
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-clients-select',data)
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-clients-select-2',data)
     .then((response)=>{ this.setState({Clients:response.data.result},()=>{console.log('clients',this.state.Clients);}) })
 
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches')
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2')
     .then((response)=>{
         const x = response.data.branches.filter((el)=>{return  el.branch_name !='الكل'})
         const obj = {'branch_name':''};
@@ -262,7 +262,7 @@ componentDidMount(){
     
     this.context.setNavHidden(true)
     const body ={ branch:this.state.branchName }
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-select',body)
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-select-2',body)
     .then((response)=>{
         this.setState({Products:response.data.result})
     })
@@ -270,7 +270,7 @@ componentDidMount(){
 ProductsMenu = ()=>{
     this.context.setNavHidden(true)
     const body ={ branch:this.state.branchName }
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-select',body)
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-select-2',body)
     .then((response)=>{
         this.setState({Products:response.data.result})
     })

@@ -28,7 +28,7 @@ const [loadingSmall, setloadingSmall] = useState(false);
 
 const GetData = async()=>{
     const body = {branch:bransh}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/finished_qsts',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/finished_qsts-2',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
          console.log(response.data.result);

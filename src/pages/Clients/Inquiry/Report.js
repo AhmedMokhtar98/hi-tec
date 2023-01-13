@@ -57,7 +57,7 @@ const Accept = ()=>{
     const x = {...data, 'nat_id':params.nat_id, 'branch':branchName}
     console.log(x);
     const body = {data:x}
-    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/upload_report`,body,{
+    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/upload_report-2`,body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     })
     .then((response)=>{

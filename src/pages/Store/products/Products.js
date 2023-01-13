@@ -62,7 +62,7 @@ const X_Search = ()=>{
 }
 const GetData = ()=>{
     const body = {branch:branchname, bransh:bransh, auth:auth}
-    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products`,body,{
+    axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-2`,body,{
     headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         const x = response.data.result
@@ -96,7 +96,7 @@ const HandleChange = (e,i)=>{
 }
 const UpdateData = async(i,product_id)=>{
     const body = {product_id:product_id, product_name:Data[i]['product_name'], product_price:Data[i]['product_price'], quantity:Data[i]['quantity']}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-update-products',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-update-products-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         const arr = [...Data]
@@ -110,7 +110,7 @@ const deleteAlertHandle = (id)=>{  setPopup({show:true, id:id })  }
 
 const DeleteProduct = async()=>{
     alert(popup.id)
-    await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-delete-product/${popup.id}`,{
+    await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-delete-product-2/${popup.id}`,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
        setData(Data.filter((val)=>{

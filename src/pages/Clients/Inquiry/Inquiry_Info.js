@@ -34,12 +34,12 @@ useEffect(() => {
 
 useEffect(async() => {
     const body ={ nat_id:params.nat_id, branch:branchName}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquery-user-info',body)
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquery-user-info-2',body)
     .then((response)=>{
         setViewData(response.data.result[0])
         setData(response.data.result)
     })
-    await axios.get('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/codes')
+    await axios.get('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/codes-2')
     .then((response)=>{
         setCodesArray(response.data.result)
     })
@@ -94,10 +94,10 @@ const Accept = async() =>{
        const body = {UserData:UserData}
        console.log('body',body);
        const body2 = {Garantees:arr}
-       axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiry-confirm-user',body)
+       axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiry-confirm-user-2',body)
       .then((response)=>{
            setSuccessMsg(response.data.success_msg)
-           axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiry-confirm-garantee',body2)
+           axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiry-confirm-garantee-2',body2)
            .then((response2)=>{
              setLoading(false)
              setSuccess(true)
@@ -117,7 +117,7 @@ const Accept = async() =>{
 const Delete = ()=>{
    setLoading(true)
    const body = {nat_id:params.nat_id, branch:branchName}
-   axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiry-delete`,body)
+   axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiry-delete-2`,body)
      .then((response)=>{
           console.log(response)
            setSuccessMsg(response.data.success_msg)
@@ -137,7 +137,7 @@ const AddToProblems =()=>{
     if(ViewData.issues ==='x'){alert('العميل مضاف بالفعل الي القضايا')}
     else{
         const body = {nat_id:params.nat_id}
-        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/set_issues`,body,{
+        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/set_issues-2`,body,{
             headers:{"x-access-token":localStorage.getItem('token')}
         })
         .then((response)=>{

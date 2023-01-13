@@ -37,7 +37,7 @@ useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchM
 
 const getData = async()=>{
     const body = {branch:branchname, code:Code, auth:auth}
-    await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-loop`,body,{
+    await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-loop-2`,body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         console.log(response.data.result);
@@ -140,7 +140,7 @@ const Submit = (index)=>{
         setData(upData);
         const calc = ( Number(RestPrice) + Number(fine) ) - Number(paid)
         const body = {data:row,id:id,restprice:calc,code:Code, branch:branchname}
-        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/collect-qst',body,{
+        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/collect-qst-2',body,{
             headers:{"x-access-token":localStorage.getItem('token')}
         })
         .then((response)=>{
@@ -167,7 +167,7 @@ const InputFocus = (e,index)=>{
 const PurchaseAll = (e)=>{
     e.preventDefault()
     const body = {date:new Date().toLocaleDateString('fr-CA'), code:Code, paid:Data[0]['premium'], fine:0, notes:'-', employee:employee, status:'true' }
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/purchase-all',body,{
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/purchase-all-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     })
     .then((response)=>{

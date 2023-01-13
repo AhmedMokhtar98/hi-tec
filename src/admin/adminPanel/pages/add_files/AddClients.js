@@ -52,7 +52,7 @@ const SubmitFile = (e)=>{
         if(FileType){
         setLoading(true)
             const body={data:array}
-            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-finite-clients`,body)
+            axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-finite-clients-2`,body)
             .then(response =>{
                 setArray('')
                 setFileName('')

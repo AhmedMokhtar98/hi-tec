@@ -5,7 +5,7 @@ export default function BranchFilter({SetBranch,bransh}) {
 const [branches, setBranches] =useState([])
 
 useEffect(() => {
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches')
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2')
     .then((response)=>{
         setBranches(response.data.branches)
     })

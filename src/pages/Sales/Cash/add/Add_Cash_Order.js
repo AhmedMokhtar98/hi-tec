@@ -255,9 +255,9 @@ Submit = async (e)=>{
     }
     // console.log(data);
     // console.log('result1',result1);
-    await axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-process",data)
+    await axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-process-2",data)
     .then((response)=>{
-        axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-data",result1)
+        axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-data-2",result1)
         .then((response2)=>{
             this.setState({
                     loading:false,
@@ -296,7 +296,7 @@ componentDidUpdate(prevState) {
 ProductsMenu = ()=>{
     this.context.setNavHidden(true)
     const body ={ branch:this.state.branchname }
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-select',body)
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-select-2',body)
     .then((response)=>{
         this.setState({Products:response.data.result})
     })
@@ -328,7 +328,7 @@ ProductsMenu = ()=>{
 }
 componentDidMount(){
     this.generateSerial()
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches')
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2')
     .then((response)=>{
         const x = response.data.branches.filter((el)=>{return  el.branch_name !='الكل'})
         const obj = {'branch_name':''};
@@ -337,7 +337,7 @@ componentDidMount(){
     
     this.context.setNavHidden(true)
     const body ={ branch:this.state.branchname }
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-select',body)
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/products-select-2',body)
     .then((response)=>{
         this.setState({Products:response.data.result})
     })

@@ -32,7 +32,7 @@ useEffect(() => {
 },[])
 const GetData = async()=>{
     const body = {branch:branchname}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/sent-transfers',body,{
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/sent-transfers-2',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
          const x = response.data.result
@@ -74,7 +74,7 @@ const deleteAlertHandle = (id)=>{  setPopup({show:true, id:id })  }
 
 const DeleteProduct = async()=>{
     alert(popup.id)
-    await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/delete-order/${popup.id}`,{
+    await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/delete-order-2/${popup.id}`,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
        setData(Data.filter((val)=>{
