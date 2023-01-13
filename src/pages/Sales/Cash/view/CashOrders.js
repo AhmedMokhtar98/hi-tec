@@ -54,8 +54,7 @@ useEffect(() => {const handler1 = (e) => setMatches1( e.matches ); window.matchM
 useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchMedia("(min-width: 760px)").addListener(handler2)},[])
 
 const getCashOrders = async()=>{
-    if(auth != 'admin'){
-        const body = {branch:branchname}
+        const body = {branch:branchname, bransh:bransh, auth:auth}
         await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/cash-orders-2',body,{
             headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
@@ -70,24 +69,7 @@ const getCashOrders = async()=>{
             setConnectMsg(true)
             setTimeout(() => { setConnectMsg(false) }, 1500);
         })
-    }
-    else{
-        const body = {branch:bransh}
-        await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-cash-orders-2',body,{
-            headers:{"x-access-token":localStorage.getItem('token')}
-        }).then((response)=>{
-            setData(response.data.orders)
-            setFilteredData(response.data.orders)
-            setIndexOfFirstPost((currentPage * postsPerPage)- postsPerPage)
-            setIndexOfLastPost(currentPage * postsPerPage)
-            setloading(false)
-        })
-        .catch((err)=>{
-            setloading(false)
-            setConnectMsg(true)
-            setTimeout(() => { setConnectMsg(false) }, 1500);
-        })
-    }
+
 }
 
 useEffect(()=>{ getCashOrders() },[])
