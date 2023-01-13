@@ -8,7 +8,6 @@ import uploading from './component/uploading';
 import Button  from '@mui/material/Button';
 
 export default function AddClients() {
- 
 const inputRef = useRef(null);
 const[folder_name]=useState('excel')
 const[FileType, setFileType]=useState(false)
