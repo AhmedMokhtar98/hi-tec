@@ -10,7 +10,7 @@ export default function CashOrderInfo() {
 const [Order,setOrder] = useState([]);
 const [branchname]=useState(jwt_decode(localStorage.getItem('token')).branchname)
 const [UserInfo,SetUserInfo] = useState([]);
-const { nat_id,date } = useParams();
+const { code } = useParams();
 const[matches1,setMatches1] = useState(window.matchMedia("(min-width: 950px)").matches)
 const[loading, setLoading]=useState(false)
 const[connect_msg, setConnectMsg]=useState(false)
@@ -18,7 +18,7 @@ useEffect(() => {const handler1 = (e) => setMatches1( e.matches ); window.matchM
 
 const OrderInfo =()=>{
     setLoading(true)
-    const body = {nat_id:nat_id, date:date, branch:branchname}
+    const body = {code:code}
     axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/cash-order-info',body,
     {headers:{ "x-access-token":localStorage.getItem('token')} })
     .then((response)=>{

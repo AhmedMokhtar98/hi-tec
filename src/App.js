@@ -112,7 +112,7 @@ function App() {
                   <PrivateRoute exact path={`/inquiries/report/:nat_id`} ><Report/></PrivateRoute>
                   <PrivateRoute exact path={`/blacklist`} ><Blacklist /></PrivateRoute>
                   <PrivateRoute exact path={`/cash-orders`} ><CashOrders /></PrivateRoute>
-                  <PrivateRoute exact path={`/cash-orders/:nat_id/:date`} ><CashOrderInfo /></PrivateRoute>
+                  <PrivateRoute exact path={`/cash-orders/:code`} ><CashOrderInfo /></PrivateRoute>
                   <PrivateRoute exact path={`/advances`} ><Advances /></PrivateRoute>
                   <PrivateRoute exact path={`/buyings`} ><Buyings /></PrivateRoute>
                   <PrivateRoute exact path={`/add-buyings`} ><AddBuyings /></PrivateRoute>

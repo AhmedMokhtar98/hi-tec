@@ -257,7 +257,7 @@ const lowercasedValue = search.toLowerCase().trim();
                         <td className="table_td cashes_td"><div className="cashes_td_value"> {item.phone_number}</div></td>
                         <td className="table_td cashes_td"><div className="cashes_td_value">{item.overall_price}</div></td>
                         <td className="table_td cashes_td"><div className="cashes_td_value"> {item.date}</div></td>
-                        <td className="table_td cashes_td"><div className="cashes_td_value"  onClick={(e)=>history.push(`/cash-orders/${item.nat_id}/${item.date}`)}><Button variant="contained" className="cash_orders_buttin">عرض</Button></div></td>
+                        <td className="table_td cashes_td"><div className="cashes_td_value"  onClick={(e)=>history.push(`/cash-orders/${item.code}`)}><Button variant="contained" className="cash_orders_buttin">عرض</Button></div></td>
                         <td className="table_td cashes_td"><div className="cashes_td_value"  onClick={(e) =>deleteAlertHandle(item.process_id)}><Button variant="contained" className="cash_orders_buttin_delete" ><BsTrash id="users_delete_btn"/> </Button></div></td>
                     </tr>
                     ))} 
