@@ -122,10 +122,8 @@ const UpdateData = async(i)=>{
      })
 }
 
-
 /*--------Delete Popup confirm-----------*/
 const deleteAlertHandle = (id)=>{  setPopup({show:true, id:id })  }
-
 const DeleteUser = async()=>{
      alert(popup.id)   
      await axios.delete(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-delete-client-2/${popup.id}`,{
