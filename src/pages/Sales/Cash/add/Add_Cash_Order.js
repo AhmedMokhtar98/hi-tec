@@ -54,7 +54,8 @@ export default class AddCashOrder extends Component {
              openDialog:false,
              loading:false,
              success_msg:false,
-             branches:[]
+             branches:[],
+             code:''
         }
     }
 
@@ -225,39 +226,52 @@ DeletAllRows=()=>{
     this.setState({ ProductData:array})
 }
 
+generateSerial = ()=> {
+    var chars = '1234567890ABCDEFGabcdefg',
+        serialLength = 5,
+        randomSerial = "",
+        i,
+        randomNumber;
+    for (i = 0; i < serialLength; i = i + 1) {
+        randomNumber = Math.floor(Math.random() * chars.length);
+        randomSerial += chars.substring(randomNumber, randomNumber + 1);
+    }
+    this.setState({code:randomSerial})
+}
+
 Submit = async (e)=>{
     e.preventDefault()
     this.setState({loading:true})
-    var result1 = this.state.ProductData.map(({product_name,quantity,product_price,total_price,nat_id,date,branch}) => [product_name,quantity,product_price,total_price,nat_id,date,branch]);
+    const x =  this.state.ProductData.map(obj => ({ ...obj, code:this.state.code }))
+    var result1 = x.map(({product_name,quantity,product_price,total_price,nat_id,date,branch,code}) => [product_name,quantity,product_price,total_price,nat_id,date,branch,code]);
     const data = {
         branch:this.state.branchname,
         username:this.state.ClientData[0].username,
         phone_number:this.state.ClientData[0].phone_number,
         nat_id:this.state.nat_id,
         date:this.state.ClientData[0].date,
-        overall_price:this.state.overall_price
+        overall_price:this.state.overall_price,
+        code:this.state.code
     }
-    console.log(data);
-    console.log(result1);
-   await axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-data",result1)
+    // console.log(data);
+    // console.log('result1',result1);
+    await axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-process",data)
     .then((response)=>{
-        console.log(response);
-        axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-process",data)
+        axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-data",result1)
         .then((response2)=>{
             this.setState({
-                loading:false,
-                success_msg:true,
-                ProductData:[{product_name:'',quantity:null,product_price:null,total_price:null,nat_id:null,date:new Date().toLocaleDateString('fr-CA'), branch:jwt_decode(localStorage.getItem('token')).branchname}],
-                ClientData:[{branch_name:'',username:'',phone_number:null,nat_id:null,date:new Date().toLocaleDateString('fr-CA')}],
-                overall_price:null,
-            })
-            setTimeout(() => {
-                this.setState({success_msg:false})
-            }, 1500);
-
-        })
-    })
-    e.target.reset()
+                    loading:false,
+                    success_msg:true,
+                    ProductData:[{product_name:'',quantity:null,product_price:null,total_price:null,nat_id:null,date:new Date().toLocaleDateString('fr-CA'), branch:jwt_decode(localStorage.getItem('token')).branchname}],
+                    ClientData:[{branch_name:'',username:'',phone_number:null,nat_id:null,date:new Date().toLocaleDateString('fr-CA')}],
+                    overall_price:null,
+                })
+             setTimeout(() => {
+                 this.setState({success_msg:false})
+             }, 1500);
+         })
+     })
+     e.target.reset()
 }
 
 handleClickOpenDialog = () => { this.setState({ openDialog:true})};
@@ -313,6 +327,7 @@ ProductsMenu = ()=>{
     }
 }
 componentDidMount(){
+    this.generateSerial()
     axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches')
     .then((response)=>{
         const x = response.data.branches.filter((el)=>{return  el.branch_name !='الكل'})

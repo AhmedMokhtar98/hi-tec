@@ -33,8 +33,11 @@ const OrderInfo =()=>{
     })
     .catch((err)=>{
         setLoading(false)
-        setConnectMsg(true)
-        setTimeout(() => { setConnectMsg(false) }, 1500);
+        if(err){
+            setConnectMsg(true)
+            setTimeout(() => { setConnectMsg(false) }, 1500);
+        }
+       
     })
 }
 useEffect(() => {
