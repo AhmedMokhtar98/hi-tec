@@ -41,8 +41,7 @@ const[bransh,setBransh]=useState(url.searchParams.has('branch') ? params.get('br
 const HandleSearch = (value)=>{setSearch(value)}
 const selectSearchType = (e)=>{setSearchType(e.target.value)}
 const SubmitSearch = ()=>{
-    if(auth != 'admin'){
-        const body = {search:search,type:SearchType, branch:branchname}
+        const body = {search:search,type:SearchType, branch:branchname, bransh:bransh, auth:auth}
             axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/advances-2`,body,{
             headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
@@ -61,28 +60,6 @@ const SubmitSearch = ()=>{
             setConnectMsg(true)
             setTimeout(() => { setConnectMsg(false) }, 1500);
         })
-    }
-    else{
-        const body = {search:search,type:SearchType, branch:bransh}
-        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-advances-2`,body,{
-        headers:{"x-access-token":localStorage.getItem('token')}
-        }).then((response)=>{
-            setData(response.data.result);
-            const length = response.data.result.length
-            const data = response.data.result
-            var total = 0
-            for(var i=0;i<length;i++){
-            total = total + data[i]['prepaid']
-            setOverallPrice(total)
-            }
-            setLoading(false)
-        })
-        .catch((err)=>{
-            setLoading(false)
-            setConnectMsg(true)
-            setTimeout(() => { setConnectMsg(false) }, 1500);
-        })
-}
 }
 const SetBranch = (e)=>{
     const sort = e.target.value;
@@ -94,7 +71,6 @@ const SetBranch = (e)=>{
     window.history.pushState('page2', 'Title', url);
     SubmitSearch()
 }
-useEffect(() => { SubmitSearch()}, [])
 useEffect(()=>{ SubmitSearch() },[bransh])
 
 

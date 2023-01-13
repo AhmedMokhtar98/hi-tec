@@ -125,8 +125,7 @@ const HandleSearch = (value)=>{setSearch(value)}
 const SubmitSearch = async()=>{
 
     setLoading(true)
-    if(auth != 'admin'){
-        const data = {search:search,type:SearchType, branch:branchname}
+        const data = {search:search,type:SearchType, branch:branchname, bransh:bransh, auth:auth}
         await axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-collect-today-2`,data,{
             headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
@@ -141,26 +140,6 @@ const SubmitSearch = async()=>{
             setOverallPrice(total)
             }
         })
-    }
-    else{
-        setLoading(true)
-        const data = {search:search,type:SearchType, branch:bransh}
-        await axios.post(`http://192.168.1.11:8080/api/admin-qst-collect-today`,data,{
-        headers:{"x-access-token":localStorage.getItem('token')}
-        }).then((response)=>{
-            setData(response.data.result);
-            setLoading(false)
-            setRestPrice(response.data.result[0].rest_price)
-            const length = response.data.result.length
-            const data = response.data.result
-            var total = 0
-            for(var i=0;i<length;i++){
-                total = total + data[i]['paid']
-                setOverallPrice(total)
-            }
-        })
-    }
-  
 }
 
 useEffect(() => { SubmitSearch() }, [])

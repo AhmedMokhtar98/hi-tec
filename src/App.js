@@ -2,7 +2,6 @@ import React,{useState,useEffect,useContext} from 'react';
 import {Switch, Route} from 'react-router-dom';
 import './App.css';
 import jwt_decode from "jwt-decode";
-
 import {data} from './Context/Context';
 import Login from './Auth/Login/Login';
 import Collect from './pages/Collect/Collect';
@@ -24,7 +23,6 @@ import Buyings from './pages/Store/Buyings/Buyings';
 import AddBuyings from './pages/Store/Buyings/AddBuyings';
 import Finance from './pages/Finance/Finance';
 import Products from './pages/Store/products/Products';
-import Test from './Test';
 import EndDay from './admin/adminPanel/pages/EndDay';
 import Users from './admin/adminPanel/pages/Users';
 import AdminPanelNavigation from './admin/adminPanel/navigation/AdminPanelNavigation';
@@ -111,15 +109,14 @@ function App() {
                   <PrivateRoute exact path={`/inquiries/:nat_id`} ><Inquiry_Info/></PrivateRoute>
                   <PrivateRoute exact path={`/inquiries/report/:nat_id`} ><Report/></PrivateRoute>
                   <PrivateRoute exact path={`/blacklist`} ><Blacklist /></PrivateRoute>
-                  <PrivateRoute exact path={`/cash-orders`} ><CashOrders /></PrivateRoute>
-                  <PrivateRoute exact path={`/cash-orders/:code`} ><CashOrderInfo /></PrivateRoute>
+                  <PrivateRoute exact path={`/cash-orders`} ><CashOrders /></PrivateRoute> 
+                  <PrivateRoute exact path={`/cash-orders/:code`} ><CashOrderInfo /></PrivateRoute> 
                   <PrivateRoute exact path={`/advances`} ><Advances /></PrivateRoute>
                   <PrivateRoute exact path={`/buyings`} ><Buyings /></PrivateRoute>
                   <PrivateRoute exact path={`/add-buyings`} ><AddBuyings /></PrivateRoute>
                   <PrivateRoute exact path={`/out-buyings`} ><OutBuyings /></PrivateRoute>
                   <PrivateRoute exact path={`/add-out-buyings`} ><AddOutBuyings /></PrivateRoute>
                   <PrivateRoute exact path={`/finance`} ><Finance /></PrivateRoute>
-                  <PrivateRoute exact path='/test' ><Test/></PrivateRoute>
                   {localStorage.getItem('token') && (jwt_decode(localStorage.getItem('token')).authority != 'marketing')  ? <PrivateRoute exact path={`/products`} ><Products /></PrivateRoute> : ''}
                   {localStorage.getItem('token') && (jwt_decode(localStorage.getItem('token')).authority != 'collect')  ? <PrivateRoute exact path={`/qst-data`} ><QstData /></PrivateRoute> : ''}
                   {localStorage.getItem('token') && (jwt_decode(localStorage.getItem('token')).authority != 'collect')  ? <PrivateRoute exact path={`/qst-loop/:code`} ><QstLoop /></PrivateRoute> : ''}

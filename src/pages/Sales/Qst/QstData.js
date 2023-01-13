@@ -50,8 +50,7 @@ useEffect(() => {const handler1 = (e) => setMatches1( e.matches ); window.matchM
 useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchMedia("(min-width: 765px)").addListener(handler2)},[])
 
 const getData = ()=>{
-    if(auth != 'admin'){
-        const body = {branch:branchname, bransh:bransh,auth:auth}
+        const body = {branch:branchname, bransh:bransh, auth:auth}
         axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-processes-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
         }).then((response)=>{
@@ -66,26 +65,9 @@ const getData = ()=>{
             setConnectMsg(true)
             setTimeout(() => { setConnectMsg(false) }, 1500);
         })
-    }
-    else{
-        const body = {branch:bransh}
-        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-qst-processes-2',body,{
-        headers:{"x-access-token":localStorage.getItem('token')}
-        }).then((response)=>{
-            setData(response.data.result)
-            setFilteredData(response.data.result)
-            setIndexOfFirstPost((currentPage * postsPerPage)- postsPerPage)
-            setIndexOfLastPost(currentPage * postsPerPage)
-            setloading(false)
-        })
-        .catch((err)=>{
-            setloading(false)
-            setConnectMsg(true)
-            setTimeout(() => { setConnectMsg(false) }, 1500);
-        })
-    }
-
 }
+
+
 useEffect(() => { getData(); }, [])
 useEffect(() => { getData(); }, [bransh])
 const SetBranch = (e)=>{

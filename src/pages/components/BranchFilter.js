@@ -1,14 +1,21 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
+
+
 export default function BranchFilter({SetBranch,bransh}) {
  
 const [branches, setBranches] =useState([])
 
-useEffect(() => {
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2')
+const getBranches = ()=>{
+    axios.get('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2',{
+        headers:{"x-access-token":localStorage.getItem('token')}
+    })
     .then((response)=>{
         setBranches(response.data.branches)
     })
+}
+useEffect(() => {
+    getBranches()
 }, [])
 
     return(
