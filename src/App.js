@@ -30,7 +30,6 @@ import Users from './admin/adminPanel/pages/Users';
 import AdminPanelNavigation from './admin/adminPanel/navigation/AdminPanelNavigation';
 import ProductsStics from './admin/adminPanel/pages/Products';
 import Garantees from './admin/adminPanel/pages/Garantees';
-import DataTable from './DataTable';
 import Home from './pages/Home/Home';
 import AddProducts from './admin/adminPanel/pages/add_files/AddProducts';
 import AddClients from './admin/adminPanel/pages/add_files/AddClients';
@@ -60,7 +59,6 @@ function App() {
   return (
     <div>
           <Switch>
-                <Route exact path="/table" component={DataTable}/>
                 <Route exact path="/login" component={Login}/>
                 {localStorage.getItem('token') && jwt_decode(localStorage.getItem('token')).authority === 'marketing' ?
                 <>
