@@ -143,7 +143,7 @@ const InquiryInfo =(code)=>{
                      <div className="Header_word">مستند بيع العملاء</div>
                 </div>
                 <div className="table_grap">
-                {auth != 'admin'  ? '': <BranchFilter bransh={bransh} SetBranch={SetBranch} />}
+                {auth ==='admin' || auth ==='collect' ? <BranchFilter bransh={bransh} SetBranch={SetBranch} /> : ''}
                 <div className="table_search_contents">
                     <div className="search_box">
                             <input className="table_content_search_input" type="text" value={search}  onChange={(e)=>HandleSearch(e.target.value)} placeholder="Search..." />  

@@ -62,6 +62,7 @@ function App() {
                 <>
                  <NavAuth/>
                  <Route exact path={`/products`} ><Products /></Route> 
+                 <Route exact path={`/out-buyings`} ><OutBuyings /></Route> 
                 </>
                 : ''}
 
@@ -114,10 +115,10 @@ function App() {
                   <PrivateRoute exact path={`/advances`} ><Advances /></PrivateRoute>
                   <PrivateRoute exact path={`/buyings`} ><Buyings /></PrivateRoute>
                   <PrivateRoute exact path={`/add-buyings`} ><AddBuyings /></PrivateRoute>
-                  <PrivateRoute exact path={`/out-buyings`} ><OutBuyings /></PrivateRoute>
                   <PrivateRoute exact path={`/add-out-buyings`} ><AddOutBuyings /></PrivateRoute>
                   <PrivateRoute exact path={`/finance`} ><Finance /></PrivateRoute>
                   {localStorage.getItem('token') && (jwt_decode(localStorage.getItem('token')).authority != 'marketing')  ? <PrivateRoute exact path={`/products`} ><Products /></PrivateRoute> : ''}
+                  {localStorage.getItem('token') && (jwt_decode(localStorage.getItem('token')).authority != 'marketing')  ? <PrivateRoute exact path={`/out-buyings`} ><OutBuyings /></PrivateRoute> : ''}
                   {localStorage.getItem('token') && (jwt_decode(localStorage.getItem('token')).authority != 'collect')  ? <PrivateRoute exact path={`/qst-data`} ><QstData /></PrivateRoute> : ''}
                   {localStorage.getItem('token') && (jwt_decode(localStorage.getItem('token')).authority != 'collect')  ? <PrivateRoute exact path={`/qst-loop/:code`} ><QstLoop /></PrivateRoute> : ''}
                

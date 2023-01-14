@@ -6,18 +6,22 @@ import {HiOutlineHome} from 'react-icons/hi';
 import Button from '@mui/material/Button';
 import Backdrop from '@mui/material/Backdrop';
 import {NavLink,useHistory,useLocation} from 'react-router-dom'
+import jwt_decode from "jwt-decode";
 import './css/navbar.css';
+import './nav_auth.css';
 import Books from './categories/Books';
 import Store from './categories/Store';
 import { data } from './../../../Context/Context';
 import Adds from './categories/Adds';
 import Inquiries from './categories/Inquiries';
 import Cookies from 'universal-cookie';
+
 const cookies = new Cookies();
 
 
 export default function NavAuth() {
 let history = useHistory();
+const [auth]=useState(jwt_decode(localStorage.getItem('token')).authority)
 const [matches, setMatches] = useState(window.matchMedia("(min-width: 950px)").matches)
 const {setLoginstatus,username} = useContext(data)
 const[dropdown,SetDropdown]=useState(false);
@@ -68,6 +72,12 @@ useEffect(async() => {
                         <img src={process.env.PUBLIC_URL+'/home/5.png'} className="nav_logo_img"/>
                         <div className="NavBar_Logo" onClick={()=>history.push('/')}> هاي تك للتقسيط </div>
                     </div>
+                    {auth === 'marketing' &&
+                        <div className="nav_auth_ul">
+                            <NavLink to="/out-buyings" activeClassName='is-active' className="out_products_nav_li">المنتجات الخارجية</NavLink>
+                            <NavLink to="/products" activeClassName='is-active' className="out_products_nav_li">المنتجات </NavLink>
+                        </div>
+                    }
                 </div> 
                     
             </div> 

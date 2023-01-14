@@ -1,0 +1,18 @@
+a.out_products_nav_li {
+    text-decoration: none;
+    align-self: center;
+    padding: 18px;
+    margin: -1px;
+}
+.is-active {
+    background: rgb(9 9 9);
+    color: white;
+}
+.nav_auth_ul {
+    align-self: center;
+    position: absolute;
+    display: flex;
+    right: 160px;
+    background: #ebebeb;
+    border-right: solid 1px #c8c8c8;
+}

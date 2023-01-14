@@ -63,8 +63,7 @@ const HandleSearch = (value)=>{setSearch(value);  setsearchType('text');}
 
 const SubmitSearch = ()=>{
     setLoading(true)
-    if(auth != 'admin'){
-        const data = {search:search, searchType:searchType, branch:branchname, offset:(currentPage-1)*10}
+        const data = {search:search, searchType:searchType, bransh:bransh, auth:auth, branch:branchname, offset:(currentPage-1)*10}
             axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/out-buyings-view-2`,data,{
             headers:{"x-access-token":localStorage.getItem('token')}
             }).then((response)=>{
@@ -83,28 +82,6 @@ const SubmitSearch = ()=>{
             setConnectMsg(true)
             setTimeout(() => { setConnectMsg(false) }, 1500);
         })
-    }
-    else{
-        const data = {search:search, searchType:searchType, branch:bransh ,offset:(currentPage-1)*10}
-        axios.post(`https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-outbuyings-view-2`,data,{
-            headers:{"x-access-token":localStorage.getItem('token')}
-            }).then((response)=>{
-            setLoading(false)
-            setData(response.data.result);
-            const length = response.data.result.length
-            const data = response.data.result
-            var total = 0
-            for(var i=0;i<length;i++){
-            total = total + data[i]['overall_price']
-            setOverallPrice(total)
-            }
-        })
-        .catch((err)=>{
-            setLoading(false)
-            setConnectMsg(true)
-            setTimeout(() => { setConnectMsg(false) }, 1500);
-        })
-    }
 }
 const calculationWithMemo = useMemo(() => {
     return SubmitSearch();
@@ -150,7 +127,7 @@ useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchM
             </div>
             <div className="table_grap">
                 <div className="table_header_flex">
-                            {auth != 'admin'  ? '': <BranchFilter bransh={bransh} SetBranch={SetBranch} />}
+                            {auth === 'admin' || auth === 'marketing' ? <BranchFilter bransh={bransh} SetBranch={SetBranch} /> : '' }
                     <div className="table_search_contents">
                             <div className="search_box">
                                     <input className="table_content_search_input" type="text" value={search}  onChange={(e)=>HandleSearch(e.target.value)} placeholder="Search..." />  
