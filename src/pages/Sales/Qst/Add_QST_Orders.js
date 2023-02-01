@@ -30,13 +30,13 @@ export default class AddQSTOrders extends Component {
             Qst_date:new Date(),
             branchName:jwt_decode(localStorage.getItem('token')).branchname,
             auth:jwt_decode(localStorage.getItem('token')).authority,
-             CodesArray:[],
-             Code:'',
-             CodeExist:false,
+            CodesArray:[],
+            Code:'',
+            CodeExist:false,
             Clients:[],
             Garantees:[],
             
-             Clientdata:[{username:'',nickname:'',nat_id:null,code:'',address:'',housing_contract:'',service_reciept:'',phone_number:null,job:'',salary:null,work_address:''}],
+            Clientdata:[{username:'',nickname:'',nat_id:null,code:'',address:'',housing_contract:'',service_reciept:'',phone_number:null,job:'',salary:null,work_address:''}],
             Garantee_1_data:[{ g_name:'',g_nickname:'',g_nat_id:null,g_relationship:'',g_address:'',g_housing_contract:'',g_service_reciept:'',g_phone_number:null,g_job:'',g_salary:null,g_work_address:''}],
             Garantee_2_data:[{ g_name:'',g_nickname:'',g_nat_id:null,g_relationship:'',g_address:'',g_housing_contract:'',g_service_reciept:'',g_phone_number:null,g_job:'',g_salary:null,g_work_address:''}],
             
@@ -49,7 +49,7 @@ export default class AddQSTOrders extends Component {
             period:6,
             total_price:null,
 
-             QstLoop:[],
+            QstLoop:[],
 
             prepaid_auto: false,
             matches: window.matchMedia("(min-width: 950px)").matches,
@@ -252,12 +252,14 @@ componentDidMount(){
     axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/qst-clients-select-2',data)
     .then((response)=>{ this.setState({Clients:response.data.result},()=>{console.log('clients',this.state.Clients);}) })
 
-    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2')
+    axios.get('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2',{
+        headers:{"x-access-token":localStorage.getItem('token')}
+    })
     .then((response)=>{
         const x = response.data.branches.filter((el)=>{return  el.branch_name !='الكل'})
         const obj = {'branch_name':''};
         this.setState({branches:[ obj, ...x]},()=>{console.log(this.state.branches)})
-        
+        console.log('branches',response.data.branches);
     })
     
     this.context.setNavHidden(true)

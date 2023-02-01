@@ -22,7 +22,8 @@ export default function Products() {
 const[branchname]=useState(jwt_decode(localStorage.getItem('token')).branchname)
 const[params,setParams]=useState(new URLSearchParams(window.location.search));
 const[url,setUrl]=useState(new URL(window.location));
-const[bransh,setBransh]=useState(url.searchParams.has('branch') ? params.get('branch').split(","):'الكل');const [auth]=useState(jwt_decode(localStorage.getItem('token')).authority)
+const[bransh,setBransh]=useState(url.searchParams.has('branch') ? params.get('branch').split(","):'الكل');
+const [auth]=useState(jwt_decode(localStorage.getItem('token')).authority)
 const [loading, setLoading] = useState(true)
 const[connect_msg, setConnectMsg]=useState(false)
 const[matches1,setMatches1] = useState(window.matchMedia("(min-width: 850px)").matches)
@@ -168,8 +169,12 @@ useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchM
                         <th className="table_th">سعر الوحدة</th>
                         <th className="table_th">الكمية</th>
                         <th className="table_th">المعرض</th>
-                        <th className="table_th">تعديل</th>
-                        <th className="table_th">حذف</th>
+                        {auth != 'marketing' &&
+                        <>
+                            <th className="table_th">تعديل</th>
+                            <th className="table_th">حذف</th>
+                        </>
+                        }
                     </tr>
                     }
             {loading ? <div className="spinner_container"><div className="spinner spinner-circle"></div></div> :
@@ -182,15 +187,19 @@ useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchM
                             <td className="products_td_admin">{item.upState ?  <input name="product_price" onChange={(e)=>HandleChange(e,i)} value={item.product_price} className="ap_update_date_input"/> : item.product_price} جنية</td>
                             <td className="products_td_admin">{item.upState ?  <input name="quantity" onChange={(e)=>HandleChange(e,i)} value={item.quantity} className="ap_update_date_input"/> : item.quantity}</td>
                             <td className="products_td_admin">{item.branch}</td>
-                            {item.upState ?  
-                            <td className="products_td_admin">
-                                <Button onClick={(e)=>CancelRow(i)} variant="contained" className="admin_panel_update_button" style={{background:'red'}}>الغاء</Button>
-                                <Button onClick={(e)=>UpdateData(i,item.product_id)} variant="contained" className="admin_panel_update_button" style={{background:'green'}}>تأكيد</Button>
-                            </td>
-                            : 
-                            <td className="products_td_admin"><Button onClick={(e)=>UpdateRow(i)} variant="contained" className="admin_panel_update_button">تعديل</Button></td>
-                            }
-                            <td className="table_td cashes_td"><div className="cashes_td_value"  onClick={(e) =>deleteAlertHandle(item.product_id)}><Button variant="contained" className="cash_orders_buttin_delete" ><BsTrash id="users_delete_btn"/> </Button></div></td>
+                                {auth != 'marketing' &&
+                                    <>
+                                        {item.upState ?  
+                                        <td className="products_td_admin">
+                                            <Button onClick={(e)=>CancelRow(i)} variant="contained" className="admin_panel_update_button" style={{background:'red'}}>الغاء</Button>
+                                            <Button onClick={(e)=>UpdateData(i,item.product_id)} variant="contained" className="admin_panel_update_button" style={{background:'green'}}>تأكيد</Button>
+                                        </td>
+                                        : 
+                                        <td className="products_td_admin"><Button onClick={(e)=>UpdateRow(i)} variant="contained" className="admin_panel_update_button">تعديل</Button></td>
+                                        }
+                                    <td className="table_td cashes_td"><div className="cashes_td_value"  onClick={(e) =>deleteAlertHandle(item.product_id)}><Button variant="contained" className="cash_orders_buttin_delete" ><BsTrash id="users_delete_btn"/> </Button></div></td>
+                                    </>
+                                }
                         </tr>
                     ))} 
                     </>

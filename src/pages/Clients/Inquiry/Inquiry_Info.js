@@ -18,7 +18,7 @@ const[Data,setData] = useState([])
 const[ViewData,setViewData] = useState([])
 const[garanteeArray,setGA] = useState([])
 const[CodesArray,setCodesArray] = useState([])
-const[Code,setCode] = useState('')
+const[Code,setCode] = useState(null)
 const[CodeStatus,setCodeStatus] = useState(true)
 const[loading,setLoading] = useState(false)
 const[success,setSuccess] = useState(false)
@@ -42,6 +42,7 @@ useEffect(async() => {
     await axios.get('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/codes-2')
     .then((response)=>{
         setCodesArray(response.data.result)
+        console.log('codes',response.data.result);
     })
 },[])
 useEffect(() => { generateSerial() }, [CodesArray])
@@ -62,7 +63,7 @@ const generateSerial = ()=> {
         serialLength = 5,
         randomSerial = "",
         i,
-        randomNumber;
+        randomNumber
     for (i = 0; i < serialLength; i = i + 1) {
         randomNumber = Math.floor(Math.random() * chars.length);
         randomSerial += chars.substring(randomNumber, randomNumber + 1);
@@ -70,12 +71,12 @@ const generateSerial = ()=> {
     setCode(randomSerial)
 }
 
-
 const Accept = async() =>{
-   setLoading(true)
+    setLoading(true)
     const result1 = Data.map(({username_1,nickname_1,relationship_1,nat_id_1,address_1,housing_contract_1, service_reciept_1,phone_number_1, job_1,salary_1,work_address_1,nat_id,branch}) => [username_1,nickname_1,relationship_1,nat_id_1,address_1,housing_contract_1, service_reciept_1,phone_number_1, job_1,salary_1,work_address_1,nat_id,branch])
     var arr =  garanteeArray
     arr.push(result1[0])
+
     if(ViewData.premium > 4500){
         const result2 =  Data.map(({username_2,nickname_2,relationship_2,nat_id_2,address_2,housing_contract_2, service_reciept_2,phone_number_2, job_2,salary_2,work_address_2,nat_id,branch}) => [username_2,nickname_2,relationship_2,nat_id_2,address_2,housing_contract_2, service_reciept_2,phone_number_2, job_2,salary_2,work_address_2,nat_id,branch])
         arr.push(result2[0])
@@ -90,27 +91,27 @@ const Accept = async() =>{
     return ViewData
     }
     FilterUserData();
-       const UserData = Object.assign({"code":Code},FilterUserData())
+       const UserData = Object.assign({"code": Code , "rate":0},FilterUserData())
        const body = {UserData:UserData}
        console.log('body',body);
        const body2 = {Garantees:arr}
-       axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiry-confirm-user-2',body)
-      .then((response)=>{
-           setSuccessMsg(response.data.success_msg)
-           axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiry-confirm-garantee-2',body2)
-           .then((response2)=>{
-             setLoading(false)
-             setSuccess(true)
-                setTimeout(() => {
-                    setSuccess(false)
-                }, 1500);
-                setTimeout(() => {
-                    // history.goBack()
-                     history.push(`/inquiries/report/${params.nat_id}`)
-                }, 1800);
-          })
+        axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiry-confirm-user-2',body)
+       .then((response)=>{
+            setSuccessMsg(response.data.success_msg)
+            axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/inquiry-confirm-garantee-2',body2)
+            .then((response2)=>{
+              setLoading(false)
+              setSuccess(true)
+                 setTimeout(() => {
+                     setSuccess(false)
+                 }, 1500);
+                 setTimeout(() => {
+                     // history.goBack()
+                      history.push(`/inquiries/report/${params.nat_id}`)
+                 }, 1800);
+           })
       })
-      //history.push(`/inquiries/report/${params.nat_id}`)
+       //history.push(`/inquiries/report/${params.nat_id}`)
     }
 
 
