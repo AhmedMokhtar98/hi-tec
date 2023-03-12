@@ -226,7 +226,7 @@ const PurchaseAll = (e)=>{
                             <td className="table_td qst_loop"> {i+1}</td>
                             <td className="table_td qst_loop" id="worth_date_td" style={{color:item.status ==='true' ? 'green':'rgb(233 30 99)'}}> {item.worth_date}</td>
                             <td className="table_td qst_loop"> {item.premium}</td>
-                            <td className="table_td qst_loop" ><input disabled type="number" name="fine" value={item.fine} onChange={(e)=>HandleChange(e,i)} className="qst_loop_Input" id="fine_input"  style={{background:item.status ==='true' ? 'rgb(255 255 255 / 64%)':'white' ,color:'black'}}/></td>
+                            <td className="table_td qst_loop" ><input  type="number" name="fine" value={item.fine} onChange={(e)=>HandleChange(e,i)} className="qst_loop_Input" id="fine_input"  style={{background:item.status ==='true' ? 'rgb(255 255 255 / 64%)':'white' ,color:'black'}}/></td>
                             <td className="table_td qst_loop"><input type="number" name="paid" value={item.paid} onChange={(e)=>HandleChange(e,i)} onFocus={(e)=>InputFocus(e,i)} className="qst_loop_Input" disabled={item.status==="true"?true:false} style={{background:item.status ==='true' ? 'rgb(255 255 255 / 64%)':'white' ,color:'black'}}/></td>
                             <td className="table_td qst_loop"><input type="text" name="employee" value={item.employee} onChange={(e)=>HandleChange(e,i)} className="qst_loop_Input" disabled={item.status==="true"?true:false} style={{background:item.status ==='true' ? 'rgb(255 255 255 / 64%)':'white' ,color:'black'}} required/></td>
                             <td className="table_td qst_loop">
