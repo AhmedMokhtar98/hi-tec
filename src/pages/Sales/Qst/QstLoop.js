@@ -68,12 +68,12 @@ const HandleDate = (value,index)=>{
     const diff = calculate / (1000 * 60 * 60 * 24)
     console.log(isInThePast(new Date(Data[index]['date']))); // 👉️ true
     if(isInThePast(new Date(Data[index]['date'])) == true){ // in future 
-        if(diff > 29){
+        if(diff > 5){
             var arrFine = [...Data];
             arrFine[index]['fine'] = 50
             setData(arrFine)
         }
-        if(diff < 29){
+        if(diff < 5){
             var arrFine = [...Data];
             arrFine[index]['fine'] = 0
             setData(arrFine)
@@ -81,12 +81,12 @@ const HandleDate = (value,index)=>{
     } 
     
     else{// in the past
-        if(diff > 29){
+        if(diff > 5){
             var arrFine = [...Data];
             arrFine[index]['fine'] = 0
             setData(arrFine)
         }
-        if(diff < 29){
+        if(diff < 5){
             var arrFine = [...Data];
             arrFine[index]['fine'] = 0
             setData(arrFine)
