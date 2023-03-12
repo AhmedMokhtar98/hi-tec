@@ -164,9 +164,10 @@ GetProductsMenu = ()=>{
 componentDidMount(){
     this.GetProductsMenu()
     if(this.state.auth ==='admin'){
-        axios.get('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2')
+        axios.get('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/branches-2',
+        {headers:{ "x-access-token":localStorage.getItem('token')} })
         .then((response)=>{
-            console.log('branches',response.data.branches);
+            console.log('branches',response);
             const x = response.data.branches.filter((el)=>{return  el.branch_name !='الكل'})
             const obj = {'branch_name':''};
             this.setState({branches:[ obj, ...x]})
