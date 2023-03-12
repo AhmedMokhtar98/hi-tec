@@ -75,10 +75,13 @@ const Notification = ()=>{
     const body = {branch:branchname, date:new Date().toLocaleDateString('fr-CA')}
     axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/notification-2",body)
     .then((response)=>{
-        console.log(response);
         setNotification(response.data.result)
     });
 }
+useEffect(() => {
+    Notification()
+}, [])
+
 
     return (
             <div className="NavStack">
