@@ -73,7 +73,7 @@ const Notification = ()=>{
     //const formattedtoday = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
     
     const body = {branch:branchname, date:new Date().toLocaleDateString('fr-CA')}
-    axios.post("http://localhost:8080/api/notification",body)
+    axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/notification",body)
     .then((response)=>{
         console.log(response);
         setNotification(response.data.result)
