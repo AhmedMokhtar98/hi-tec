@@ -81,8 +81,8 @@ const HandleChange = (e,i)=>{
     setData(arr)
 }
 const UpdateData = async(i,product_id)=>{
-    const body = {product_id:product_id, product_name:Data[i]['product_name'], product_price:Data[i]['product_price'], quantity:Data[i]['quantity']}
-    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/admin-update-products-2',body,{
+    const body = {product_id:product_id, product_name:Data[i]['product_name'], product_price:Data[i]['product_price'], quantity:Data[i]['quantity'], code:Data[i]['code']}
+    await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/update-products-2',body,{
         headers:{"x-access-token":localStorage.getItem('token')}
     }).then((response)=>{
         const arr = [...Data]
@@ -150,6 +150,7 @@ const SetBranch = (e)=>{
                         <th className="table_th">السعر</th>
                         <th className="table_th">الكمية</th>
                         <th className="table_th">المعرض</th>
+                        <th className="table_th">الكود</th>
                         <th className="table_th">تعديل</th>
                         <th className="table_th">حذف</th>
                     </tr>
@@ -159,7 +160,8 @@ const SetBranch = (e)=>{
                             <td className="products_td_admin">{item.upState ?  <input name="product_name"  onChange={(e)=>HandleChange(e,i)} value={item.product_name} className="ap_update_date_input"/> : item.product_name }</td>
                             <td className="products_td_admin">{item.upState ?  <input name="product_price" onChange={(e)=>HandleChange(e,i)} value={item.product_price} className="ap_update_date_input"/> : item.product_price} جنية</td>
                             <td className="products_td_admin">{item.upState ?  <input name="quantity" onChange={(e)=>HandleChange(e,i)} value={item.quantity} className="ap_update_date_input"/> : item.quantity}</td>
-                            <td className="products_td_admin">{item.upState ?  <input value={item.branch} className="ap_update_date_input"/> : item.branch}</td>
+                            <td className="products_td_admin">{item.branch}</td>
+                            <td className="products_td_admin">{item.upState ?  <input name="code"     onChange={(e)=>HandleChange(e,i)} value={item.code} className="ap_update_date_input"/> : item.code}</td>
                             {item.upState ?  
                             <td className="products_td_admin">
                                 <Button onClick={(e)=>CancelRow(i)} variant="contained" className="admin_panel_update_button" style={{background:'red'}}>الغاء</Button>
