@@ -187,9 +187,8 @@ useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchM
                             <td className="products_td_admin">{item.upState ?  <input name="product_name"  onChange={(e)=>HandleChange(e,i)} value={item.product_name} className="ap_update_date_input"/> : item.product_name }</td>
                             <td className="products_td_admin">{item.upState ?  <input name="product_price" onChange={(e)=>HandleChange(e,i)} value={item.product_price} className="ap_update_date_input"/> : item.product_price} جنية</td>
                             <td className="products_td_admin">{item.upState ?  <input name="quantity" onChange={(e)=>HandleChange(e,i)} value={item.quantity} className="ap_update_date_input"/> : item.quantity}</td>
-                            <td className="products_td_admin">{item.upState ?  <input name="code" onChange={(e)=>HandleChange(e,i)} value={item.code} className="ap_update_date_input"/> : item.code}</td>
                             <td className="products_td_admin">{item.branch}</td>
-                            <td className="products_td_admin">{item.code}</td>
+                            <td className="products_td_admin">{item.upState ?  <input name="code" onChange={(e)=>HandleChange(e,i)} value={item.code} className="ap_update_date_input"/> : item.code}</td>
                                 {auth != 'marketing' &&
                                     <>
                                         {item.upState ?  
