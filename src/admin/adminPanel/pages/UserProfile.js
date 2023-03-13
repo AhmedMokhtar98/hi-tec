@@ -17,7 +17,7 @@ const GetData = async()=>{
     await axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/user-profile-2',body,{
          headers:{"x-access-token":localStorage.getItem('token')}
      }).then((response)=>{
-        console.log(response);
+        console.log('dasd',response);
          setData([response.data.result[0]])
          setUserBranch(response.data.result[0].branch)
          setCode(response.data.result[0].code)

@@ -48,17 +48,7 @@ input.qst_loop_Input {
     width: 80%;
 }
 
-button#purchase_all {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    background: rgb(112 89 255);
-    color: white;
-    font-size: 20px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    cursor: pointer;
-}
+
 .Page_Container_Rate {
     direction: rtl;
     width: 80%;

@@ -109,20 +109,58 @@ AutoFillGarantee1 = (option)=>{ this.setState({Garantee_1_data:[option]}) }
 AutoFillGarantee2 = (option)=>{ this.setState({Garantee_2_data:[option]}) }
 /*--------------ادخال بيانات العميل و الضامنين مانيوال--------------*/
 User_HandleChange = (e)=>{
-    const list = [...this.state.Clientdata]
-    list[0][e.target.name]=e.target.value
-    this.setState({Clientdata:list})
+    if(e.target.name==="nat_id" || e.target.name==="nat_id_1" || e.target.name==="nat_id_2" || e.target.name==="phone_number" || e.target.name==="phone_number_1" || e.target.name==="phone_number_2" ){
+        if (e.target.value.length > e.target.maxLength) {
+            e.target.value = e.target.value.slice(0, e.target.maxLength)
+        }
+        const list = [...this.state.Clientdata]
+        list[0][e.target.name]=e.target.value
+        this.setState({
+            Clientdata:list,
+        })
+    }
+    else{
+        const list = [...this.state.Clientdata]
+        list[0][e.target.name]=e.target.value
+        this.setState({Clientdata:list})
+    }
 }
 
 G1_HandleChange = (e)=>{
-    const list = [...this.state.Garantee_1_data]
-    list[0][e.target.name] = e.target.value
-    this.setState({Garantee_1_data:list})
+    if( e.target.name==="nat_id_1" || e.target.name==="phone_number_1" ){
+        if (e.target.value.length > e.target.maxLength) {
+            e.target.value = e.target.value.slice(0, e.target.maxLength)
+        }
+        const list = [...this.state.Garantee_1_data]
+        list[0][e.target.name]=e.target.value
+        this.setState({
+            Garantee_1_data:list,
+        })
+    }
+    else{
+        const list = [...this.state.Garantee_1_data]
+        list[0][e.target.name] = e.target.value
+        this.setState({Garantee_1_data:list})
+    }
 }
+
+
 G2_HandleChange = (e)=>{
-    const list = [...this.state.Garantee_2_data]
-    list[0][e.target.name] = e.target.value
-    this.setState({Garantee_2_data:list})
+    if( e.target.name==="nat_id_2" || e.target.name==="phone_number_2" ){
+        if (e.target.value.length > e.target.maxLength) {
+            e.target.value = e.target.value.slice(0, e.target.maxLength)
+        }
+        const list = [...this.state.Garantee_2_data]
+        list[0][e.target.name]=e.target.value
+        this.setState({
+            Garantee_2_data:list,
+        })
+    }
+    else{
+        const list = [...this.state.Garantee_2_data]
+        list[0][e.target.name] = e.target.value
+        this.setState({Garantee_2_data:list})
+    }
 }
 
 /*-------------- اختيار اسم المنتج --------------*/
@@ -158,24 +196,31 @@ useEffect = ()=>{
             var advance = Math.floor(x1 * 0.20) // المقدم مفروض يتدفع
             this.setState({prepaid:advance})
             var x2 =  x1 - advance
-            if(period == 6){var X = x2 + x2 * 0.30;     var qst = X/6; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) }) }
-            else if(period == 12){ X = x2 + x2 * 0.60;  qst = X/12; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) })}
-            else if(period == 18){ X = x2 + x2 * 0.90;  qst = X/18; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) })}
-            else if(period == 24){ X = x2 + x2 * 1.2;   qst = X/24; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) })}
+            if(period == 3){var X = x2 + x2 * 0.15;     var qst = X/3; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+            else if(period == 6){var X = x2 + x2 * 0.30;     var qst = X/6; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+            else if(period == 9){var X = x2 + x2 * 0.45;     var qst = X/9; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+            else if(period == 12){ X = x2 + x2 * 0.60;  qst = X/12; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+            else if(period == 18){ X = x2 + x2 * 0.90;  qst = X/18; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+            else if(period == 24){ X = x2 + x2 * 1.2;   qst = X/24; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
         }
         else if(prepaid_auto){// لو مقدم متغير
-             x2 =  x1 - prepaid
-            if(period == 6){ X = x2 + x2 * 0.30;        qst = X/6; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) }) }
-            else if(period == 12){ X = x2 + x2 * 0.60;  qst = X/12; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) })}
-            else if(period == 18){ X = x2 + x2 * 0.90;  qst = X/18; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) })}
-            else if(period == 24){ X = x2 + x2 * 1.2;   qst = X/24; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) })}
-        }
-        else if(prepaid == 0){ // لو مفيش مقدم
-            if(period == 6){ X = x1 + x1 * 0.30 ;       qst = X/6; this.setState({ total_price: X, premium: Math.floor(qst) })}
-            else if(period == 12){ X = x1 + x1 * 0.60; qst = X/12; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) }) }
-            else if(period == 18){ X = x1 + x1 * 0.90;  qst = X/18; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) })}
-            else if(period == 24){ X = x1 + x1 * 1.2;   qst = X/24; this.setState({ total_price: Math.floor(X), premium: Math.floor(qst) }) }
-        }
+            x2 =  x1 - prepaid
+           if(period == 3){ X = x2 + x2 * 0.15;        qst = X/3; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+           else if(period == 6){ X = x2 + x2 * 0.30;   qst = X/6; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+           else if(period == 9){ X = x2 + x2 * 0.45;   qst = X/9; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+           else if(period == 12){ X = x2 + x2 * 0.60;  qst = X/12; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+           else if(period == 18){ X = x2 + x2 * 0.90;  qst = X/18; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+           else if(period == 24){ X = x2 + x2 * 1.2;   qst = X/24; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+       }
+       else if(prepaid == 0){ // لو مفيش مقدم
+           if(period == 3){ X = x1 + x1 * 0.15 ;       qst = X/3; this.setState({ total_price: X, premium: Math.round(qst) })}
+           else if(period == 6){ X = x1 + x1 * 0.30 ;  qst = X/6; this.setState({ total_price: X, premium: Math.round(qst) })}
+           else if(period == 9){ X = x1 + x1 * 0.45 ;  qst = X/9; this.setState({ total_price: X, premium: Math.round(qst) })}
+           else if(period == 12){ X = x1 + x1 * 0.60;  qst = X/12; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+           else if(period == 18){ X = x1 + x1 * 0.90;  qst = X/18; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+           else if(period == 24){ X = x1 + x1 * 1.2;   qst = X/24; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+       }
+   
 
 }
 
@@ -360,7 +405,7 @@ ProductsMenu = ()=>{
                                 </div>
                                 <div className="Input_Section_qst">
                                     <label className="qst_label"> رقم البطاقة</label>
-                                    <input type="text" name="nat_id" value={this.state.Clientdata[0].nat_id}  onChange={(e)=>this.User_HandleChange(e) }  className="qst_Input"   autoComplete="off"  required/>
+                                    <input type="text" name="nat_id" value={this.state.Clientdata[0].nat_id}  onChange={(e)=>this.User_HandleChange(e) }  className="qst_Input"   autoComplete="off" maxLength={14}  required/>
                                 </div>
                                 <div className="Input_Section_qst">
                                     <label className="qst_label"> العنوان</label>
@@ -376,7 +421,7 @@ ProductsMenu = ()=>{
                                 </div>
                                 <div className="Input_Section_qst">
                                     <label className="qst_label"> التليفون</label>
-                                    <input type="text" name="phone_number" value={this.state.Clientdata[0].phone_number} onChange={(e)=>this.User_HandleChange(e) }   className="qst_Input" placeholder="اكتب رقم الهاتف" autoComplete="off"  required/>
+                                    <input type="text" name="phone_number" value={this.state.Clientdata[0].phone_number} onChange={(e)=>this.User_HandleChange(e) }   className="qst_Input" placeholder="اكتب رقم الهاتف" autoComplete="off" maxLength={11}  required/>
                                 </div>
                                 <div className="Input_Section_qst">
                                     <label className="qst_label"> الوظيفة</label>
@@ -436,7 +481,7 @@ ProductsMenu = ()=>{
                                 </div>
                                 <div className="Input_Section_qst">
                                     <label className="qst_label"> رقم البطاقة</label>
-                                    <input type="text" name="g_nat_id" value={this.state.Garantee_1_data[0].g_nat_id}  onChange={(e)=>this.G1_HandleChange(e) } className="qst_Input"   autoComplete="off"  required/>
+                                    <input type="text" name="g_nat_id" value={this.state.Garantee_1_data[0].g_nat_id}  onChange={(e)=>this.G1_HandleChange(e) } className="qst_Input"   autoComplete="off" maxLength={14}  required/>
                                 </div>
                                 <div className="Input_Section_qst">
                                     <label className="qst_label"> العنوان</label>
@@ -452,7 +497,7 @@ ProductsMenu = ()=>{
                                 </div>
                                 <div className="Input_Section_qst">
                                     <label className="qst_label"> التليفون</label>
-                                    <input type="text" name="g_phone_number" value={this.state.Garantee_1_data[0].g_phone_number} onChange={(e)=>this.G1_HandleChange(e) }  className="qst_Input" placeholder="اكتب رقم الهاتف" autoComplete="off"  required/>
+                                    <input type="text" name="g_phone_number" value={this.state.Garantee_1_data[0].g_phone_number} onChange={(e)=>this.G1_HandleChange(e) }  className="qst_Input" placeholder="اكتب رقم الهاتف" autoComplete="off" maxLength={11}  required/>
                                 </div>
                                 <div className="Input_Section_qst">
                                     <label className="qst_label"> الوظيفة</label>
@@ -468,8 +513,9 @@ ProductsMenu = ()=>{
                                 </div>
                             </div>
                         </div>
+                        <div className="second_garantee_notice">سيتم تفعيل الضامن الثاني في حالة زيادة الاجمالي عن 8000 جنية</div>
                         {/*--------------------------2 بيانات الضامن--------------------------*/}
-                        {this.state.premium > 4500 &&
+                        {this.state.total_price > 8000 &&
                         <>
                         {!this.state.G2_not_exist &&
                             <div id ="add_qst_main_header_data">
@@ -523,7 +569,7 @@ ProductsMenu = ()=>{
                                     </div>
                                     <div className="Input_Section_qst">
                                         <label className="qst_label"> رقم البطاقة</label>
-                                        <input type="text" name="g_nat_id" value={this.state.Garantee_2_data[0].g_nat_id} onChange={(e)=>this.G2_HandleChange(e) }  className="qst_Input"   autoComplete="off"  required/>
+                                        <input type="text" name="g_nat_id" value={this.state.Garantee_2_data[0].g_nat_id} onChange={(e)=>this.G2_HandleChange(e) }  className="qst_Input"   autoComplete="off" maxLength={14}  required/>
                                     </div>
                                     <div className="Input_Section_qst">
                                         <label className="qst_label"> العنوان</label>
@@ -539,7 +585,7 @@ ProductsMenu = ()=>{
                                     </div>
                                     <div className="Input_Section_qst">
                                         <label className="qst_label"> التليفون</label>
-                                        <input type="text" name="g_phone_number" value={this.state.Garantee_2_data[0].g_phone_number} onChange={(e)=>this.G2_HandleChange(e) }  className="qst_Input" placeholder="اكتب رقم الهاتف" autoComplete="off"  required/>
+                                        <input type="text" name="g_phone_number" value={this.state.Garantee_2_data[0].g_phone_number} onChange={(e)=>this.G2_HandleChange(e) }  className="qst_Input" placeholder="اكتب رقم الهاتف" autoComplete="off" maxLength={11}  required/>
                                     </div>
                                     <div className="Input_Section_qst">
                                         <label className="qst_label"> الوظيفة</label>
@@ -601,7 +647,9 @@ ProductsMenu = ()=>{
                                 <div className="Input_Section_qst Select_Section_qst">
                                     <label className="qst_label">المدة</label>
                                     <select name="period" value={this.state.period} onChange={(e)=>this.handlePayment(e)} className="qst_Input" >
+                                        <option value="3">3</option>
                                         <option value="6">6</option>
+                                        <option value="9">9</option>
                                         <option value="12">12</option>
                                         <option value="18">18</option>
                                         <option value="24">24</option>

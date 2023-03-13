@@ -48,7 +48,7 @@ export default class AddCashOrder extends Component {
              quantity:null,
              overall_price:null,
              locale:'ar',
-             ProductData:[{product_name:'',quantity:null,product_price:null,total_price:null,nat_id:null,date:new Date().toLocaleDateString('fr-CA'), branch:jwt_decode(localStorage.getItem('token')).branchname}],
+             ProductData:[{product_name:'',quantity:null,product_price:null,total_price:null,nat_id:null,code:null, product_id:null, date:new Date().toLocaleDateString('fr-CA'), branch:jwt_decode(localStorage.getItem('token')).branchname}],
              matches: window.matchMedia("(min-width: 950px)").matches,
              matches2: window.matchMedia("(min-width: 760px)").matches,
              openDialog:false,
@@ -112,9 +112,8 @@ handleDate = (value)=>{
     list[index]['product_name'] = value
     this.setState({
         ProductData:list,
-        //product_name:value,
     },function(){
-    const productQnty = null //this.state.exist_quantity[index]['qnty']
+        const productQnty = null //this.state.exist_quantity[index]['qnty']
         const listQnty = [...this.state.ProductData]
         listQnty[index]['quantity'] = null //productQnty
         this.setState({
@@ -196,7 +195,7 @@ calculation = (index)=>{
 
  AddRow = ()=>{
     const array = this.state.ProductData.slice()
-    array.push({product_name:'', quantity:null, product_price:null, total_price:null, nat_id:this.state.nat_id,date:this.state.date.toLocaleDateString('fr-CA'), branch:this.state.branchname})
+    array.push({product_name:'',quantity:null,product_price:null,total_price:null,nat_id:null,code:null, product_id:null, date:new Date().toLocaleDateString('fr-CA'), branch:jwt_decode(localStorage.getItem('token')).branchname})
     
     const arrayQnty = this.state.exist_quantity.slice()
     arrayQnty.push({qnty:null})
@@ -244,25 +243,30 @@ Submit = async (e)=>{
     this.setState({loading:true})
     const x =  this.state.ProductData.map(obj => ({ ...obj, code:this.state.code }))
     var result1 = x.map(({product_name,quantity,product_price,total_price,nat_id,date,branch,code}) => [product_name,quantity,product_price,total_price,nat_id,date,branch,code]);
-    const data = {
-        branch:this.state.branchname,
-        username:this.state.ClientData[0].username,
-        phone_number:this.state.ClientData[0].phone_number,
-        nat_id:this.state.nat_id,
-        date:this.state.ClientData[0].date,
-        overall_price:this.state.overall_price,
-        code:this.state.code
-    }
-    // console.log(data);
-    // console.log('result1',result1);
-    await axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-process-2",data)
+    const up_qnty = Number(this.state.exist_quantity[0]['qnty']) - Number(this.state.ProductData[0]['quantity'])
+    const body = [
+            {data:{
+                branch:this.state.branchname,
+                username:this.state.ClientData[0].username,
+                phone_number:this.state.ClientData[0].phone_number,
+                nat_id:this.state.nat_id,
+                date:this.state.ClientData[0].date,
+                overall_price:this.state.overall_price,
+                code:this.state.code
+            },
+            qnty:up_qnty,
+            code:this.state.ProductData[0]['code'],
+            product_id:this.state.ProductData[0]['product_id']}
+        ]
+console.log('bodyy',body);
+    await axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-process-2",body)
     .then((response)=>{
         axios.post("https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/add-cash-data-2",result1)
         .then((response2)=>{
             this.setState({
                     loading:false,
                     success_msg:true,
-                    ProductData:[{product_name:'',quantity:null,product_price:null,total_price:null,nat_id:null,date:new Date().toLocaleDateString('fr-CA'), branch:jwt_decode(localStorage.getItem('token')).branchname}],
+                    ProductData:[{product_name:'',quantity:null,product_price:null,total_price:null,nat_id:null,code:null, product_id:null, date:new Date().toLocaleDateString('fr-CA'), branch:jwt_decode(localStorage.getItem('token')).branchname}],
                     ClientData:[{branch_name:'',username:'',phone_number:null,nat_id:null,date:new Date().toLocaleDateString('fr-CA')}],
                     overall_price:null,
                 })
@@ -303,10 +307,12 @@ ProductsMenu = ()=>{
 }
 
 
- AutoPrice = (index,product_price,existQnty)=>{
+ AutoPrice = (index,product_price,existQnty,code,product_id)=>{
     if(this.state.ProductData.length>0){
         const Productlist= [...this.state.ProductData]
         Productlist[index]['product_price'] = product_price
+        Productlist[index]['code'] = code
+        Productlist[index]['product_id'] = product_id
 
         const exist_qty= [...this.state.exist_quantity]
         exist_qty[index]['qnty'] = existQnty
@@ -424,7 +430,7 @@ componentDidMount(){
                                                 getOptionLabel={(option) => option.product_name}
                                                 options={this.state.Products}
                                                 renderOption={(props, option) => (
-                                                    <div onClick={(e)=> this.AutoPrice(index,option.product_price,option.quantity)}>
+                                                    <div onClick={(e)=> this.AutoPrice(index,option.product_price,option.quantity, option.code, option.product_id)}>
                                                         <Box component="li"  {...props} key={option.id}>
                                                             {option.product_name}
                                                         </Box>
@@ -450,7 +456,7 @@ componentDidMount(){
                                                                 getOptionLabel={(option) => option.product_name}
                                                                 options={this.state.Products}
                                                                 renderOption={(props, option) => (
-                                                                   <div  onClick={(e)=> this.AutoPrice(index,option.product_price,option.quantity)}>
+                                                                    <div onClick={(e)=> this.AutoPrice(index,option.product_price,option.quantity, option.code, option.product_id)}>
                                                                     <Box component="li" {...props} key={option.id}>
                                                                         {option.product_name}
                                                                     </Box>

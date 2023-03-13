@@ -21,7 +21,7 @@ export default function Adds() {
                         </NavLink>
                 
                         <NavLink to="/add-buyings"  className="NavLink_a" activeClassName="Navbar_dropdown_active_li">
-                            <div className="category_dropdown_menu_li">اضافة مشتريات</div>
+                            <div className="category_dropdown_menu_li">اضافة منتجات</div>
                         </NavLink>
 
                         <NavLink to="/add-out-buyings"  className="NavLink_a" activeClassName="Navbar_dropdown_active_li">

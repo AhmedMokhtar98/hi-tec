@@ -77,7 +77,7 @@ const Accept = async() =>{
     var arr =  garanteeArray
     arr.push(result1[0])
 
-    if(ViewData.premium > 4500){
+    if(ViewData.total_price > 8000){
         const result2 =  Data.map(({username_2,nickname_2,relationship_2,nat_id_2,address_2,housing_contract_2, service_reciept_2,phone_number_2, job_2,salary_2,work_address_2,nat_id,branch}) => [username_2,nickname_2,relationship_2,nat_id_2,address_2,housing_contract_2, service_reciept_2,phone_number_2, job_2,salary_2,work_address_2,nat_id,branch])
         arr.push(result2[0])
     }
@@ -264,7 +264,7 @@ const AddToProblems =()=>{
 
 
                         {/*--------------------------2 بيانات الضامن--------------------------*/}
-                        {ViewData.premium > 8000 &&
+                        {ViewData.total_price > 8000 &&
                         <div className="Sections__Rows">
                             <h3 className="inquiry_section_headers"> بيانات الضامن الثاني</h3>
                             <div className="Section_splite_row_qst">

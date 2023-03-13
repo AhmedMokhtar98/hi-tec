@@ -59,7 +59,36 @@ input.purchase_all_employee_input {
     margin-left: 5px;
     margin-right: 5px;
 }
+.Are_you_sure_pay_all_div {
+    padding: 20px;
+    color: black;
 
+}
+
+label.signature_label {
+    color: black;
+}
+button#del_BTN {
+    background: #d00808;
+    width: 20%;
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+    border: none;
+    margin: 8px;
+}
+button#purchase_all {
+    width: 20%;
+    position: relative;
+    bottom: 0;
+    background: #005599;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    top: 5px;
+    border: none;
+    margin: 8px;
+}
 @media screen and (max-width:950px) {
     .Qst_Loop_Container {
         position: relative;

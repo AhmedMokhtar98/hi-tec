@@ -13,7 +13,7 @@ const HandleChange = (e)=>{
         <div className="SideMenu_ul">
             <div className="grid_">
                     <NavLink to="/add-cash" activeClassName="active_side" className="SideMenu_a" onClick={HoverScreen}><div className="SideMenu_a_li">اضافة فواتير نقدي</div></NavLink>
-                    <NavLink to="/add-buyings" activeClassName="active_side" className="SideMenu_a" onClick={HoverScreen}><div className="SideMenu_a_li">اضافة مشتريات</div></NavLink>
+                    <NavLink to="/add-buyings" activeClassName="active_side" className="SideMenu_a" onClick={HoverScreen}><div className="SideMenu_a_li">اضافة منتجات</div></NavLink>
                     <NavLink to="/add-qst" activeClassName="active_side" className="SideMenu_a" onClick={HoverScreen}><div className="SideMenu_a_li">اضافة مستند بيع</div></NavLink>
             </div>
         </div>

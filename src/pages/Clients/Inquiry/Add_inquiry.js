@@ -74,13 +74,27 @@ SelectProductName = (e,value)=>{
  }
 
 handleChange = (e)=>{
-    const list = [...this.state.data]
-    list[0][e.target.name]=e.target.value
-    const result1 = this.state.data.map(({username_1,nickname_1,relationship_1,nat_id_1,address_1,housing_contract_1, service_reciept_1,phone_number_1, job_1,salary_1,work_address_1}) => [username_1,nickname_1,relationship_1,nat_id_1,address_1,housing_contract_1, service_reciept_1,phone_number_1, job_1,salary_1,work_address_1])
-    const result2 = this.state.data.map(({username_2,nickname_2,relationship_2,nat_id_2,address_2,housing_contract_2, service_reciept_2,phone_number_2, job_2,salary_2,work_address_2}) => [username_2,nickname_2,relationship_2,nat_id_2,address_2,housing_contract_2, service_reciept_2,phone_number_2, job_2,salary_2,work_address_2])
-    this.setState({
-        data:list,
-    })
+    if(e.target.name==="nat_id" || e.target.name==="nat_id_1" || e.target.name==="nat_id_2" || e.target.name==="phone_number" || e.target.name==="phone_number_1" || e.target.name==="phone_number_2" ){
+        if (e.target.value.length > e.target.maxLength) {
+            e.target.value = e.target.value.slice(0, e.target.maxLength)
+        }
+        const list = [...this.state.data]
+        list[0][e.target.name]=e.target.value
+        const result1 = this.state.data.map(({username_1,nickname_1,relationship_1,nat_id_1,address_1,housing_contract_1, service_reciept_1,phone_number_1, job_1,salary_1,work_address_1}) => [username_1,nickname_1,relationship_1,nat_id_1,address_1,housing_contract_1, service_reciept_1,phone_number_1, job_1,salary_1,work_address_1])
+        const result2 = this.state.data.map(({username_2,nickname_2,relationship_2,nat_id_2,address_2,housing_contract_2, service_reciept_2,phone_number_2, job_2,salary_2,work_address_2}) => [username_2,nickname_2,relationship_2,nat_id_2,address_2,housing_contract_2, service_reciept_2,phone_number_2, job_2,salary_2,work_address_2])
+        this.setState({
+            data:list,
+        })
+    }
+    else{
+        const list = [...this.state.data]
+        list[0][e.target.name]=e.target.value
+        const result1 = this.state.data.map(({username_1,nickname_1,relationship_1,nat_id_1,address_1,housing_contract_1, service_reciept_1,phone_number_1, job_1,salary_1,work_address_1}) => [username_1,nickname_1,relationship_1,nat_id_1,address_1,housing_contract_1, service_reciept_1,phone_number_1, job_1,salary_1,work_address_1])
+        const result2 = this.state.data.map(({username_2,nickname_2,relationship_2,nat_id_2,address_2,housing_contract_2, service_reciept_2,phone_number_2, job_2,salary_2,work_address_2}) => [username_2,nickname_2,relationship_2,nat_id_2,address_2,housing_contract_2, service_reciept_2,phone_number_2, job_2,salary_2,work_address_2])
+        this.setState({
+            data:list,
+        })
+    }
 }
 
 
@@ -110,29 +124,29 @@ useEffect = ()=>{
             var advance = Math.round(x1 * 0.20/5)*5 // المقدم مفروض يتدفع
             this.setState({prepaid:advance})
             var x2 =  x1 - advance
-            if(period == 3){var X = x2 + x2 * 0.15;     var qst = X/3; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}}) }
-            else if(period == 6){var X = x2 + x2 * 0.30;     var qst = X/6; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}}) }
-            else if(period == 9){var X = x2 + x2 * 0.45;     var qst = X/9; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}}) }
-            else if(period == 12){ X = x2 + x2 * 0.60;  qst = X/12; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}})}
-            else if(period == 18){ X = x2 + x2 * 0.90;  qst = X/18; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}})}
-            else if(period == 24){ X = x2 + x2 * 1.2;   qst = X/24; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}})}
+            if(period == 3){var X = x2 + x2 * 0.15;     var qst = X/3; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+            else if(period == 6){var X = x2 + x2 * 0.30;     var qst = X/6; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+            else if(period == 9){var X = x2 + x2 * 0.45;     var qst = X/9; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+            else if(period == 12){ X = x2 + x2 * 0.60;  qst = X/12; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+            else if(period == 18){ X = x2 + x2 * 0.90;  qst = X/18; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+            else if(period == 24){ X = x2 + x2 * 1.2;   qst = X/24; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
         }
         else if(prepaid_auto){// لو مقدم متغير
              x2 =  x1 - prepaid
-            if(period == 3){ X = x2 + x2 * 0.15;        qst = X/3; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}}) }
-            else if(period == 6){ X = x2 + x2 * 0.30;        qst = X/6; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}}) }
-            else if(period == 9){ X = x2 + x2 * 0.45;        qst = X/9; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}}) }
-            else if(period == 12){ X = x2 + x2 * 0.60;  qst = X/12; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}})}
-            else if(period == 18){ X = x2 + x2 * 0.90;  qst = X/18; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}})}
-            else if(period == 24){ X = x2 + x2 * 1.2;   qst = X/24; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}})}
+            if(period == 3){ X = x2 + x2 * 0.15;        qst = X/3; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+            else if(period == 6){ X = x2 + x2 * 0.30;        qst = X/6; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+            else if(period == 9){ X = x2 + x2 * 0.45;        qst = X/9; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+            else if(period == 12){ X = x2 + x2 * 0.60;  qst = X/12; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+            else if(period == 18){ X = x2 + x2 * 0.90;  qst = X/18; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+            else if(period == 24){ X = x2 + x2 * 1.2;   qst = X/24; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
         }
         else if(prepaid == 0){ // لو مفيش مقدم
             if(period == 3){ X = x1 + x1 * 0.15 ;       qst = X/3; this.setState({ total_price: X, premium: Math.round(qst) })}
             else if(period == 6){ X = x1 + x1 * 0.30 ;       qst = X/6; this.setState({ total_price: X, premium: Math.round(qst) })}
             else if(period == 9){ X = x1 + x1 * 0.45 ;       qst = X/9; this.setState({ total_price: X, premium: Math.round(qst) })}
-            else if(period == 12){ X = x1 + x1 * 0.60; qst = X/12; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}}) }
-            else if(period == 18){ X = x1 + x1 * 0.90;  qst = X/18; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}})}
-            else if(period == 24){ X = x1 + x1 * 1.2;   qst = X/24; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 },()=>{if(this.state.premium > this.state.data[0]['salary']){alert("قيمة القسط اكبر من الراتب")}}) }
+            else if(period == 12){ X = x1 + x1 * 0.60; qst = X/12; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
+            else if(period == 18){ X = x1 + x1 * 0.90;  qst = X/18; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 })}
+            else if(period == 24){ X = x1 + x1 * 1.2;   qst = X/24; this.setState({ total_price: Math.round(X/5)*5, premium: Math.round(qst/5)*5 }) }
         }
     
 }
@@ -290,7 +304,7 @@ componentDidMount(){
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> رقم البطاقة</label>
-                                    <input type="number" name="nat_id" value={this.state.data[0].nat_id} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم البطاقة" autoComplete="off" required/>
+                                    <input type="number" name="nat_id" value={this.state.data[0].nat_id} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم البطاقة" autoComplete="off" maxLength={14} required/>
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> العنوان</label>
@@ -306,7 +320,7 @@ componentDidMount(){
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> التليفون</label>
-                                    <input type="number" name="phone_number" value={this.state.data[0].phone_number} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم الهاتف" autoComplete="off" required/>
+                                    <input type="number" name="phone_number" value={this.state.data[0].phone_number} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم الهاتف" autoComplete="off" maxLength={11} required/>
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> الوظيفة</label>
@@ -340,7 +354,7 @@ componentDidMount(){
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> رقم البطاقة</label>
-                                    <input type="number" name="nat_id_1" value={this.state.data[0].nat_id_1} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم البطاقة" autoComplete="off" required/>
+                                    <input type="number" name="nat_id_1" value={this.state.data[0].nat_id_1} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم البطاقة" autoComplete="off" maxLength={14} required/>
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> العنوان</label>
@@ -356,7 +370,7 @@ componentDidMount(){
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> التليفون</label>
-                                    <input type="number" name="phone_number_1" value={this.state.data[0].phone_number_1} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم الهاتف" autoComplete="off" required/>
+                                    <input type="number" name="phone_number_1" value={this.state.data[0].phone_number_1} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم الهاتف" autoComplete="off" maxLength={11} required/>
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> الوظيفة</label>
@@ -392,7 +406,7 @@ componentDidMount(){
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> رقم البطاقة</label>
-                                    <input type="number" name="nat_id_2" value={this.state.data[0].nat_id_2} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم البطاقة" autoComplete="off" required/>
+                                    <input type="number" name="nat_id_2" value={this.state.data[0].nat_id_2} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم البطاقة" autoComplete="off" maxLength={14} required/>
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> العنوان</label>
@@ -408,7 +422,7 @@ componentDidMount(){
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> التليفون</label>
-                                    <input type="number" name="phone_number_2" value={this.state.data[0].phone_number_2} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم الهاتف" autoComplete="off" required/>
+                                    <input type="number" name="phone_number_2" value={this.state.data[0].phone_number_2} onChange={(e)=>this.handleChange(e)} className="inq_Input" placeholder="اكتب رقم الهاتف" autoComplete="off" maxLength={11} required/>
                                 </div>
                                 <div className="Input_Section_inq">
                                     <label className="inq_label"> الوظيفة</label>

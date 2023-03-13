@@ -119,6 +119,7 @@ useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchM
                                     <th className="table_th">البضاعة</th>
                                     <th className="table_th">الكود</th>
                                     <th className="table_th">الاسم</th>
+                                    <th className="table_th">التاريخ</th>
                                 </tr>
                             }
                             {loading ? <div className="spinner_container"><div className="spinner spinner-circle"></div></div> :
@@ -133,6 +134,7 @@ useEffect(() => {const handler2 = (e) => setMatches2( e.matches ); window.matchM
                                         <td className="table_td advances_td">{item.product_name}</td>
                                         <td className="table_td advances_td">{item.code}</td>
                                         <td className="table_td advances_td" id="advances_username_td"> {item.username}</td>
+                                        <td className="table_td advances_td" id="advances_username_td"> {item.date}</td>
                                     </tr>
                                 ))} 
                             </>

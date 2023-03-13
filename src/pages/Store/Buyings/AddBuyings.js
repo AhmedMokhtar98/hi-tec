@@ -61,13 +61,14 @@ HandleProductName = (e,index,value)=>{
         Data:list,
     })
 }
-ProductNameClick = (e,index,id,qnty,p)=>{
+ProductNameClick = (e,index,id,qnty,p,code)=>{
     const list = [...this.state.Data]
     list[index]['avail'] = true
     list[index]['product_id'] = id
     list[index]['avail_qnty'] = qnty
     list[index]['product_price'] = p
     list[index]['get_qnty'] = qnty
+    list[index]['code'] = code
     this.setState({
         Data:list,
     })
@@ -107,7 +108,7 @@ SubmitData = async (e)=>{
     this.setState({ loading:true})
     var buyings = this.state.Data.map(({date,branch,dealer,get_qnty,product_name,product_price,overall_price,code,notes}) => [date,branch,dealer,get_qnty,product_name,product_price,overall_price,code,notes]);
     const Insert = this.state.Data.filter((item)=>{return item.avail == false}).map(({branch,quantity,product_name,product_price,code}) => [branch,quantity,product_name,product_price,code]);
-     const Update = this.state.Data.filter((item,key)=>{return item.avail != false}).map(function(item) { 
+    const Update = this.state.Data.filter((item,key)=>{return item.avail != false}).map(function(item) { 
         delete item.date; 
         delete item.dealer; 
         delete item.get_qnty; 
@@ -190,7 +191,7 @@ HandleBranch = (e)=>{
                 <div className="Page_Header">
                     <GoBack/>
                      {!this.state.matches && <HeaderMenu/>}
-                     <div className="Header_word">اضافة مشتريات </div>
+                     <div className="Header_word">اضافة منتجات </div>
                 </div>
 
                 <div className="Buyings_Packet_container">
@@ -248,7 +249,7 @@ HandleBranch = (e)=>{
                                             getOptionLabel={(option) => option.product_name}
                                             options={this.state.Products}
                                             renderOption={(props, option) => (
-                                                <div onClick={(e)=> this.ProductNameClick(e,index,option.product_id,option.quantity,option.product_price)}>
+                                                <div onClick={(e)=> this.ProductNameClick(e,index,option.product_id,option.quantity,option.product_price,option.code)}>
                                                     <Box component="li"  {...props} key={option.product_id}>
                                                         {option.product_name}
                                                     </Box>

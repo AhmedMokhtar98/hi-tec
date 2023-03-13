@@ -2,7 +2,7 @@ import React, { useState,useEffect,useContext } from 'react'
 import GoBack from './../../components/Back';
 import HeaderMenu from './../../components/HeaderMenu';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DatePicker';
@@ -11,6 +11,7 @@ import {MdOutlineDateRange} from 'react-icons/md'
 import arLocale from "date-fns/locale/ar-EG";
 import './css/qst_loop.css';
 import  Button  from '@mui/material/Button';
+import { BsTrash } from 'react-icons/bs'
 import jwt_decode from "jwt-decode";
 const localeMap = {
   ar: arLocale,
@@ -20,7 +21,7 @@ export default function QstLoop() {
 const [branchname]=useState(jwt_decode(localStorage.getItem('token')).branchname)
 const [auth]=useState(jwt_decode(localStorage.getItem('token')).authority)
 const [popup, setPopup] = useState(false);
-
+const history = useHistory();
 const params = useParams(); 
 const [locale] = useState('ar')
 const [Data, setData] = useState([])
@@ -55,9 +56,11 @@ useEffect(() => {
 },[employee])
 
 
-const HandleDate = (value,index)=>{
+const HandleDate = (value,index,premium)=>{
     var arr = [...Data];
     arr[index]['date'] = value.toLocaleDateString('fr-CA');
+    var f = arr[index]['fine']
+    arr[index]['paid'] = premium + f
     setData(arr)
 
     const worthdate = Data[index]['worth_date']
@@ -109,16 +112,18 @@ const HandleDate = (value,index)=>{
 const HandleChange = (e,index)=>{
     var arr = [...Data]
     arr[index][e.target.name]=e.target.value
+    if(e.target.name === 'fine'){
+        var c = [...Data]
+        var pr = c[index]['premium']
+        c[index]['paid'] =  Number(pr) +  Number(e.target.value)
+        setData(c)
+    }
     setData(arr)
-    console.log(Data)
-    const worthdate = Data[index]['worth_date']
-    const date = Data[index]['date']
-
-    var d1 = new Date(worthdate) //firstDate
-    var d2 = new Date(date) //SecondDate
-    var diff = Math.abs(d1-d2); //in milliseconds
-    //console.log('diff',diff / (1000 * 60 * 60 * 24));
 }
+
+
+
+
 
 
 const Submit = (index)=>{
@@ -138,7 +143,7 @@ const Submit = (index)=>{
         var upData = [...Data];
         upData[index] = row
         setData(upData);
-        const calc = ( Number(RestPrice) + Number(fine) ) - Number(paid)
+        const calc =  Number(RestPrice) - Number(paid)
         const body = {data:row,id:id,restprice:calc,code:Code, branch:branchname}
         axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/collect-qst-2',body,{
             headers:{"x-access-token":localStorage.getItem('token')}
@@ -182,6 +187,14 @@ const PurchaseAll = (e)=>{
         );
     })
 }
+const DeleteQSTLoop = ()=>{
+    const body = { code:Code }
+    axios.post('https://app-31958949-9c59-4302-94ca-f9eaf62903af.cleverapps.io/api/delete-qst-process-2',body,{
+            headers:{"x-access-token":localStorage.getItem('token')}
+        }).then((response)=>{ 
+            history.push('/qst-data')
+        }) 
+}
     return (
         <div className="Page_Container">
             <div className="Page_Header"> 
@@ -204,6 +217,30 @@ const PurchaseAll = (e)=>{
                             <div className="Qst_loop_Label">الحساب المتبقي</div>
                             <input disabled type="text" value={RestPrice} className="qst_loop_Input"/>
                         </div>
+                        {auth != 'collect' &&
+                            <>
+                                {RestPrice > 0 ? 
+                                <Button id="purchase_all" variant="outlined" onClick={()=>{setPopup(true)}}>تسديد الكل {RestPrice}</Button>
+                                : 
+                                <Button id="purchase_all" variant="outlined" style={{background:'grey'}}>تم السداد بالكامل</Button>
+                                }
+                                {popup ? 
+                                <div className="Are_you_sure_delete_container">
+                                    <div className="Are_you_sure_pay_all_div">
+                                        <div className="Are_you_sure_delete_word" >هل انت متأكد من دفع المبلغ ({RestPrice}) جنيها بالكامل  ؟</div>
+                                    <form onSubmit={PurchaseAll}>
+                                        <label className="signature_label">التوقيع</label>
+                                            <input type="text" name="employee" onChange={(e)=>{setEmployee(e.target.value)}} className="purchase_all_employee_input" required/>
+                                            <button className="handel_delete_btns" id="confirm_delete_btn" type="submit">نعم</button>    
+                                            <button className="handel_delete_btns" id="cancel_delete_btn" onClick={()=>{setPopup(false)}}>لا</button>
+                                        </form>
+                                    </div> 
+                                </div>
+                                : 
+                                ''}
+                            </>
+                        }
+                        <Button onClick={DeleteQSTLoop} variant="contained" className="cash_orders_buttin" id="del_BTN"><BsTrash />حذف البيعة </Button>
                     </div>
                     
                        <table id="table_id">
@@ -227,11 +264,11 @@ const PurchaseAll = (e)=>{
                             <td className="table_td qst_loop" id="worth_date_td" style={{color:item.status ==='true' ? 'green':'rgb(233 30 99)'}}> {item.worth_date}</td>
                             <td className="table_td qst_loop"> {item.premium}</td>
                             <td className="table_td qst_loop" ><input  type="number" name="fine" value={item.fine} onChange={(e)=>HandleChange(e,i)} className="qst_loop_Input" id="fine_input"  style={{background:item.status ==='true' ? 'rgb(255 255 255 / 64%)':'white' ,color:'black'}}/></td>
-                            <td className="table_td qst_loop"><input type="number" name="paid" value={item.paid} onChange={(e)=>HandleChange(e,i)} onFocus={(e)=>InputFocus(e,i)} className="qst_loop_Input" disabled={item.status==="true"?true:false} style={{background:item.status ==='true' ? 'rgb(255 255 255 / 64%)':'white' ,color:'black'}}/></td>
+                            <td className="table_td qst_loop"><input disabled type="number" name="paid" value={item.paid} onChange={(e)=>HandleChange(e,i)} onFocus={(e)=>InputFocus(e,i)} className="qst_loop_Input"  style={{background:item.status ==='true' ? 'rgb(255 255 255 / 64%)':'white' ,color:'black'}}/></td>
                             <td className="table_td qst_loop"><input type="text" name="employee" value={item.employee} onChange={(e)=>HandleChange(e,i)} className="qst_loop_Input" disabled={item.status==="true"?true:false} style={{background:item.status ==='true' ? 'rgb(255 255 255 / 64%)':'white' ,color:'black'}} required/></td>
                             <td className="table_td qst_loop">
                             <LocalizationProvider locale={localeMap[locale]} dateAdapter={AdapterDateFns}>
-                                <MobileDatePicker inputFormat="yyyy/MM/d" id="date_picker"  value={item.date}  onChange={(newValue) => HandleDate(newValue,i)}
+                                <MobileDatePicker inputFormat="yyyy/MM/d" id="date_picker"  value={item.date}  onChange={(newValue) => HandleDate(newValue,i,item.premium)}
                                 renderInput={(params) =>
                                 <div ref={params.InputProps.ref} className="add_inquiry_DatePickerIcon">
                                     <label {...params.InputLabelProps} > 
@@ -257,28 +294,7 @@ const PurchaseAll = (e)=>{
                     ))} 
                 </table>
             </div>
-            {auth != 'collect' &&
-            <>
-                {RestPrice > 0 ? 
-                <Button id="purchase_all" variant="outlined" onClick={()=>{setPopup(true)}}>تسديد الكل {RestPrice}</Button>
-                : 
-                <Button id="purchase_all" variant="outlined" style={{background:'grey'}}>تم السداد بالكامل</Button>
-                }
-                {popup ? 
-                <div className="Are_you_sure_delete_container">
-                    <div className="Are_you_sure_delete_div">
-                        <div className="Are_you_sure_delete_word" >هل انت متأكد من دفع المبلغ ({RestPrice}) جنيها بالكامل  ؟</div>
-                    <form onSubmit={PurchaseAll}>
-                            التوقيع<input type="text" name="employee" onChange={(e)=>{setEmployee(e.target.value)}} className="purchase_all_employee_input" required/>
-                            <button className="handel_delete_btns" id="confirm_delete_btn" type="submit">نعم</button>    
-                            <button className="handel_delete_btns" id="cancel_delete_btn" onClick={()=>{setPopup(false)}}>لا</button>
-                        </form>
-                    </div> 
-                </div>
-                : 
-                ''}
-            </>
-        }
+   
 
 
         </div>
